@@ -1,0 +1,195 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+		]
+	},
+	"buffers":
+	[
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"packa",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/Users/peter/vagrant/sample-dev-env/manifests/default.pp",
+		"/Users/peter/vagrant/xp-days-2012-vagrant-puppet-demo/module-demo/modules/jdk/manifests/install.pp",
+		"/Users/peter/vagrant/example/Engagemangsindex_OpenSource_SLL_R1.0.0/Engagemangsindex_OpenSource_SLL_R1.0.0/Install.txt",
+		"/Users/peter/vagrant/example/engagemangsindex-web-app-1.0-SNAPSHOT.ear.d/engagemangsindex-web-module-portlet-1.0-SNAPSHOT/META-INF/MANIFEST.MF",
+		"/Users/peter/vagrant/example/engagemangsindex-web-app-1.0-SNAPSHOT.ear.d/META-INF/MANIFEST.MF",
+		"/Users/peter/vagrant/vfin/Vagrantfile",
+		"/Users/peter/Projects/rivta/src/ServiceInteractions/riv/ehr/patientsummary/branches/TD_PATIENTSUMMARY_2/schemas/interactions/GetCareDocumentationInteraction/GetCareDocumentationInteraction_2.0_RIVTABP21.wsdl",
+		"/Users/peter/vagrant/symfony2/Vagrantfile",
+		"/Users/peter/.ssh/config",
+		"/Users/peter/.completion.d/ssh.completion.bash",
+		"/Users/peter/.bashrc",
+		"/Users/peter/.bash_aliases",
+		"/Users/peter/.completion.d/vagrant.completion.bash",
+		"/Users/peter/.bashrc.save",
+		"/Users/peter/vagrant/symfony2/readme.txt",
+		"/Users/peter/.bash_profile",
+		"/Users/peter/Projects/tidbokning/VirtualiseringGenerator.groovy",
+		"/Users/peter/Documents/Other/Bredband via splitvistion",
+		"/Users/peter/.bash_completion",
+		"/Users/peter/.completion.d/brew.completion.bash",
+		"/Users/peter/.completion.d/git.completion.bash",
+		"/Users/peter/Projects/tidbokning/pomtemplate.xml",
+		"/Users/peter/vagrant/example/src/tp/vp/vp-2.0.0-RC3/vp-services/pom.xml",
+		"/Users/peter/vagrant/example/src/tp/vp/vp-2.0.0-RC3/vp-services/src/main/java/se/skl/tp/vp/vagvalagent/ResetVagvalCache.java",
+		"/Users/peter/tmp/ResetVagvalCacheResponse.jad",
+		"/Users/peter/vagrant/example/src/tp/vp/vp-2.0.0-RC3/pom.xml",
+		"/Users/peter/vagrant/example/Vagrantfile",
+		"/System/Library/LaunchDaemons/com.apple.audio.coreaudiod.plist",
+		"/Users/peter/.gitconfig",
+		"/Users/peter/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/peter/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
+		"/Users/peter/Projects/customers/sll/skltpservices/pomtemplate.xml",
+		"/Users/peter/Projects/customers/sll/skltpservices/VirtualiseringGenerator.groovy",
+		"/Users/peter/.profile",
+		"/Users/peter/.bash_functions",
+		"/Users/peter/Projects/customers/sll/skltpservices/pom.xml",
+		"/Users/peter/Projects/customers/sll/skltpservices/pom",
+		"/etc/ssh_config",
+		"/Volumes/apps/windows/win7/win7-pro-64bit.key",
+		"/Users/peter/testfil",
+		"/Users/peter/.m2/repository/se/skl/tp/itintegration-registry-schemas/1.0.0/itintegration-registry-schemas-1.0.0.pom.lastUpdated",
+		"/Users/peter/Downloads/myfile 14-01-13_09-01-26.046.txt",
+		"/Users/peter/lab/cadec-healthcare-api-tutorial/lab/lab2/README",
+		"/Users/peter/opt/soapui-4.5.1/bin/soapui.sh",
+		"/Users/peter/svn.txt",
+		"/private/etc/krb5.conf",
+		"/Users/peter/.ssh/ssh_config"
+	],
+	"find":
+	{
+		"height": 35.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"maven",
+			"def vers",
+			"vagval",
+			"config.vm.forward_port"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"sheets":
+			[
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 211.0,
+	"status_bar_visible": true
+}
