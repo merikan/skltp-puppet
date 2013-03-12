@@ -1,6 +1,7 @@
+
 class tomcat::config {
   
-  file {"init.d-file":
+  file {"tomcat:service-file":
     path => '/etc/init.d/tomcat7',
     ensure => present,
     owner => 'root',

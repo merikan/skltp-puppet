@@ -1,16 +1,15 @@
 class tomcat::service {
   
-  exec { "add-service" : 
-    command => "/sbin/chkconfig --add tomcat7",
-    require => File["init.d-file"]
-  }
-
-  service { "tomcat7" : 
+  exec { "tomcat:add-service" : 
+    command => "/sbin/chkconfig --add ${tomcat::params::service_name}",
+    require => File["tomcat:service-file"]
+  } ->
+  service { "${tomcat::params::service_name}" : 
     ensure => running,
     enable => true,
     status => "",
     hasstatus => false,
-    require => Exec["unpack-tomcat"],
+    require => Class["tomcat::install"]
   }
 
 }
