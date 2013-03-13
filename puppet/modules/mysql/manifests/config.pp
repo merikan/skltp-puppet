@@ -1,14 +1,20 @@
 class mysql::config {
   
-  define drop_database( $db_name) {
-    exec { "drop-${db_name}-db":
-      unless => "/usr/bin/mysql -e \"show databases;\" | grep ${db_name}",
-      command => "/usr/bin/mysql -e \"DROP DATABASE ${db_name}; FLUSH PRIVILEGES;\"",
-      require => [ Class['mysql::install'], Class['mysql::service'] ]
-    }
+
+  mysql::utils::drop_database {
+    "test":
+    db_name => "test"
+  }
+  mysql::utils::drop_user {
+    "@local":
+    db_user => "",
+    db_host => "localhost"
   }
 
-  #drop_database {"test_database":
-  #  db_name => "test"
-  #}
+  mysql::utils::drop_user {
+    "${hostname}.local":
+    db_user => "",
+    db_host => "${hostname}.local"
+  }
+
 }
