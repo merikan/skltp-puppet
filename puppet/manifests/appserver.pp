@@ -15,3 +15,6 @@ include tomcat
 
 # Mule package
 include mule 
+
+# ActiveMQ package
+include activemq 
