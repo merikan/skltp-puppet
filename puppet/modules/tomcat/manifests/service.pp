@@ -7,8 +7,7 @@ class tomcat::service {
   service { "${tomcat::params::service_name}" : 
     ensure => running,
     enable => true,
-    status => "",
-    hasstatus => false,
+    hasrestart => true,
     require => Class["tomcat::install"]
   }
 
