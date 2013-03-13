@@ -6,15 +6,33 @@ define replace($file, $pattern, $replacement) {
 }
 
 
-# Java package
-# $java::params::package_name = 'jdk-7-linux-x64.rpm'
 include java
-
-# Tomcat package
 include tomcat
-
-# Mule package
 include mule 
-
-# ActiveMQ package
 include activemq 
+include mysql
+
+
+#mysql::utils::mysqldb {
+#  "peter_db":
+#  user => "peter",
+#  password => "password",
+#  host => '%'
+#}
+
+
+
+mysql::utils::drop_database {
+  "peter_db":
+  db_name => "peter_db"
+}
+mysql::utils::drop_user {
+  "@local":
+  db_user => "",
+  db_host => "localhost"
+}
+mysql::utils::drop_user {
+  "${hostname}.local":
+  db_user => "",
+  db_host => "${hostname}.local"
+}
