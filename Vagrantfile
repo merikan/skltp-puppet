@@ -7,6 +7,7 @@ Vagrant::Config.run do |config|
 
   #config.vm.provision :puppet, :module_path => "puppet/modules"
 
+
   # config for the appserver box
   config.vm.define "appserver" do |app|
     #app.vm.boot_mode = :gui
