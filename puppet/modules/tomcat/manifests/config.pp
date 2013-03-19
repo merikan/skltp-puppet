@@ -1,6 +1,7 @@
 
 class tomcat::config {
-  
+ 
+ #todo change rb to erb 
   file {"tomcat:service-file":
     path => '/etc/init.d/tomcat7',
     ensure => present,

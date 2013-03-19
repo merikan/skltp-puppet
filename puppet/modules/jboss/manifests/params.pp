@@ -3,4 +3,5 @@ class jboss::params {
     $service_name = "jboss7"   
     $dist_name = "jboss-as-${version}.Final.tar.gz"
     $install_dir = "/opt/jboss-${version}"
+    $jboss_home = $install_dir
 }

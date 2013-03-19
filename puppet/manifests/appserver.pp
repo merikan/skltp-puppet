@@ -11,4 +11,5 @@ include tomcat
 include mule 
 include activemq 
 include mysql
+include jboss
 
