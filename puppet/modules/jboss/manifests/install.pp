@@ -6,7 +6,6 @@ class jboss::install {
   user { "jboss": 
     ensure => present,
     gid => "jboss",
-    managehome => false,
     shell => "/bin/bash",
   } ->
   file {"${jboss::params::install_dir}":

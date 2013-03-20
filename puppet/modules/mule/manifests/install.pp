@@ -6,7 +6,6 @@ class mule::install {
   user { "mule": 
     ensure => present,
     gid => "mule",
-    managehome => false,
     shell => "/bin/bash",
   } ->
   file {"${mule::params::install_dir}":

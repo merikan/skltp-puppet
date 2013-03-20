@@ -6,7 +6,6 @@ class activemq::install {
   user { "activemq": 
     ensure => present,
     gid => "activemq",
-    managehome => false,
     shell => "/bin/bash",
   } ->
   file {"${activemq::params::install_dir}":

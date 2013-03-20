@@ -6,7 +6,6 @@ class tomcat::install {
   user { "tomcat" : 
     ensure => present,
     gid => "tomcat",
-    managehome => false,
     shell => "/bin/bash",
   } ->
   file {"${tomcat::params::install_dir}":
