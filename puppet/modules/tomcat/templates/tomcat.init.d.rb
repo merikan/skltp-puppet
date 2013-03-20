@@ -14,8 +14,7 @@
 
 RETVAL=$?
 APP_NAME="Tomcat"
-APP_HOME="<%= scope.lookupvar('@tomcat::params::tomcat_home') %>"
-#APP_HOME="/opt/tomcat-7.0.35"
+APP_HOME="<%= scope.lookupvar('tomcat::params::tomcat_home') %>"
 RUN_AS_USER="tomcat"
 
 

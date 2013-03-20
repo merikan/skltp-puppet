@@ -11,6 +11,7 @@ class jboss::service {
   service { "${jboss::params::service_name}": 
     ensure => running,
     enable => true,
+    hasstatus => false,
     require => Exec["jboss:unpack-dist"],
   }
 

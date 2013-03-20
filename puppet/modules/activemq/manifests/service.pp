@@ -7,6 +7,7 @@ class activemq::service {
   service { "${activemq::params::service_name}": 
     ensure => running,
     enable => true,
+    hasstatus => false,
     require => Exec["activemq:unpack-dist"],
   }
 

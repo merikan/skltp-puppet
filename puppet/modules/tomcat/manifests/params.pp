@@ -3,4 +3,5 @@ class tomcat::params {
     $service_name = "tomcat7"   
     $package_name = "apache-tomcat-${tomcat::params::version}.tar.gz"
     $install_dir = "/opt/tomcat-${tomcat::params::version}"
+    $tomcat_home = $install_dir
 }

@@ -7,6 +7,7 @@ class mule::service {
   service { "${mule::params::service_name}": 
     ensure => running,
     enable => true,
+    hasstatus=> false,
     require => Exec["mule:unpack-dist"],
   }
 
