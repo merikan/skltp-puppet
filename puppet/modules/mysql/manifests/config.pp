@@ -1,5 +1,6 @@
 class mysql::config {
   
+  require utils
 
   mysql::utils::drop_database {
     "test":

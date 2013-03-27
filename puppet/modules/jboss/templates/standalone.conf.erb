@@ -67,10 +67,15 @@ fi
 #JAVA_OPTS="$JAVA_OPTS -Djboss.modules.metrics=true"
 
 # Port numbers
-JAVA_OPTS="$JAVA_OPTS -Djboss.ajp.port=8009"
-JAVA_OPTS="$JAVA_OPTS -Djboss.http.port=8080"
-JAVA_OPTS="$JAVA_OPTS -Djboss.https.port=8443"
-JAVA_OPTS="$JAVA_OPTS -Djboss.osgi-http.port=8090"
+#JAVA_OPTS="$JAVA_OPTS -Djboss.ajp.port=8009"
+JAVA_OPTS="$JAVA_OPTS -Djboss.ajp.port=10001"
+#JAVA_OPTS="$JAVA_OPTS -Djboss.http.port=8080"
+JAVA_OPTS="$JAVA_OPTS -Djboss.http.port=10002"
+#JAVA_OPTS="$JAVA_OPTS -Djboss.https.port=8443"
+JAVA_OPTS="$JAVA_OPTS -Djboss.https.port=10003"
+#JAVA_OPTS="$JAVA_OPTS -Djboss.osgi-http.port=8090"
+JAVA_OPTS="$JAVA_OPTS -Djboss.osgi-http.port=10004"
+
 # Binding address
 JAVA_OPTS="$JAVA_OPTS -Djboss.bind.address=0.0.0.0 -Djboss.bind.address.management=0.0.0.0"
 

@@ -1,4 +1,5 @@
 class mysql::utils {
+
   define mysqldb( $user, $password, $host='localhost' ) {
     exec { "create-${name}-db":
       unless => "/usr/bin/mysql -e \"show databases;\" | grep ${name}",
@@ -21,5 +22,7 @@ class mysql::utils {
       command => "/usr/bin/mysql -e \"DROP USER '${db_user}'@'${db_host}'; FLUSH PRIVILEGES;\"",
       require => [ Class['mysql::install'], Class['mysql::service'] ]
     }
-  }  
+  }
+
+   
 }
