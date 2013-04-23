@@ -3,7 +3,7 @@ class mysql::utils {
   define mysqldb( $user, $password, $host='localhost' ) {
     exec { "create-${name}-db":
       unless => "/usr/bin/mysql -e \"show databases;\" | grep ${name}",
-      command => "/usr/bin/mysql -e \"CREATE DATABASE ${name}; GRANT ALL PRIVILEGES ON ${name}.* TO ${user}@'${host}' IDENTIFIED BY '${password}'; FLUSH PRIVILEGES;\"",
+      command => "/usr/bin/mysql -e \"CREATE DATABASE ${name} character set utf8; GRANT ALL PRIVILEGES ON ${name}.* TO ${user}@'${host}' IDENTIFIED BY '${password}'; FLUSH PRIVILEGES;\"",
       require => [ Class['mysql::install'], Class['mysql::service'] ]
     }
   }

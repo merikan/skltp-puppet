@@ -22,17 +22,17 @@
     <WatchedResource>WEB-INF/web.xml</WatchedResource>
 
 
-<Resource name="jdbc/TP"
-        auth="Container"
-        type="javax.sql.DataSource"
-        maxActive="10"
-        maxIdle="10"
-        maxWait="10000"
-        username="tkuser"
-        password="secret"
-        driverClassName="com.mysql.jdbc.Driver"
-        url="jdbc:mysql://33.33.33.25:3306/tak?autoReconnect=true"
-/>
+    <Resource name="jdbc/TP"
+            auth="Container"
+            type="javax.sql.DataSource"
+            maxActive="10"
+            maxIdle="10"
+            maxWait="10000"
+            username="tkuser"
+            password="secret"
+            driverClassName="com.mysql.jdbc.Driver"
+            url="jdbc:mysql://33.33.33.25:3306/tak?autoReconnect=true"
+    />
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->
     <!--

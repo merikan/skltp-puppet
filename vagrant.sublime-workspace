@@ -3,17 +3,198 @@
 	{
 		"selected_items":
 		[
+			[
+				"pa",
+				"params"
+			],
+			[
+				"db_",
+				"db_host"
+			],
+			[
+				"peter",
+				"peter_db"
+			],
+			[
+				"dro",
+				"drop_database"
+			],
+			[
+				"install",
+				"install_dir"
+			],
+			[
+				"packag",
+				"package_name"
+			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "puppet/modules/tak/manifests/init.pp",
+			"settings":
+			{
+				"buffer_size": 98,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/tomcat/files/context.xml",
+			"settings":
+			{
+				"buffer_size": 1764,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/tomcat/manifests/service.pp",
+			"settings":
+			{
+				"buffer_size": 393,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/manifests/dbserver.pp",
+			"settings":
+			{
+				"buffer_size": 77,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/tak/manifests/database.pp",
+			"settings":
+			{
+				"buffer_size": 937,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "->\n  exec { \"populate database\" :\n    onlyif => \"/usr/bin/mysql -e --user tkuser --password secret --database=tak \\\"show tables;\\\" | grep anvandare\",\n    command => \"/usr/bin/mysql -e --user tkuser --password secret --database=tak < ${$tak::params::distribution_path}/sql/tp-admin-DDL.sql\",\n    require => [ Class['mysql::install'], Class['mysql::service'] ]\n  } ->\n  exec { \"insert admin\" :\n    onlyif => \"/usr/bin/mysql --database=tak -e \\\"show tables;\\\" | wc -l -eq 0\",\n    command => \"/usr/bin/mysql --database=tak -e < ${$tak::params::distribution_path}/sql/tp-admin-DDL.sql\",\n    require => [ Class['mysql::install'], Class['mysql::service'] ]\n  } ->\n\n\nLägg till en användare med namnet 'admin' och lösenordet 'changeme'.\nmysql> insert into anvandare values(1,'admin','fa9beb99e4029ad5a6615399e7bbae21356086b3',true,0);\nmysql> exit\n\n\n\n  exec { \"alter table anvandare\" :\n    onlyif => \"/usr/bin/mysql --database=tak -e \\\"show tables;\\\" | grep xxAnvandare | wc -l\",\n    command => \"/usr/bin/mysql --database=tak -e \\\"ALTER TABLE Anvandare RENAME TO anvandare;\\\"\",\n    require => [ Class['mysql::install'], Class['mysql::service'] ]\n  } ",
+			"settings":
+			{
+				"buffer_size": 1140,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "/usr/bin/unzip /vagrant/puppet/files/tp-vagval-distribution-1.3.1-dist.zip -d /tmp",
+			"settings":
+			{
+				"buffer_size": 82,
+				"line_ending": "Unix",
+				"name": "/usr/bin/unzip /vagrant/puppet/files/tp-vagval-dis"
+			}
+		},
+		{
+			"file": "puppet/modules/mysql/manifests/utils.pp",
+			"settings":
+			{
+				"buffer_size": 1182,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/manifests/base.pp",
+			"settings":
+			{
+				"buffer_size": 350,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "<datasource jta=\"true\" jndi-name=\"java:jboss/datasources/EngagementDS\" pool-name=\"EIDS\" enabled=\"true\" use-java-context=\"true\" use-ccm=\"true\">\n    <connection-url>jdbc:mysql://rtp-p-db03.i.centrera.se:3306/eidb</connection-url>\n    <driver>mysql</driver>\n    <security>\n        <user-name>sllei</user-name>\n        <password>badaninjacatbob</password>\n    </security>\n    <statement>\n        <prepared-statement-cache-size>100</prepared-statement-cache-size>\n        <share-prepared-statements>true</share-prepared-statements>\n    </statement>\n</datasource>",
+			"settings":
+			{
+				"buffer_size": 557,
+				"line_ending": "Unix",
+				"name": "<datasource jta=\"true\" jndi-name=\"java:jboss/datas"
+			}
+		},
+		{
+			"file": "puppet/modules/eindex/manifests/config.pp",
+			"settings":
+			{
+				"buffer_size": 50,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/eindex/manifests/init.pp",
+			"settings":
+			{
+				"buffer_size": 112,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "class eindex::install {\n  require eindex::params\n  require jboss\n  include jboss::params\n\n  file {\"${jboss::params::install_dir}/modules/com/mysql/main\":\n    ensure => directory,\n    recurse => true,\n    owner => jboss,\n    group => jboss,\n  } ->\n\n\n\n  exec { \"eindex:copy_libs\" :\n    command => \"/bin/cp \\\n                ${tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar,mysql-connector-java-5.1.17.jar} \\\n                ${tomcat::params::tomcat_home}/lib/\",\n    user => tomcat,\n    creates => \"${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jar\",\n  }\n  exec { \"deploy:$distname\" :\n    command => \"/bin/cp \\\n                  ${eindex::params::distribution_path}/webapps/tp-vagval-admin-services-${tak::params::version}.war \\\n                  ${tomcat::params::tomcat_home}/webapps\",\n    user => tomcat,\n    creates => \"${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services-${tak::params::version}.war\",\n  } ->\n  exec { \"deploy:tp-vagval-admin-web\" :\n    command => \"/bin/cp \\\n                  ${tak::params::distribution_path}/webapps/tp-vagval-admin-web-${tak::params::version}.war  \\\n                  ${tomcat::params::tomcat_home}/webapps/\",\n    user => tomcat,\n    creates => \"${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web-${tak::params::version}.war\",\n  } ->\n  exec { \"tak:copy_libs\" :\n    command => \"/bin/cp \\\n                ${tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar,mysql-connector-java-5.1.17.jar} \\\n                ${tomcat::params::tomcat_home}/lib/\",\n    user => tomcat,\n    creates => \"${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jarr\",\n  }\n}",
+			"file": "puppet/modules/eindex/manifests/install.pp",
+			"file_size": 0,
+			"file_write_time": 1364902626000000,
+			"settings":
+			{
+				"buffer_size": 1754,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/eindex/manifests/params.pp",
+			"settings":
+			{
+				"buffer_size": 167,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/manifests/esbserver.pp",
+			"settings":
+			{
+				"buffer_size": 95,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "puppet/modules/tomcat/manifests/install.pp",
+			"settings":
+			{
+				"buffer_size": 565,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 47.0,
 		"selected_items":
 		[
+			[
+				"puppet",
+				"Set Syntax: Puppet"
+			],
+			[
+				"pack",
+				"Package Control: List Packages"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"packag",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: List Packages"
+			],
+			[
+				"Packa",
+				"Package Control: List Packages"
+			],
 			[
 				"insta",
 				"Package Control: Install Package"
@@ -27,7 +208,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 530.0
 	},
 	"console":
 	{
@@ -44,6 +225,68 @@
 	},
 	"file_history":
 	[
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/Vagrantfile",
+		"/Users/peter/.ssh/config",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/templates/standalone.conf.erb",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/templates/standalone.xml.erb",
+		"/Users/peter/vagrant/rtjp/puppet/manifests/esbserver.pp",
+		"/Users/peter/vagrant/rtjp/puppet/manifests/dbserver.pp",
+		"/Users/peter/vagrant/rtjp/puppet/manifests/appserver.pp",
+		"/Users/peter/vagrant/rtjp/puppet/manifests/base.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/misc/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mule/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/files/context.xml",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/manifests/database.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/utils.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tak/files/context.xml",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/templates/jboss-as.conf.erb",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/templates/jboss-as-standalone.sh.erb",
+		"/Users/peter/vagrant/rtjp/puppet/modules/jboss/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mysql/manifests/params.pp",
+		"/Users/peter/vagrant/web-cluster/puppet/modules/mysqld/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/java/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/java/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/activemq/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/activemq/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/activemq/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/activemq/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/activemq/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mule/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mule/manifests/params.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mule/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/mule/manifests/init.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/manifests/install.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/tomcat/templates/tomcat.init.d.rb",
+		"/Users/peter/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
+		"/Users/peter/vagrant/vagrant-puppet-demo/manifests/appserver.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/java/manifests/service.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/java/manifests/config.pp",
+		"/Users/peter/vagrant/rtjp/puppet/modules/java/manifests/init.pp",
+		"/Users/peter/vagrant/example/Vagrantfile",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/apache/manifests/install.pp",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/ssh/manifests/install.pp",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/apache/manifests/init.pp",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/nodes.pp",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter04/02_load_balanced_apache_configuration/10_passenger.conf",
+		"/Users/peter/vagrant/web-cluster/Vagrantfile",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/ssh/manifests/init.pp",
+		"/Users/peter/vagrant/Pro Puppet/source/chapter02/ssh/manifests/params.pp",
 		"/Users/peter/vagrant/sample-dev-env/manifests/default.pp",
 		"/Users/peter/vagrant/xp-days-2012-vagrant-puppet-demo/module-demo/modules/jdk/manifests/install.pp",
 		"/Users/peter/vagrant/example/Engagemangsindex_OpenSource_SLL_R1.0.0/Engagemangsindex_OpenSource_SLL_R1.0.0/Install.txt",
@@ -52,7 +295,6 @@
 		"/Users/peter/vagrant/vfin/Vagrantfile",
 		"/Users/peter/Projects/rivta/src/ServiceInteractions/riv/ehr/patientsummary/branches/TD_PATIENTSUMMARY_2/schemas/interactions/GetCareDocumentationInteraction/GetCareDocumentationInteraction_2.0_RIVTABP21.wsdl",
 		"/Users/peter/vagrant/symfony2/Vagrantfile",
-		"/Users/peter/.ssh/config",
 		"/Users/peter/.completion.d/ssh.completion.bash",
 		"/Users/peter/.bashrc",
 		"/Users/peter/.bash_aliases",
@@ -70,10 +312,8 @@
 		"/Users/peter/vagrant/example/src/tp/vp/vp-2.0.0-RC3/vp-services/src/main/java/se/skl/tp/vp/vagvalagent/ResetVagvalCache.java",
 		"/Users/peter/tmp/ResetVagvalCacheResponse.jad",
 		"/Users/peter/vagrant/example/src/tp/vp/vp-2.0.0-RC3/pom.xml",
-		"/Users/peter/vagrant/example/Vagrantfile",
 		"/System/Library/LaunchDaemons/com.apple.audio.coreaudiod.plist",
 		"/Users/peter/.gitconfig",
-		"/Users/peter/Library/Application Support/Sublime Text 2/Packages/User/Preferences.sublime-settings",
 		"/Users/peter/Library/Application Support/Sublime Text 2/Packages/User/Package Control.sublime-settings",
 		"/Users/peter/Projects/customers/sll/skltpservices/pomtemplate.xml",
 		"/Users/peter/Projects/customers/sll/skltpservices/VirtualiseringGenerator.groovy",
@@ -101,6 +341,8 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/Users/peter/vagrant",
+			"/Users/peter/vagrant/web-cluster/puppet/modules"
 		]
 	},
 	"find_state":
@@ -108,6 +350,20 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"mysqldb",
+			"iptables",
+			"dist_",
+			"dist:",
+			"as.conf",
+			"activemq",
+			"\":}",
+			"mysqld",
+			"mule",
+			"mule:",
+			"ensure",
+			"install_dir",
+			"manifests		",
+			"node",
 			"maven",
 			"def vers",
 			"vagval",
@@ -119,6 +375,10 @@
 		"regex": false,
 		"replace_history":
 		[
+			"jboss",
+			"mysql",
+			"activemq",
+			"activemq:"
 		],
 		"reverse": false,
 		"show_context": true,
@@ -131,6 +391,437 @@
 		{
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "puppet/modules/tak/manifests/init.pp",
+					"settings":
+					{
+						"buffer_size": 98,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								98,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "puppet/modules/tomcat/files/context.xml",
+					"settings":
+					{
+						"buffer_size": 1764,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1071,
+								1071
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/XML/XML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 20.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "puppet/modules/tomcat/manifests/service.pp",
+					"settings":
+					{
+						"buffer_size": 393,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								51,
+								51
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "puppet/manifests/dbserver.pp",
+					"settings":
+					{
+						"buffer_size": 77,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								14,
+								14
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "puppet/modules/tak/manifests/database.pp",
+					"settings":
+					{
+						"buffer_size": 937,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								827,
+								827
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"settings":
+					{
+						"buffer_size": 1140,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1140,
+								841
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"settings":
+					{
+						"buffer_size": 82,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								82,
+								82
+							]
+						],
+						"settings":
+						{
+							"auto_name": "/usr/bin/unzip /vagrant/puppet/files/tp-vagval-dis",
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "puppet/modules/mysql/manifests/utils.pp",
+					"settings":
+					{
+						"buffer_size": 1182,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								264,
+								264
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "puppet/manifests/base.pp",
+					"settings":
+					{
+						"buffer_size": 350,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								347,
+								347
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"settings":
+					{
+						"buffer_size": 557,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								557,
+								557
+							]
+						],
+						"settings":
+						{
+							"auto_name": "<datasource jta=\"true\" jndi-name=\"java:jboss/datas",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "puppet/modules/eindex/manifests/config.pp",
+					"settings":
+					{
+						"buffer_size": 50,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								48,
+								48
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"file": "puppet/modules/eindex/manifests/init.pp",
+					"settings":
+					{
+						"buffer_size": 112,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								110,
+								110
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "puppet/modules/eindex/manifests/install.pp",
+					"settings":
+					{
+						"buffer_size": 1754,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								626,
+								626
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 1.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "puppet/modules/eindex/manifests/params.pp",
+					"settings":
+					{
+						"buffer_size": 167,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								165,
+								108
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "puppet/manifests/esbserver.pp",
+					"settings":
+					{
+						"buffer_size": 95,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								13,
+								13
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "puppet/modules/tomcat/manifests/install.pp",
+					"settings":
+					{
+						"buffer_size": 565,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								23,
+								23
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Puppet/Syntaxes/Puppet.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -140,7 +831,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -167,7 +858,7 @@
 	"menu_visible": true,
 	"replace":
 	{
-		"height": 0.0
+		"height": 64.0
 	},
 	"save_all_on_build": true,
 	"select_file":
@@ -190,6 +881,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 211.0,
+	"side_bar_width": 224.0,
 	"status_bar_visible": true
 }

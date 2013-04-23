@@ -1,6 +1,7 @@
 class tak::install {
   require tak::params
   require tomcat
+  require unzip
   include tomcat::params
 
   exec { "unpack:${tak::params::distname}" : 
@@ -18,15 +19,15 @@ class tak::install {
   exec { "deploy:tp-vagval-admin-web" :
     command => "/bin/cp \
                   ${$tak::params::distribution_path}/webapps/tp-vagval-admin-web-${tak::params::version}.war  \
-                  ${tomcat::params::tomcat_home}/webapps/",
+                  ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
     user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web-${tak::params::version}.war",
+    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
   } ->
   exec { "tak:copy_libs" :
     command => "/bin/cp \
-                ${$tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar,mysql-connector-java-5.1.17.jar} \
+                ${$tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar} \
                 ${tomcat::params::tomcat_home}/lib/",
     user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jarr",
+    creates => "${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jar",
   }
 }

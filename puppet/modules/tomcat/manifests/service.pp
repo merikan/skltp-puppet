@@ -1,4 +1,5 @@
 class tomcat::service {
+  require tomcat::config
   
   exec { "tomcat:add-service" : 
     command => "/sbin/chkconfig --add ${tomcat::params::service_name}",
