@@ -49,4 +49,15 @@ Vagrant::Config.run do |config|
     db.vm.forward_port 3306, 3306
   end
 
+  config.vm.define :singleserver do |single|
+    single.vm.network :hostonly, "33.33.33.33"
+    single.vm.host_name = "singleserver.local"
+    single.vm.provision  :puppet do  |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+      puppet.manifest_file = "singleserver.pp"
+      puppet.options = "--verbose --debug"
+    end
+  end
+
 end

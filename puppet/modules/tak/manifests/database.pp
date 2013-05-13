@@ -10,7 +10,7 @@ class tak::database {
     host => '%',
     require => [ Class['mysql::install'], Class['mysql::service'] ],
   } ->
-    exec { "unpack:${tak::params::distname}" : 
+    exec { "db-unpack:${tak::params::distname}" : 
     command => "/usr/bin/unzip /vagrant/puppet/files/${tak::params::distname} -d /tmp",
     creates => "${$tak::params::distribution_path}",
   } ->
