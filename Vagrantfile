@@ -2,10 +2,8 @@
 # vi: set ft=ruby :
 
 Vagrant::Config.run do |config|
-  config.vm.box = "centos-6.3"
-  # config.vm.box_url = "http://domain.com/path/to/above.box"
-
-  #config.vm.provision :puppet, :module_path => "puppet/modules"
+  config.vm.box = "centos-6.3-64bit"
+  config.vm.box_url = "http://packages.vstone.eu/vagrant-boxes/centos/6.3/centos-6.3-64bit-puppet.3.x-vbox.4.2.6.box"
 
   config.vm.define :esbserver do |esb|
     esb.vm.network :hostonly, "33.33.33.15"
