@@ -1,9 +1,14 @@
 class base {
   include unzip
+  include vim
 }
 
 class unzip {
   package{'unzip': ensure => installed }
+}
+
+class vim {
+  package{'vim': ensure => installed }
 }
 
   define replace($file, $pattern, $replacement) {
