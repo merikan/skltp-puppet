@@ -1,6 +1,6 @@
 class base {
   include unzip
-  include vim
+#  include vim
 }
 
 class unzip {
