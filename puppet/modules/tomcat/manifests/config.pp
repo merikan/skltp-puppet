@@ -19,6 +19,13 @@ class tomcat::config {
     group => 'tomcat',
     notify  => Service["${tomcat::params::service_name}"],
   }
+  file {"tomcat:tomcat-users.xml":
+    path => "${tomcat::params::tomcat_home}/conf/tomcat-users.xml",
+    source => "/vagrant/puppet/modules/tomcat/files/tomcat-users.xml",
+    owner => 'tomcat',
+    group => 'tomcat',
+    notify  => Service["${tomcat::params::service_name}"],
+  }
   file {"tomcat:${tomcat::params::mysql_connector}":
     path => "${tomcat::params::tomcat_home}/lib/${tomcat::params::mysql_connector}",
     source => "/vagrant/puppet/files/${tomcat::params::mysql_connector}",
