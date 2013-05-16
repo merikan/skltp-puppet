@@ -18,7 +18,7 @@ class mule::config {
     replacement => "RUN_AS_USER=mule"
   } ->
   file {"mule:wrapper.conf":
-    path => "${mule::params::install_dir}conf/wrapper.conf",
+    path => "${mule::params::install_dir}/wrapper.conf",
     target => "/vagrant/puppet/modules/vp/files/wrapper.conf",
     notify  => Service["${mule::params::service_name}"],
   }
