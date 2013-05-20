@@ -12,9 +12,9 @@ class tak::install {
   exec { "deploy:tp-vagval-admin-services" :
     command => "/bin/cp \
                   ${$tak::params::distribution_path}/webapps/tp-vagval-admin-services-${tak::params::version}.war \
-                  ${tomcat::params::tomcat_home}/webapps",
+                  ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
     user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services-${tak::params::version}.war",
+    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
   } ->
   exec { "deploy:tp-vagval-admin-web" :
     command => "/bin/cp \

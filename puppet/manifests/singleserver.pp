@@ -18,6 +18,6 @@ include activemq
 include tomcat
 include mysql
 include tak::database
-#include tak
+include tak
 include vp
 include iptables::disable
