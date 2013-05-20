@@ -1,6 +1,6 @@
 class base {
   include unzip
-#  include vim
+  include vim
 }
 
 class unzip {
@@ -8,7 +8,20 @@ class unzip {
 }
 
 class vim {
-  package{'vim': ensure => installed }
+  case $::osfamily {
+    'RedHat': {
+      $vim_package = ["vim-X11", "vim-enhanced"]
+    }
+    'Debian': {
+      $vim_package = ["vim-gnome", "vim"]
+    }
+    default: {
+      fail("unsupported osfamily: $::osfamily")
+    }
+  }
+
+  package{$vim_package: ensure => installed }
+
 }
 
   define replace($file, $pattern, $replacement) {
