@@ -1,0 +1,156 @@
+<!doctype html>
+<!--[if lt IE 7 ]> <html lang="en" class="no-js ie6"> <![endif]-->
+<!--[if IE 7 ]>    <html lang="en" class="no-js ie7"> <![endif]-->
+<!--[if IE 8 ]>    <html lang="en" class="no-js ie8"> <![endif]-->
+<!--[if IE 9 ]>    <html lang="en" class="no-js ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"><!--<![endif]-->
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>SKLTP 2.0 Demo - Single Server</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="shortcut icon" href="http://33.33.33.33:8080/Schedulr-0.1/static/images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="http://33.33.33.33:8080/Schedulr-0.1/static/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="http://33.33.33.33:8080/Schedulr-0.1/static/images/apple-touch-icon-retina.png">
+		<link rel="stylesheet" href="http://33.33.33.33:8080/Schedulr-0.1/static/css/main.css" type="text/css">
+		<link rel="stylesheet" href="http://33.33.33.33:8080/Schedulr-0.1/static/css/mobile.css" type="text/css">
+		
+		<meta name="layout" content="main"/>
+		
+		<style type="text/css" media="screen">
+			#status {
+				background-color: #eee;
+				border: .2em solid #fff;
+				margin: 2em 2em 1em;
+				padding: 1em;
+				width: 12em;
+				float: left;
+				-moz-box-shadow: 0px 0px 1.25em #ccc;
+				-webkit-box-shadow: 0px 0px 1.25em #ccc;
+				box-shadow: 0px 0px 1.25em #ccc;
+				-moz-border-radius: 0.6em;
+				-webkit-border-radius: 0.6em;
+				border-radius: 0.6em;
+			}
+
+			.ie6 #status {
+				display: inline; /* float double margin fix http://www.positioniseverything.net/explorer/doubled-margin.html */
+			}
+
+			#status ul {
+				font-size: 0.9em;
+				list-style-type: none;
+				margin-bottom: 0.6em;
+				padding: 0;
+			}
+            
+			#status li {
+				line-height: 1.3;
+			}
+
+			#status h1 {
+				text-transform: uppercase;
+				font-size: 1.1em;
+				margin: 0 0 0.3em;
+			}
+
+			#page-body {
+				margin: 2em 1em 1.25em 18em;
+			}
+
+			h2 {
+				margin-top: 1em;
+				margin-bottom: 0.3em;
+				font-size: 1em;
+			}
+
+			p {
+				line-height: 1.5;
+				margin: 0.25em 0;
+			}
+
+			#controller-list ul {
+				list-style-position: inside;
+			}
+
+			#controller-list li {
+				line-height: 1.3;
+				list-style-position: inside;
+				margin: 0.25em 0;
+			}
+
+			@media screen and (max-width: 480px) {
+				#status {
+					display: none;
+				}
+
+				#page-body {
+					margin: 0 1em 1em;
+				}
+
+				#page-body h1 {
+					margin-top: 0;
+				}
+			}
+		</style>
+	
+        
+	</head>
+	<body>
+		<div id="schedulrLogo" role="banner"><font color="black" size="6" style="font-family:courier" >SKLTP 2.0 Demo - Single Server</font></div>
+		
+		<a href="#page-body" class="skip">Skip to content&hellip;</a>
+		<div id="page-body" role="main">
+			<h1>SKLTP 2.0 Demo - Single Server</h1>
+			<p>Välkommen till SKLTP 2.0 demo miljö.</p>
+			<p> Här kan du prova <a href="https://skl-tp.atlassian.net/wiki/display/SKLTP/skltp+Home">SKLTP</a> som tjänsteplattform enligt <a href="http://www.cehis.se/arkitektur_regelverk/teknisk_arkitektur/">T-boken</a>.</p>
+			<p/>	
+
+			<div class="dialog" style="margin-left:20px;width:60%;" role="navigation">
+
+        		<a href="http://33.33.33.33:8080/">
+        			<h2>Tomcat</h2>
+        		</a>
+        		
+        		<a href="http://33.33.33.33:8161/admin/index.jsp">
+        			<h2>Active MQ</h2>
+        		</a>
+        		
+        		<a href="http://33.33.33.33/phpMyAdmin/">
+        			<h2>My SQL</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/tp-vagval-admin-web/">
+        			<h2>TAK GUI</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/tp-vagval-admin-services/">
+        			<h2>TAK WS</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/Schedulr-0.1/">
+        			<h2>Schedulr GUI</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/Schedulr-0.1/ws">
+        			<h2>Schedulr WS</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33/skltp-scheduling-soapui-project.xml">
+        			<h2>soapUI projekt</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33/client.jks">
+        			<h2>Client certifikat</h2>
+        		</a>
+
+			</div>
+		</div>
+	
+		<div class="footer" role="contentinfo"></div>
+		<div id="spinner" class="spinner" style="display:none;">Loading&hellip;</div>
+		
+        <script src="http://33.33.33.33:8080/Schedulr-0.1/static/js/application.js" type="text/javascript" ></script>
+
+	</body>
+</html>
