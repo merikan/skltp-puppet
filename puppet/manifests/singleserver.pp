@@ -7,6 +7,7 @@
     ensure => present,
     managehome => true,
     gid => "skltp",
+    groups => "admin",
     shell => "/bin/bash",
   } 
 
