@@ -5,6 +5,7 @@ class mule::install {
   } ->
   user { "mule": 
     ensure => present,
+    managehome => true,
     gid => "mule",
     shell => "/bin/bash",
   } ->

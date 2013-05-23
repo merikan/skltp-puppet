@@ -9,8 +9,8 @@ class vp::install {
     mode   => 755,
   }
 
-  file {"${mule::params::install_dir}/config":
-    source => "/vagrant/puppet/modules/vp/files/config/",
+  file {"${mule::params::install_dir}/conf":
+    source => "/vagrant/puppet/modules/vp/files/conf/",
     recurse => true,
     owner  => "mule",
     group  => "mule",
@@ -19,12 +19,6 @@ class vp::install {
 
   file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}.zip":
     source => "/vagrant/puppet/files/vp-services-${vp::params::version}.zip",
-    owner  => "mule",
-    group  => "mule",
-    mode   => 755,
-  }
-  file {"${mule::params::mule_home}/apps/vp-teststub-${vp::params::version}.zip":
-    source => "/vagrant/puppet/files/vp-teststub-${vp::params::version}.zip",
     owner  => "mule",
     group  => "mule",
     mode   => 755,

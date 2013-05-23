@@ -5,6 +5,7 @@ class jboss::install {
   } ->
   user { "jboss": 
     ensure => present,
+    managehome => true,
     gid => "jboss",
     shell => "/bin/bash",
   } ->

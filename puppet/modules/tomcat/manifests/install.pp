@@ -5,6 +5,7 @@ class tomcat::install {
   } ->
   user { "tomcat" : 
     ensure => present,
+    managehome => true,
     gid => "tomcat",
     shell => "/bin/bash",
   } ->

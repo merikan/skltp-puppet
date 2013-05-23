@@ -5,6 +5,7 @@ class activemq::install {
   } ->
   user { "activemq": 
     ensure => present,
+    managehome => true,
     gid => "activemq",
     shell => "/bin/bash",
   } ->
