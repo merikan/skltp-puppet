@@ -5,7 +5,7 @@ class tomcat::utils {
     #include tomcat::param
     #notice("Deploying http://$hostname:${tomcat::tomcat_port}/$name/")
    
-    file { "$tomcat_home/webapps/${name}":
+    file { "$tomcat_home/webapps/${name}.war":
       owner => 'tomcat',
       source => $path,
     }

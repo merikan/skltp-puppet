@@ -18,6 +18,8 @@ APP_HOME="<%= scope.lookupvar('tomcat::params::tomcat_home') %>"
 #RUN_AS_USER="tomcat"
 RUN_AS_USER="root"
 
+# local config settings
+JAVA_OPTS="-XX:PermSize=128m -XX:MaxPermSize=256m"
 
 case "$1" in
  start)

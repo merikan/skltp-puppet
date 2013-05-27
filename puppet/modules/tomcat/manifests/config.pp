@@ -26,6 +26,13 @@ class tomcat::config {
     group => 'tomcat',
     notify  => Service["${tomcat::params::service_name}"],
   }
+  file {"tomcat:setenv.sh":
+    path => "${tomcat::params::tomcat_home}/conf/setenv.sh",
+    source => "/vagrant/puppet/modules/tomcat/files/setenv.sh",
+    owner => 'tomcat',
+    group => 'tomcat',
+    notify  => Service["${tomcat::params::service_name}"],
+  }
   file {"tomcat:${tomcat::params::mysql_connector}":
     path => "${tomcat::params::tomcat_home}/lib/${tomcat::params::mysql_connector}",
     source => "/vagrant/puppet/files/${tomcat::params::mysql_connector}",
