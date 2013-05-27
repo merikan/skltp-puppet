@@ -3,9 +3,9 @@ class mysql::config {
   require utils
 
 
-  exec { "set rot password":
-    command => "/usr/bin/mysqladmin -u root password '${mysql::params::root_password}'  && touch /var/local/puppet::${title}::${name}.semaphore",
-    creates => "/var/local/puppet::mysql::config::${title}.semaphore",
+  exec { "set root password":
+    command => "/usr/bin/mysqladmin -u root password '${mysql::params::root_password}'  && touch /var/local/puppet::${title}::set_root_password.semaphore",
+    creates => "/var/local/puppet::${title}::set_root_password.semaphore",
     require => [ Class['mysql::service'] ]
   } ->
   mysql::utils::drop_database {

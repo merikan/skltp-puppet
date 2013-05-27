@@ -27,7 +27,7 @@ class tomcat::config {
     notify  => Service["${tomcat::params::service_name}"],
   }
   file {"tomcat:setenv.sh":
-    path => "${tomcat::params::tomcat_home}/conf/setenv.sh",
+    path => "${tomcat::params::tomcat_home}/bin/setenv.sh",
     source => "/vagrant/puppet/modules/tomcat/files/setenv.sh",
     owner => 'tomcat',
     group => 'tomcat',
