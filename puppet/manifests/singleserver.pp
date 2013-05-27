@@ -21,4 +21,6 @@ include mysql
 include tak::database
 include tak
 include vp
+include schedulr
+#include schedulr::database
 include iptables::disable

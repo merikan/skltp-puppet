@@ -1,5 +1,6 @@
 class mysql::utils {
 
+  # create user and database
   define mysqldb( $user, $password, $host='localhost' ) {
     exec { "create-${name}-db":
       unless => "/usr/bin/mysql -e \"show databases;\" | grep ${name}",
@@ -8,6 +9,16 @@ class mysql::utils {
     }
   }
 
+  # create database
+  define createdb( $user, $host='localhost' ) {
+    exec { "create-${name}-db":
+      unless => "/usr/bin/mysql -e \"show databases;\" | grep ${name}",
+      command => "/usr/bin/mysql -e \"CREATE DATABASE ${name} character set utf8; GRANT ALL PRIVILEGES ON ${name}.* TO ${user}@'${host}''; FLUSH PRIVILEGES;\"",
+      require => [ Class['mysql::install'], Class['mysql::service'] ]
+    }
+  }
+
+  #drop database
   define drop_database( $db_name) {
     exec { "drop_database: ${db_name}":
       onlyif => "/usr/bin/mysql -e \"show databases;\" | grep ${db_name}",
@@ -16,6 +27,7 @@ class mysql::utils {
     }
   }
 
+  #drop user
   define drop_user( $db_user, $db_host) {
     exec { "drop_user-${db_user}@${db_host}":
       onlyif => "/usr/bin/mysql -e \"select user, host from mysql.user where user='${db_user}' and host='${db_host}';\" | grep ${db_host}",
