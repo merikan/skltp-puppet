@@ -24,3 +24,4 @@ include vp
 include schedulr
 include schedulr::database
 include iptables::disable
+include apache
