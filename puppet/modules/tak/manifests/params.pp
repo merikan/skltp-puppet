@@ -5,5 +5,6 @@ class tak::params {
   $distribution_path = "/tmp/tp-vagval-distribution-${version}"
 
   $module_path = "/vagrant/puppet/modules/tak"
-  $dbscript = "dbscript.sql"
+  $init_script = "init.sql"
+  $testdata_script = "testdata.sql"
 }
