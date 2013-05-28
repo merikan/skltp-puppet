@@ -34,29 +34,16 @@ class vp::install {
     require => File["${mule::params::mule_home}/apps/vp-services-${vp::params::version}"]
   }
 
-#  file {"vp-services":
-#    path   => "${mule::params::mule_home}/apps/vp-services-${vp::params::version}.zip",
-#    source => "/vagrant/puppet/files/vp-services-${vp::params::version}.zip",
-#    owner  => "mule",
-#    group  => "mule",
-#    mode   => 755,
-#  }
-  
   # unpack virtual services
   exec { "vp:unpack-vp-services-master" : 
-    command => "/usr/bin/unzip -u -o /vagrant/puppet/files/vp-services-master.zip -d ${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib",
-    group  => "mule",
-    ##creates => "${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/clinicalprocess-healthcond-actoutcome-GetDeliveryMedicalHistory-virtualisering-2.0-RC2.jar",
-    require => Exec['vp-services'],
+    command => "/usr/bin/unzip -u -o /vagrant/puppet/files/vp-services-master.zip -d /home/skltp/virtuell-services/",
+    group  => "skltp",
   }
 
-  # test stub for samtycke
-  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/ehr-patientconsent-checkconsent-testproducer-1.0.0-SNAPSHOT.jar":
-    source => "/vagrant/puppet/files/ehr-patientconsent-checkconsent-testproducer-1.0.0-SNAPSHOT.jar",
-    owner  => "mule",
-    group  => "mule",
-    mode   => 644,
-    require => Exec['vp-services'],
+  # unpack testproducers
+  exec { "vp:unpack-test-producers" : 
+    command => "/usr/bin/unzip -u -o /vagrant/puppet/files/test-producers.zip -d /home/skltp/test-producers/",
+    group  => "skltp",
   }
 
 }
