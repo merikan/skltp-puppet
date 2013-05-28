@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<HsaUnitsResponse xmlns="urn:riv:hsa:HsaWsResponder:3">
+  <startDate>2013-03-15T15:38:42.597+01:00</startDate>
+  <endDate>2013-03-15T15:38:45.721+01:00</endDate>
+  <hsaUnits>
+    <hsaUnit>
+      <hsaIdentity>HSA-VKY567</hsaIdentity>
+      <DN>ou=Vårdcentralen kusten, Ytterby,o=Västra Götalandsregionen,l=VGR,c=SE</DN>
+      <name>Vårdcentralen kusten, Ytterby</name>
+    </hsaUnit>
+     <hsaUnit>
+      <hsaIdentity>HSA-VKM345</hsaIdentity>
+      <DN>ou=Vårdcentralen kusten, Marstrand,o=Västra Götalandsregionen,l=VGR,c=SE</DN>
+      <name>Vårdcentralen kusten, Marstrand</name>
+    </hsaUnit>
+    <hsaUnit>
+      <hsaIdentity>HSA-VKK123</hsaIdentity>
+      <DN>ou=Vårdcentralen kusten, Kärna,o=Västra Götalandsregionen,l=VGR,c=SE</DN>
+      <name>Vårdcentralen kusten, Kärna</name>
+    </hsaUnit>
+    <hsaUnit>
+      <hsaIdentity>HSA-VGR</hsaIdentity>
+      <DN>o=Västra Götalandsregionen,l=VGR,c=SE</DN>
+      <name>Västra Götalandsregionen</name>
+    </hsaUnit>
+  </hsaUnits>
+</HsaUnitsResponse>
