@@ -1,4 +1,5 @@
 class apache::config  {
+    require apache::install
     include apache::params
 
     file {
