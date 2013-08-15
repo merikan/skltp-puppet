@@ -1,4 +1,6 @@
+include singleserver
 
+class singleserver {
   group { "skltp" : 
     ensure => present,
   } ->
@@ -11,17 +13,18 @@
     shell => "/bin/bash",
   } 
 
-include base
+  include base
 
-include java
-include mule 
-include activemq 
-include tomcat
-include mysql
-include tak::database
-include tak
-include vp
-include schedulr
-include schedulr::database
-include iptables::disable
-include apache
+  include java
+  include mule 
+  include activemq 
+  include tomcat
+  include mysql
+  include tak::database
+  include tak
+  include vp
+  include schedulr
+  include schedulr::database
+  include iptables::disable
+  include apache
+}
