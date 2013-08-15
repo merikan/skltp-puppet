@@ -10,7 +10,12 @@ include graphical_desktop
              enable => false,
              ensure => "stopped",
              require => Class['graphical_desktop'] 
-        } 
+        } ->
+        package {
+          'firefox':
+          ensure => installed
+        }
+
     }
 
     class graphical_desktop {
