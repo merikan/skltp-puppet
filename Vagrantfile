@@ -50,7 +50,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :singleserver do |single|
-    single.vm.network :private_network, ip: "33.33.33.33"
+    single.vm.network :private_network, ip: "33.33.33.34"
     single.vm.hostname = "singleserver.local"
     single.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
@@ -61,7 +61,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :singledesktop do |desktop|
-    desktop.vm.network :private_network, ip: "33.33.33.34"
+    desktop.vm.network :private_network, ip: "33.33.33.33"
     desktop.vm.hostname = "singledesktop.local"
     desktop.ssh.max_tries = 150
     desktop.vm.provider :virtualbox do |vb|
