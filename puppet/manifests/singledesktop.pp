@@ -23,7 +23,11 @@ include soapui
         command => "/bin/tar -zxvf /vagrant/puppet/files/soapui-4.5.2-linux-bin.tar.gz -C /home/skltp",
         creates => "/home/skltp/soapui-4.5.2",
         require => Class['graphical_desktop'] 
-      }
+      }->
+      file { '/home/skltp/Desktop/soapui.sh':
+        ensure => 'link',
+        target => '/home/skltp/soapui-4.5.2/bin/soapui.sh',
+}
     }
 
     class graphical_desktop {
