@@ -46,4 +46,14 @@ class vp::install {
     group  => "skltp",
   }
 
+  # Copy virtual service for GetSubjectOfCareSchedule to VP's lib folder
+  # Depends on that the VP-app is in place and that the virtual-services zip-file is unzipped
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar":
+    source => "/home/skltp/virtual-services/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar",
+    recurse => false,
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
 }
