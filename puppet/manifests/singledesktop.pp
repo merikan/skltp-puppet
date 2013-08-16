@@ -3,6 +3,7 @@
 include singleserver
 include setup
 include graphical_desktop
+include soapui
 
     class setup {
         # turn of Text Mode setup Utility and NetworkManager
@@ -15,7 +16,14 @@ include graphical_desktop
           'firefox':
           ensure => installed
         }
+    }
 
+    class soapui {
+      exec { "unpack-soapui" : 
+        command => "/bin/tar -zxvf /vagrant/puppet/files/soapui-4.5.2-linux-bin.tar.gz -C /home/skltp",
+        creates => "/home/skltp/soapui-4.5.2",
+        require => Class['graphical_desktop'] 
+      }
     }
 
     class graphical_desktop {
@@ -53,4 +61,5 @@ include graphical_desktop
           }
        }
     }
+
 
