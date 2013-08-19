@@ -9,6 +9,20 @@ class apache::config  {
     owner => 'apache',
     group => 'apache',
     notify => Class['apache::service'];
+    "apache:css":
+    path => "${apache::params::docroot}/css",
+    source => "/vagrant/puppet/modules/apache/files/css",
+    recurse => true,
+    owner => 'apache',
+    group => 'apache',
+    notify => Class['apache::service'];
+    "apache:js":
+    path => "${apache::params::docroot}/js",
+    source => "/vagrant/puppet/modules/apache/files/js",
+    recurse => true,
+    owner => 'apache',
+    group => 'apache',
+    notify => Class['apache::service'];
     "apache:client.jks":
     path => "${apache::params::docroot}/client.jks",
     source => "/vagrant/puppet/modules/apache/files/client.jks",
