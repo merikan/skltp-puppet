@@ -29,9 +29,9 @@ class apache::config  {
     owner => 'apache',
     group => 'apache',
     notify => Class['apache::service'];
-    "apache:skltp-scheduling-soapui-project.xml":
-    path => "${apache::params::docroot}/skltp-scheduling-soapui-project.xml",
-    source => "/vagrant/puppet/modules/apache/files/skltp-scheduling-soapui-project.xml",
+    "apache:skltp-soapui-project.xml":
+    path => "${apache::params::docroot}/skltp-soapui-project.xml",
+    source => "/vagrant/puppet/modules/apache/files/skltp-soapui-project.xml",
     owner => 'apache',
     group => 'apache',
     notify => Class['apache::service'];

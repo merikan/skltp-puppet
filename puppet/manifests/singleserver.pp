@@ -23,6 +23,8 @@ class singleserver {
   include tak::database
   include tak
   include vp
+  include ei
+  include ei::database
   include schedulr
   include schedulr::database
   include iptables::disable

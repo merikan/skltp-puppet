@@ -2,6 +2,15 @@ class mule::config {
 
   require mule::install
 
+  file {"mule:lib-extra-files":
+    path => "${mule::params::install_dir}/lib",
+    source => "/vagrant/puppet/modules/mule/files/lib",
+    recurse => true,
+    owner => mule,
+    group => mule,
+    mode   => 755
+  }
+
   file {"mule:service-file":
     path => "/etc/init.d/${mule::params::service_name}",
     target => "${mule::params::install_dir}/bin/mule",
