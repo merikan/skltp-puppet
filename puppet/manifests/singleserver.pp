@@ -27,6 +27,7 @@ class singleserver {
   include iptables::disable
   include apache
   include vp
+  include crasch_mule
   include ei
   include ei::database
   include agt_tidbok
