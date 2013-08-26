@@ -16,17 +16,18 @@ class singleserver {
   include base
 
   include java
-  include mule 
   include activemq 
+  include mule 
   include tomcat
   include mysql
   include tak::database
   include tak
+  include schedulr::database
+  include schedulr
+  include iptables::disable
+  include apache
   include vp
   include ei
   include ei::database
-  include schedulr
-  include schedulr::database
-  include iptables::disable
-  include apache
+  include agt_tidbok
 }

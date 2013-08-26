@@ -46,11 +46,52 @@ class vp::install {
     group  => "skltp",
   }
 
-  # Copy virtual service for GetSubjectOfCareSchedule to VP's lib folder
+  # Copy virtual service for CRM - GetSubjectOfCareSchedule + IT-INTEGRATION EI + REGISTRY to VP's lib folder
   # Depends on that the VP-app is in place and that the virtual-services zip-file is unzipped
   file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar":
     source => "/home/skltp/virtual-services/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar",
-    recurse => false,
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-engagementindex-FindContent-virtualisering-1.0-RC10.jar":
+    source => "/home/skltp/virtual-services/itintegration-engagementindex-FindContent-virtualisering-1.0-RC10.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-engagementindex-GetUpdates-virtualisering-1.0-RC10.jar":
+    source => "/home/skltp/virtual-services/itintegration-engagementindex-GetUpdates-virtualisering-1.0-RC10.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-engagementindex-ProcessNotification-virtualisering-1.0-RC10.jar":
+    source => "/home/skltp/virtual-services/itintegration-engagementindex-ProcessNotification-virtualisering-1.0-RC10.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-engagementindex-Update-virtualisering-1.0-RC10.jar":
+    source => "/home/skltp/virtual-services/itintegration-engagementindex-Update-virtualisering-1.0-RC10.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-registry-GetLogicalAddresseesByServiceContract-virtualisering-1.1.jar":
+    source => "/home/skltp/virtual-services/itintegration-registry-GetLogicalAddresseesByServiceContract-virtualisering-1.1.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"], Exec["vp:unpack-vp-services-master"] ]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/itintegration-registry-GetSupportedServiceContracts-virtualisering-1.1.jar":
+    source => "/home/skltp/virtual-services/itintegration-registry-GetSupportedServiceContracts-virtualisering-1.1.jar",
     owner  => "mule",
     group  => "mule",
     mode   => 644,

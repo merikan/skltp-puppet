@@ -499,7 +499,7 @@
       <xs:enumeration value="subject_of_care_agent"/>
     </xs:restriction>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/Schedulr-0.1/ws/GetSubjectOfCareSchedule/1</con:endpoint><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule" name="GetSubjectOfCareSchedule" bindingOperationName="GetSubjectOfCareSchedule" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/Schedulr-0.1/ws/GetSubjectOfCareSchedule/1</con:endpoint><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:endpoint>http://33.33.33.33:8083/GetAggregatedSubjectOfCareSchedule/service/v1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule" name="GetSubjectOfCareSchedule" bindingOperationName="GetSubjectOfCareSchedule" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -524,6 +524,20 @@
    <soapenv:Body>
       <urn2:GetSubjectOfCareSchedule>
          <urn2:healthcare_facility>HSA-VKY567</urn2:healthcare_facility>
+         <urn2:subject_of_care>188803099368</urn2:subject_of_care>
+      </urn2:GetSubjectOfCareSchedule>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, Aggregerande Tjänst"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+   <soapenv:Header>
+      <urn:Actor>
+         <urn:actorId>?</urn:actorId>
+         <urn:actorType>?</urn:actorType>
+      </urn:Actor>
+      <urn1:LogicalAddress>5565594230</urn1:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn2:GetSubjectOfCareSchedule>
+         <urn2:healthcare_facility>5565594230</urn2:healthcare_facility>
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
@@ -1061,7 +1075,7 @@
   <xs:simpleType name="HsaIdType">
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1:GetLogicalAddresseesByServiceContract" name="GetLogicalAddresseesByServiceContract" bindingOperationName="GetLogicalAddresseesByServiceContract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://33.33.33.33:23001/vp/GetLogicalAddresseesByServiceContract/1/rivtabp21</con:endpoint><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1:GetLogicalAddresseesByServiceContract" name="GetLogicalAddresseesByServiceContract" bindingOperationName="GetLogicalAddresseesByServiceContract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1">
    <soapenv:Header>
       <urn:LogicalAddress>?</urn:LogicalAddress>
    </soapenv:Header>
@@ -1257,24 +1271,59 @@
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8081/skltp-ei/update-service/v1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:UpdateResponder:1:Update" name="Update" bindingOperationName="Update" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8081/skltp-ei/update-service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:UpdateResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8081/skltp-ei/update-service/v1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:UpdateResponder:1:Update" name="Update" bindingOperationName="Update" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Domain: Scheduling/Booking, Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8081/skltp-ei/update-service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:UpdateResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
    <soapenv:Header>
-      <urn:LogicalAddress>?</urn:LogicalAddress>
+      <urn:LogicalAddress>5565594230</urn:LogicalAddress>
    </soapenv:Header>
    <soapenv:Body>
       <urn1:Update>
          <!--1 or more repetitions:-->
          <urn1:engagementTransaction>
-            <urn2:deleteFlag>?</urn2:deleteFlag>
+            <urn2:deleteFlag>false</urn2:deleteFlag>
             <urn2:engagement>
-               <urn2:registeredResidentIdentification>?</urn2:registeredResidentIdentification>
-               <urn2:serviceDomain>?</urn2:serviceDomain>
-               <urn2:categorization>?</urn2:categorization>
-               <urn2:logicalAddress>?</urn2:logicalAddress>
-               <urn2:businessObjectInstanceIdentifier>?</urn2:businessObjectInstanceIdentifier>
-               <urn2:clinicalProcessInterestId>?</urn2:clinicalProcessInterestId>
-               <urn2:sourceSystem>?</urn2:sourceSystem>
-               <urn2:dataController>?</urn2:dataController>
+               <urn2:registeredResidentIdentification>188803099368</urn2:registeredResidentIdentification>
+               <urn2:serviceDomain>riv:crm:scheduling</urn2:serviceDomain>
+               <urn2:categorization>Booking</urn2:categorization>
+               <urn2:logicalAddress>HSA-VKK123</urn2:logicalAddress>
+               <urn2:businessObjectInstanceIdentifier>1</urn2:businessObjectInstanceIdentifier>
+               <urn2:clinicalProcessInterestId>NA</urn2:clinicalProcessInterestId>
+               <urn2:sourceSystem>Schedulr</urn2:sourceSystem>
+               <urn2:dataController>HSA-VKK123</urn2:dataController>
+            </urn2:engagement>
+         </urn1:engagementTransaction>
+         <urn1:engagementTransaction>
+            <urn2:deleteFlag>false</urn2:deleteFlag>
+            <urn2:engagement>
+               <urn2:registeredResidentIdentification>188803099368</urn2:registeredResidentIdentification>
+               <urn2:serviceDomain>riv:crm:scheduling</urn2:serviceDomain>
+               <urn2:categorization>Booking</urn2:categorization>
+               <urn2:logicalAddress>HSA-VKK123</urn2:logicalAddress>
+               <urn2:businessObjectInstanceIdentifier>2</urn2:businessObjectInstanceIdentifier>
+               <urn2:clinicalProcessInterestId>NA</urn2:clinicalProcessInterestId>
+               <urn2:sourceSystem>Schedulr</urn2:sourceSystem>
+               <urn2:dataController>HSA-VKK123</urn2:dataController>
+            </urn2:engagement>
+         </urn1:engagementTransaction>
+      </urn1:Update>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:UpdateResponder:1:Update"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Domain: Scheduling/Booking, Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8081/skltp-ei/update-service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:UpdateResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>5565594230</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:Update>
+         <!--1 or more repetitions:-->
+         <urn1:engagementTransaction>
+            <urn2:deleteFlag>false</urn2:deleteFlag>
+            <urn2:engagement>
+               <urn2:registeredResidentIdentification>188803099368</urn2:registeredResidentIdentification>
+               <urn2:serviceDomain>riv:crm:scheduling</urn2:serviceDomain>
+               <urn2:categorization>Booking</urn2:categorization>
+               <urn2:logicalAddress>HSA-VKY567</urn2:logicalAddress>
+               <urn2:businessObjectInstanceIdentifier>3</urn2:businessObjectInstanceIdentifier>
+               <urn2:clinicalProcessInterestId>NA</urn2:clinicalProcessInterestId>
+               <urn2:sourceSystem>Schedulr</urn2:sourceSystem>
+               <urn2:dataController>HSA-VKY567</urn2:dataController>
             </urn2:engagement>
          </urn1:engagementTransaction>
       </urn1:Update>
@@ -1485,7 +1534,7 @@
          </urn1:engagementTransaction>
       </urn1:ProcessNotification>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="EI - FindContent" type="wsdl" bindingName="{http://findcontent.intsvc.ei.skltp.se/}FindContentWSBeanServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl"><con:part><con:url>http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FindContentWSBeanService" targetNamespace="http://findcontent.intsvc.ei.skltp.se/" xmlns:ns1="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21" xmlns:ns4="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://findcontent.intsvc.ei.skltp.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="EI - FindContent" type="wsdl" bindingName="{http://findcontent.intsvc.ei.skltp.se/}FindContentWSBeanServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl"><con:part><con:url>http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FindContentWSBeanService" targetNamespace="http://findcontent.intsvc.ei.skltp.se/" xmlns:ns1="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21" xmlns:ns4="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://findcontent.intsvc.ei.skltp.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:import location="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl=FindContentResponderInterface.wsdl" namespace="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21"></wsdl:import>
   <wsdl:binding name="FindContentWSBeanServiceSoapBinding" type="ns1:FindContentResponderInterface">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -1583,14 +1632,14 @@
       <wsdl:output message="ns1:FindContentResponse" name="FindContentResponse"></wsdl:output>
     </wsdl:operation>
   </wsdl:portType>
-</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8082/skltp-ei/find-content-service/v1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent" name="FindContent" bindingOperationName="FindContent" type="Request-Response" outputName="FindContentResponse" inputName="FindContent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8082/skltp-ei/find-content-service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:FindContentResponder:1">
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8082/skltp-ei/find-content-service/v1</con:endpoint><con:endpoint>http://33.33.33.33:8070/vp/FindContent/1/rivtabp21</con:endpoint><con:endpoint>https://33.33.33.33:20000/vp/FindContent/1/rivtabp21</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent" name="FindContent" bindingOperationName="FindContent" type="Request-Response" outputName="FindContentResponse" inputName="FindContent" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Domain: Scheduling/Booking, Patient: Agda"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/FindContent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:FindContentResponder:1">
    <soapenv:Header>
-      <urn:LogicalAddress>?</urn:LogicalAddress>
+      <urn:LogicalAddress>5565594230</urn:LogicalAddress>
    </soapenv:Header>
    <soapenv:Body>
       <urn1:FindContent>
-         <urn1:registeredResidentIdentification>?</urn1:registeredResidentIdentification>
-         <urn1:serviceDomain>?</urn1:serviceDomain>
+         <urn1:registeredResidentIdentification>188803099368</urn1:registeredResidentIdentification>
+         <urn1:serviceDomain>riv:crm:scheduling</urn1:serviceDomain>
       </urn1:FindContent>
    </soapenv:Body>
 </soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
