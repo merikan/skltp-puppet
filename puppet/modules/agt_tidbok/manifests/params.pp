@@ -1,3 +1,3 @@
 class agt_tidbok::params {
-  $version = "1.0.0-RC4"
+  $version = "1.0.0"
 }
