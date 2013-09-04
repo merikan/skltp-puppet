@@ -23,6 +23,13 @@ class apache::config  {
     owner => 'apache',
     group => 'apache',
     notify => Class['apache::service'];
+    "apache:logViewer":
+    path => "${apache::params::docroot}/logViewer",
+    source => "/vagrant/puppet/modules/apache/files/logViewer",
+    recurse => true,
+    owner => 'apache',
+    group => 'apache',
+    notify => Class['apache::service'];
     "apache:client.jks":
     path => "${apache::params::docroot}/client.jks",
     source => "/vagrant/puppet/modules/apache/files/client.jks",

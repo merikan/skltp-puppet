@@ -46,6 +46,24 @@ class vp::install {
     group  => "skltp",
   }
 
+
+  # Copy jar files for the demo log notifier to VP's lib folder
+  # Depends on that the VP-app is in place
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/org.json-chargebee-1.0.jar":
+    source => "/vagrant/puppet/files/org.json-chargebee-1.0.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"]]
+  }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/demo-log-publisher-1.0.0-SNAPSHOT.jar":
+    source => "/vagrant/puppet/files/demo-log-publisher-1.0.0-SNAPSHOT.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"]]
+  }
+
   # Copy virtual service for CRM - GetSubjectOfCareSchedule + IT-INTEGRATION EI + REGISTRY to VP's lib folder
   # Depends on that the VP-app is in place and that the virtual-services zip-file is unzipped
   file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar":

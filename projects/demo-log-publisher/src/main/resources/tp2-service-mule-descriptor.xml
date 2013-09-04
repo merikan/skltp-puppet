@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mule xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns="http://www.mulesoft.org/schema/mule/core"
+    xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
+    xmlns:mulexml="http://www.mulesoft.org/schema/mule/xml"
+    xsi:schemaLocation="
+        http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+        http://www.mulesoft.org/schema/mule/jms  http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+		http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
+        http://www.mulesoft.org/schema/mule/xml http://www.mulesoft.org/schema/mule/xml/current/mule-xml.xsd" >
+
+    <!-- Name of this file is mandatory and may not be changed. -->
+
+	<!-- NOTE. These flows are only to be used for demonstration purposes, 
+	           e.g. if the processing fails the messages are intentionally lost to avoid filled up DL - queues etc. in demo environments -->
+	
+	<flow name="log-store-receiver-flow" >
+        <jms:inbound-endpoint  connector-ref="soitoolkit-jms-connector" queue="SOITOOLKIT.LOG.STORE">
+            <jms:transaction action="ALWAYS_BEGIN"/>
+		</jms:inbound-endpoint>
+		<flow-ref name="log-publisher-flow"/>
+    </flow>
+
+	<flow name="log-info-receiver-flow" >
+        <jms:inbound-endpoint  connector-ref="soitoolkit-jms-connector"  queue="${SOITOOLKIT_LOG_INFO_QUEUE}">
+            <jms:transaction action="ALWAYS_BEGIN"/>
+		</jms:inbound-endpoint>
+		<flow-ref name="log-publisher-flow"/>
+    </flow>
+
+	<flow name="log-error-receiver-flow" >
+        <jms:inbound-endpoint  connector-ref="soitoolkit-jms-connector"  queue="${SOITOOLKIT_LOG_ERROR_QUEUE}">
+            <jms:transaction action="ALWAYS_BEGIN"/>
+		</jms:inbound-endpoint>
+		<flow-ref name="log-publisher-flow"/>
+    </flow>
+
+	<flow name="log-publisher-flow" >
+        <mulexml:xml-prettyprinter-transformer XHTML="true"/>
+
+        <scripting:component>
+            <scripting:script engine="Groovy">
+                <scripting:text><![CDATA[
+			int PRETTY_PRINT_INDENT_FACTOR = 4; 
+			String result = null;       
+         			try {
+                        System.out.println(payload);
+			            org.json.JSONObject xmlJSONObj = org.json.XML.toJSONObject(payload);
+			            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
+			            System.out.println(jsonPrettyPrintString);
+			            result = jsonPrettyPrintString;
+			        } catch (org.json.JSONException je) {
+			            System.out.println(je.toString());
+			            result = je.toString();
+			        }
+				return result
+	            ]]></scripting:text>
+            </scripting:script>
+        </scripting:component>
+
+        <jms:outbound-endpoint connector-ref="soitoolkit-jms-connector" topic="SOITOOLKIT.LOG.TOPIC">
+            <jms:transaction action="ALWAYS_JOIN"/>
+        </jms:outbound-endpoint>
+    </flow>
+
+</mule>

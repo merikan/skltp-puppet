@@ -10,11 +10,15 @@ class activemq::config {
      pattern => "#RUN_AS_USER=",
      replacement => "RUN_AS_USER=activemq"
    } ->
-      file {"activemq:service-file":
+   file {"activemq:service-file":
      path => "/etc/init.d/${activemq::params::service_name}",
      target => "${activemq::params::install_dir}/bin/linux-x86-64/activemq",
      ensure => "link",
      require => Exec["activemq:unpack-dist"],
-   } 
-   
- }
+  } ->
+  file {"activemq:config-file":
+    path => "${activemq::params::install_dir}/conf/activemq.xml",
+    target => "/vagrant/puppet/modules/activemq/files/config/activemq.xml",
+    notify  => Service["${activemq::params::service_name}"],
+  } 
+}

@@ -10,8 +10,6 @@
         if (window.WebSocket) {
 	
         	var hostname = location.hostname
-			hostname = "33.33.33.33"
-            alert("Connecting to hardcoded Web Socket node: " + hostname);
             new StompPush("ws://" + hostname + ":61614/stomp", "/topic/SOITOOLKIT.LOG.TOPIC", appendNotification, appendDebugLog);
 
         } else {
