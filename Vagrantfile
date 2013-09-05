@@ -60,9 +60,12 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  config.vm.define :singledesktop do |desktop|
+  config.vm.define :desktop do |desktop|
+    desktop.vm.box = "centos-6.4-32bit-puppet-vbox"
+    desktop.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+
     desktop.vm.network :private_network, ip: "33.33.33.33"
-    desktop.vm.hostname = "singledesktop.local"
+    desktop.vm.hostname = "desktop.local"
     desktop.ssh.max_tries = 150
     desktop.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
@@ -72,7 +75,7 @@ Vagrant.configure("2") do |config|
     desktop.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path = "puppet/modules"
-      puppet.manifest_file = "singledesktop.pp"
+      puppet.manifest_file = "desktop.pp"
       puppet.options = "--verbose --debug"
     end
   end

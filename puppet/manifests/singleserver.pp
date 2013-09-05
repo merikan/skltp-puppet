@@ -4,6 +4,12 @@ class singleserver {
   group { "skltp" : 
     ensure => present,
   } ->
+  group { "admin" : 
+    ensure => present,
+  } ->
+  file { "/etc/sudoers.d/@admin":
+      content => '@admin        ALL=(ALL)       NOPASSWD: ALL',
+    } ->
   user { "skltp" : 
     password => '$1$voPKKtHf$OGf4XU6vrjWFlbpOjKLoF/',
     ensure => present,
