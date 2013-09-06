@@ -62,7 +62,8 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :desktop do |desktop|
     desktop.vm.box = "centos-6.4-32bit-puppet-vbox"
-    desktop.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+    #desktop.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+    desktop.vm.box_url = "ftp://skltp%40merikan.com:skltp@merikan.com/vagrant-boxes/centos-6.4-32bit-puppet-vbox.box"
 
     desktop.vm.network :private_network, ip: "33.33.33.33"
     desktop.vm.hostname = "desktop.local"
