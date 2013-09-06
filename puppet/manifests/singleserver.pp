@@ -26,6 +26,7 @@ class singleserver {
   include mule 
   include tomcat
   include mysql
+  include phpmyadmin
   include tak::database
   include tak
   include schedulr::database
