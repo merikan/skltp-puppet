@@ -1,4 +1,5 @@
 class mule::service {
+  require mule::config
   
   exec { "mule:add-service": 
     command => "/sbin/chkconfig --add ${mule::params::service_name}",

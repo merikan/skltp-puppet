@@ -19,7 +19,7 @@ class mule::config {
   replace { "mule:replace_chkconfig":
     file => "${mule::params::install_dir}/bin/mule",
     pattern => "# chkconfig: 2345 20 80",
-    replacement => "# chkconfig: 2345 80 60"
+    replacement => "# chkconfig: 2345 80 20"
   } ->
   replace { "mule:replace_run_as_user":
     file => "${mule::params::install_dir}/bin/mule",
