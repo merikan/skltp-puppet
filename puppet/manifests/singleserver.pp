@@ -4,18 +4,17 @@ class singleserver {
   group { "skltp" : 
     ensure => present,
   } ->
-  group { "admin" : 
-    ensure => present,
-  } ->
-  file { "/etc/sudoers.d/@admin":
-      content => '@admin        ALL=(ALL)       NOPASSWD: ALL',
+  file { "/etc/sudoers.d/skltp":
+      content => 'skltp        ALL=(ALL)       NOPASSWD: ALL',
+      owner   => 'root',
+      group  => 'root',
+      mode    => '0440',
     } ->
   user { "skltp" : 
     password => '$1$voPKKtHf$OGf4XU6vrjWFlbpOjKLoF/',
     ensure => present,
     managehome => true,
     gid => "skltp",
-    groups => "admin",
     shell => "/bin/bash",
   } 
 
