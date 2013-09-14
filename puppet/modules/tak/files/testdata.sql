@@ -19,14 +19,15 @@ INSERT INTO `Tjanstekontrakt` (`id`, `beskrivning`, `namnrymd`, `version`) VALUE
 
 INSERT INTO `Tjanstekomponent` (`id`, `adress`, `beskrivning`, `hsaId`, `version`) VALUES
 (1, 'http://33.33.33.33:8080/Schedulr-0.1/ws/GetSubjectOfCareSchedule/1', 'Demo tidbok', 'Schedulr', 0),
-(4, '', 'tp test client', 'tp', 0),
-(5, 'http://localhost:10000/test/Ping_Service', 'VP intern ping tjÃ¤nst', 'Ping-service', 0),
+(4, '', 'tp test client', 'client', 0),
+(5, 'http://localhost:10000/test/Ping_Service', 'VP intern ping tjänst', 'Ping-service', 0),
 (6, 'http://localhost:8081/skltp-ei/update-service/v1', 'Producent: Engagemangsidex - Update', 'EI-Update', 0),
 (7, 'http://localhost:8082/skltp-ei/find-content-service/v1', 'Producent: Engagemangsidex - FindContent', 'EI-FindContent', 0),
 (8, 'http://localhost:8081/skltp-ei/notification-service/v1', 'Producent: Engagemangsidex - ProcessNotification', 'EI-ProcessNotification', 0),
 (9, 'https://localhost:23001/vp/GetLogicalAddresseesByServiceContract/1/rivtabp21', 'VP-Cachad-GetLogicalAddresseesByServiceContract', 'VP-Cachad-GetLogicalAddresseesByServiceContract', 0),
-(10, '', 'Inera som konsument, tex EI', '5565594230', 0),
-(11, 'http://localhost:8083/GetAggregatedSubjectOfCareSchedule/service/v1', 'Producent: GetAggregatedSubjectOfCareSchedule', 'AGT-Tidbok', 0);
+(10, '', 'Inera som konsument, t ex en aggregernde tjänst', 'NTjP', 0),
+(11, 'http://localhost:8083/GetAggregatedSubjectOfCareSchedule/service/v1', 'Producent: GetAggregatedSubjectOfCareSchedule', 'AGT-Tidbok', 0),
+(12, '', 'NTjP EI som konsument, borde kunna vara NTjP men är i EI v1.0 hårt koplat till owner identiteten som är Inera''s org nr...', '5565594230', 0);
 
 INSERT INTO `LogiskAdress` (`id`, `fromTidpunkt`, `tomTidpunkt`, `version`, `logiskAdressat_id`, `rivVersion_id`, `tjanstekontrakt_id`, `tjansteproducent_id`) VALUES
 (1, '2013-05-24', '2113-05-24', 0, 1, 2, 1, 1),
@@ -44,7 +45,7 @@ INSERT INTO `Anropsbehorighet` (`id`, `fromTidpunkt`, `integrationsavtal`, `tomT
 (2, '2013-05-24', 'I1', '2113-05-24', 0, 2, 4, 1),
 (3, '2013-05-24', 'I1', '2113-05-24', 0, 3, 4, 1),
 (4, '2013-05-28', 'I2', '2113-05-28', 0, 4, 4, 2),
-(5, '2013-08-24', 'EI', '2113-08-24', 0, 5, 10, 3),
+(5, '2013-08-24', 'EI', '2113-08-24', 0, 5, 12, 3),
 (6, '2013-08-24', 'I3', '2113-08-24', 0, 5, 4, 1),
 (7, '2013-08-24', 'EI', '2113-08-24', 0, 5, 10, 5),
 (8, '2013-08-25', 'I4', '2113-08-25', 0, 5, 4, 5);
