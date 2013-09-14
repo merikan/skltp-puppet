@@ -16,9 +16,10 @@ class tak::install {
     user => tomcat,
     creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
   } ->
+  #               ${$tak::params::distribution_path}/webapps/tp-vagval-admin-web-${tak::params::version}.war  \
   exec { "deploy:tp-vagval-admin-web" :
     command => "/bin/cp \
-                  ${$tak::params::distribution_path}/webapps/tp-vagval-admin-web-${tak::params::version}.war  \
+                  /vagrant/puppet/files/tp-vagval-admin-web-1.3.2-SNAPSHOT.war  \
                   ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
     user => tomcat,
     creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",

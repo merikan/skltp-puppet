@@ -97,11 +97,15 @@
         
 	</head>
 	<body>
-		<div id="schedulrLogo" role="banner"><font color="black" size="6" style="font-family:courier" >SKLTP 2.2.1 Demo - Single Server</font></div>
-		
-		<a href="#page-body" class="skip">Skip to content&hellip;</a>
+        <table border="0" cellpadding="3" cellspacing="3">
+          <tr>
+            <td><img src="images/logga.png" alt="CeHis" /></td>
+            <td><p align="right">
+	          <div id="schedulrLogo" role="banner"><font color="black" size="6" style="font-family:courier" >&nbsp;&nbsp;&nbsp;SKLTP-box 1.1 - SKLTP 2.2.1</font></div>
+			</p></td>
+          </tr>
+        </table>
 		<div id="page-body" role="main">
-			<h1>SKLTP 2.2.1 Demo - Single Server</h1>
 			<p>Välkommen till SKLTP-box v1.1, en demo miljö av <a href="https://skl-tp.atlassian.net/wiki/display/SKLTP/skltp+Home">SKLTP</a> baserad på <a href="https://www.virtualbox.org/">VirtualBox</a>.</p>
 			<p> Här kan du prova <a href="https://skl-tp.atlassian.net/wiki/display/SKLTP/skltp+Home">SKLTP</a> v2.2.1 som tjänsteplattform enligt <a href="http://www.cehis.se/arkitektur_regelverk/teknisk_arkitektur/">T-boken</a>.</p>
 			<p>SKLTP-box är publicerad av <a href="http://cehis.se/">CeHis</a>.</p>
@@ -109,30 +113,21 @@
 
 			<div class="dialog" style="margin-left:20px;width:60%;" role="navigation">
 
-        		<a href="http://33.33.33.33/logViewer/index.html">
-        			<h2>Log Viewer</h2>
-        		</a>
-        		
-        		<a href="http://33.33.33.33:8080/">
-        			<h2>Tomcat (admin/admin)</h2>
-        		</a>
-        		
-        		<a href="http://33.33.33.33:8161/admin/index.jsp">
-        			<h2>Active MQ</h2>
-        		</a>
-        		
-        		<a href="http://33.33.33.33/phpMyAdmin/">
-        			<h2>My SQL (root/secret)</h2>
-        		</a>
-
+				<!-- Sedan TAB 1.3.2 och Grails 2.2 uppgradering så fungerar det bara med localhost... 
         		<a href="http://33.33.33.33:8080/tp-vagval-admin-web/">
-        			<h2>TAK GUI (skltp/skltp)</h2>
+				-->
+	        	<a href="http://localhost:8080/tp-vagval-admin-web/">
+        			<h2>TAK Admin Webapp (skltp/skltp)</h2>
         		</a>
 
-        		<a href="http://33.33.33.33:8080/tp-vagval-admin-services/">
-        			<h2>TAK WS</h2>
+        		<a href="http://33.33.33.33:8080/Schedulr-0.1/">
+        			<h2>Tidbokning demo app: Schedulr Webapp</h2>
         		</a>
 
+        		<a href="http://33.33.33.33/logViewer/index.html">
+        			<h2>Realtime Log Viewer</h2>
+        		</a>
+        		
                 <a href="http://33.33.33.33:23000/resetcache">
                     <h2>VP: reset TAK cache</h2>
                 </a>
@@ -144,20 +139,32 @@
                     <h2>VP: is TP alive?</h2>
                 </a>
 
-        		<a href="http://33.33.33.33:8080/Schedulr-0.1/">
-        			<h2>Tidbokning demo app: Schedulr GUI</h2>
-        		</a>
-
-        		<a href="http://33.33.33.33:8080/Schedulr-0.1/ws">
-        			<h2>Tidbokning demo app: Schedulr WS</h2>
-        		</a>
-
         		<a href="http://33.33.33.33/skltp-soapui-project.xml">
         			<h2>soapUI projekt</h2>
         		</a>
 
         		<a href="http://33.33.33.33/client.jks">
         			<h2>Client certifikat (password)</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8161/admin/index.jsp">
+        			<h2>Active MQ</h2>
+        		</a>
+        		
+        		<a href="http://33.33.33.33/phpMyAdmin/">
+        			<h2>My SQL (root/secret)</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/">
+        			<h2>Tomcat (admin/admin)</h2>
+        		</a>
+        		
+        		<a href="http://33.33.33.33:8080/tp-vagval-admin-services/">
+        			<h2>TAK Web Services</h2>
+        		</a>
+
+        		<a href="http://33.33.33.33:8080/Schedulr-0.1/ws">
+        			<h2>Tidbokning demo app: Schedulr Web Services</h2>
         		</a>
 
 			</div>
