@@ -103,16 +103,25 @@ WRAPPER_CONF="${MULE_BASE}/conf/wrapper.conf"
 # add XML compatibility jars
 MULE_ENDORSED=-M-Djava.endorsed.dirs="${MULE_HOME}/lib/endorsed"
 
+#Applikationer som skall startas upp och i angiven ordning
+APPLICATIONS='crash-mule-app:'
+APPLICATIONS+='vp-services-2.2.0:'
+APPLICATIONS+='skltp-ei-application-mule-backend-app-1.0.0:'
+APPLICATIONS+='skltp-ei-application-mule-frontend-app-1.0.0:'
+APPLICATIONS+='GetAggregatedSubjectOfCareSchedule-1.0.0'
+
 MULE_OPTS="wrapper.working.dir=\"$STARTUP_DIR\" \
-           wrapper.app.parameter.1=$2 \
-           wrapper.app.parameter.2=$3 \
-           wrapper.app.parameter.3=$4 \
-           wrapper.app.parameter.4=$5 \
-           wrapper.app.parameter.5=$6 \
-           wrapper.app.parameter.6=$7 \
-           wrapper.app.parameter.7=$8 \
-           wrapper.app.parameter.8=$9 \
-           wrapper.app.parameter.9=$10"
+           wrapper.app.parameter.1=-app \
+           wrapper.app.parameter.2=$APPLICATIONS \
+           wrapper.app.parameter.3=$2 \
+           wrapper.app.parameter.4=$3 \
+           wrapper.app.parameter.5=$4 \
+           wrapper.app.parameter.6=$5 \
+           wrapper.app.parameter.7=$6 \
+           wrapper.app.parameter.8=$7 \
+           wrapper.app.parameter.9=$8 \
+           wrapper.app.parameter.10=$9 \
+           wrapper.app.parameter.11=$10"
 
 # Configure remote Java debugging options here
 # Setting suspend=y will wait for you to connect before proceeding
@@ -140,11 +149,11 @@ PIDDIR="."
 # NOTE - This will set the user which is used to run the Wrapper as well as
 #  the JVM and is not useful in situations where a privileged resource or
 #  port needs to be allocated prior to the user being changed.
-#RUN_AS_USER=
+RUN_AS_USER=mule
 
 # The following two lines are used by the chkconfig command. Change as is
 #  appropriate for your application.  They should remain commented.
-# chkconfig: 2345 80 60
+# chkconfig: 2345 80 20
 # description: Mule
 
 #-----------------------------------------------------------------------------
