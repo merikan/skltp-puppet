@@ -18,7 +18,10 @@ class activemq::config {
   } ->
   file {"activemq:config-file":
     path => "${activemq::params::install_dir}/conf/activemq.xml",
-    target => "/vagrant/puppet/modules/activemq/files/config/activemq.xml",
+    ensure  => file,
+    source => "/vagrant/puppet/modules/activemq/files/config/activemq.xml",
+    owner => activemq,
+    group => activemq,
     notify  => Service["${activemq::params::service_name}"],
   } 
 }
