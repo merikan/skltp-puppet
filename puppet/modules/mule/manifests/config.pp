@@ -28,7 +28,11 @@ class mule::config {
   } ->
   file {"mule:wrapper.conf":
     path => "${mule::params::install_dir}/wrapper.conf",
-    target => "/vagrant/puppet/modules/vp/files/wrapper.conf",
+    ensure  => file,
+    source => "/vagrant/puppet/modules/mule/files/wrapper.conf",
+    owner => mule,
+    group => mule,
     notify  => Service["${mule::params::service_name}"],
-  }
+  } 
+
 }
