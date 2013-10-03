@@ -45,13 +45,13 @@
 			int PRETTY_PRINT_INDENT_FACTOR = 4; 
 			String result = null;       
          			try {
-                        System.out.println(payload);
+                        //System.out.println(payload);
 			            org.json.JSONObject xmlJSONObj = org.json.XML.toJSONObject(payload);
 			            String jsonPrettyPrintString = xmlJSONObj.toString(PRETTY_PRINT_INDENT_FACTOR);
-			            System.out.println(jsonPrettyPrintString);
+			            //System.out.println(jsonPrettyPrintString);
 			            result = jsonPrettyPrintString;
 			        } catch (org.json.JSONException je) {
-			            System.out.println(je.toString());
+			            System.out.println("demo-log-publisher error: " + je.toString());
 			            result = je.toString();
 			        }
 				return result
