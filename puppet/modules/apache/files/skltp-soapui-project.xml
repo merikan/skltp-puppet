@@ -1,5 +1,34 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project name="skltp-box" resourceRoot="" soapui-version="4.0.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="teststub-PingForConfigurationResponderBinding" type="wsdl" bindingName="{urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21}PingForConfigurationResponderBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl"><con:part><con:url>http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PingForConfigurationInteraction" targetNamespace="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:rgy="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsi="urn:riv:itintegration:monitoring:PingForConfigurationInitiator:1" xmlns:tjsr="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1" xmlns:tns="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+<con:soapui-project name="skltp-box" resourceRoot="" soapui-version="4.0.1.1" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.actions.iface.tools.soapui.TestRunnerAction@values-local"><![CDATA[<xml-fragment xmlns:con="http://eviware.com/soapui/config">
+  <con:entry key="Global Properties" value=""/>
+  <con:entry key="TestSuite" value="TestSuite skltp-box"/>
+  <con:entry key="Report to Generate" value=""/>
+  <con:entry key="Password" value=""/>
+  <con:entry key="soapui-setings.xml Password" value=""/>
+  <con:entry key="TestRunner Path" value=""/>
+  <con:entry key="Tool Args" value=""/>
+  <con:entry key="Ignore Errors" value="false"/>
+  <con:entry key="Host:Port" value=""/>
+  <con:entry key="WSS Password Type" value=""/>
+  <con:entry key="Save Project" value="false"/>
+  <con:entry key="Enable UI" value="false"/>
+  <con:entry key="System Properties" value=""/>
+  <con:entry key="Domain" value=""/>
+  <con:entry key="Coverage Report" value="false"/>
+  <con:entry key="Export JUnit Results" value="false"/>
+  <con:entry key="Open Report" value="false"/>
+  <con:entry key="Project Properties" value=""/>
+  <con:entry key="Project Password" value=""/>
+  <con:entry key="Export All" value="false"/>
+  <con:entry key="Report Format(s)" value=""/>
+  <con:entry key="TestCase" value="&lt;all>"/>
+  <con:entry key="Print Report" value="false"/>
+  <con:entry key="Username" value=""/>
+  <con:entry key="Root Folder" value=""/>
+  <con:entry key="Save After" value="false"/>
+  <con:entry key="Add Settings" value="false"/>
+  <con:entry key="Endpoint" value=""/>
+</xml-fragment>]]></con:setting></con:settings><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="Schedulr-PingForConfigurationResponderBinding" type="wsdl" bindingName="{urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21}PingForConfigurationResponderBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl"><con:part><con:url>http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PingForConfigurationInteraction" targetNamespace="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:rgy="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsi="urn:riv:itintegration:monitoring:PingForConfigurationInitiator:1" xmlns:tjsr="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1" xmlns:tns="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:types>
     <xs:schema targetNamespace="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21">
       <xs:import namespace="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1" schemaLocation="http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1?xsd=PingForConfigurationResponder_1.0.xsd"/>
@@ -176,7 +205,7 @@
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration" name="PingForConfiguration" bindingOperationName="PingForConfiguration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="ping request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/Schedulr-0.1/ws/PingForConfiguration/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/Schedulr-0.5/ws/PingForConfiguration/1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration" name="PingForConfiguration" bindingOperationName="PingForConfiguration" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="ping request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/Schedulr-0.5/ws/PingForConfiguration/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">
    <soapenv:Header>
       <urn:LogicalAddress>?</urn:LogicalAddress>
    </soapenv:Header>
@@ -513,7 +542,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/Schedulr-0.1/ws/GetSubjectOfCareSchedule/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -1075,7 +1104,7 @@
   <xs:simpleType name="HsaIdType">
     <xs:restriction base="xs:string"/>
   </xs:simpleType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://33.33.33.33:23001/vp/GetLogicalAddresseesByServiceContract/1/rivtabp21</con:endpoint><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1:GetLogicalAddresseesByServiceContract" name="GetLogicalAddresseesByServiceContract" bindingOperationName="GetLogicalAddresseesByServiceContract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://33.33.33.33:23001/vp/GetLogicalAddresseesByServiceContract/1/rivtabp21</con:endpoint><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint><con:endpoint>﻿http://33.33.33.33:8070/vp/GetLogicalAddresseesByServiceContract/1/rivtabp21</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1:GetLogicalAddresseesByServiceContract" name="GetLogicalAddresseesByServiceContract" bindingOperationName="GetLogicalAddresseesByServiceContract" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/GetLogicalAddresseesByServiceContract</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:registry:GetLogicalAddresseesByServiceContractResponder:1">
    <soapenv:Header>
       <urn:LogicalAddress>?</urn:LogicalAddress>
    </soapenv:Header>
@@ -1512,9 +1541,9 @@
       <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
     </xs:sequence>
   </xs:complexType>
-</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8081/skltp-ei/notification-service/v1</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification" name="ProcessNotification" bindingOperationName="ProcessNotification" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8081/skltp-ei/notification-service/v1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8081/skltp-ei/notification-service/v1</con:endpoint><con:endpoint>http://33.33.33.33:10000/test/demo_ei_notify_service</con:endpoint><con:endpoint>https://33.33.33.33:20000/vp/ProcessNotification/1/rivtabp21</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification" name="ProcessNotification" bindingOperationName="ProcessNotification" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Notify EI"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/ProcessNotification/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
    <soapenv:Header>
-      <urn:LogicalAddress>?</urn:LogicalAddress>
+      <urn:LogicalAddress>5565594230</urn:LogicalAddress>
    </soapenv:Header>
    <soapenv:Body>
       <urn1:ProcessNotification>
@@ -1530,6 +1559,30 @@
                <urn2:clinicalProcessInterestId>?</urn2:clinicalProcessInterestId>
                <urn2:sourceSystem>?</urn2:sourceSystem>
                <urn2:dataController>?</urn2:dataController>
+               <urn2:owner>?</urn2:owner>
+            </urn2:engagement>
+         </urn1:engagementTransaction>
+      </urn1:ProcessNotification>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Notify demo-ei-notify-publisher"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/ProcessNotification/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>demo-ei-notify-publisher</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:ProcessNotification>
+         <!--1 or more repetitions:-->
+         <urn1:engagementTransaction>
+            <urn2:deleteFlag>?</urn2:deleteFlag>
+            <urn2:engagement>
+               <urn2:registeredResidentIdentification>?</urn2:registeredResidentIdentification>
+               <urn2:serviceDomain>?</urn2:serviceDomain>
+               <urn2:categorization>?</urn2:categorization>
+               <urn2:logicalAddress>?</urn2:logicalAddress>
+               <urn2:businessObjectInstanceIdentifier>?</urn2:businessObjectInstanceIdentifier>
+               <urn2:clinicalProcessInterestId>?</urn2:clinicalProcessInterestId>
+               <urn2:sourceSystem>?</urn2:sourceSystem>
+               <urn2:dataController>?</urn2:dataController>
+               <urn2:owner>?</urn2:owner>
             </urn2:engagement>
          </urn1:engagementTransaction>
       </urn1:ProcessNotification>
@@ -1642,4 +1695,633 @@
          <urn1:serviceDomain>riv:crm:scheduling</urn1:serviceDomain>
       </urn1:FindContent>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="EHR - CheckConsent" type="wsdl" bindingName="{urn:riv:ehr:patientconsent:accesscontrol:CheckConsent:1:rivtabp21}CheckConsentResponderBinding" soapVersion="1_1" anonymous="optional" definition="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?wsdl"><con:part><con:url>https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="CheckConsentInteraction" targetNamespace="urn:riv:ehr:patientconsent:accesscontrol:CheckConsent:1:rivtabp21" xmlns:itr="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsr="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:tns="urn:riv:ehr:patientconsent:accesscontrol:CheckConsent:1:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <wsdl:documentation xml:lang="sv">Tj��nsteinteraktionens namn: CheckConsent
+		 Beskrivning: 
+		   Tj��nst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om n��dsituation, g��llande ��tkomst f��r viss akt��r (v��rdenhet eller medarbetare).
+		   Med giltigt samtycke avses ett samtycke som fortfarande ��r giltigt (giltigt t o m har ej passerats), ej makulerat eller ��terkallat.
+		   Om ett giltigt intyg g��llande ��tkomst f��r angiven akt��r hittas, kommer tj��nsten att svara OK.
+		 Revisioner: 
+		 Tj��nstedom��n: patientconsent:accesscontrol
+		 Tj��nsteinteraktionstyp: Fr��ga-Svar
+		 WS-profil: RIVTABP21
+		 F��rvaltas av: Inera AB</wsdl:documentation>
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:ehr:patientconsent:accesscontrol:CheckConsent:1:rivtabp21">
+      <xs:import namespace="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" schemaLocation="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=CheckConsentResponder_1.0.xsd"/>
+      <xs:import namespace="urn:riv:itintegration:registry:1" schemaLocation="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=../../../core_components/itintegration_registry_1.0.xsd"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="CheckConsentRequest">
+    <wsdl:part element="itr:LogicalAddress" name="LogicalAddress">
+      <wsdl:documentation xml:lang="sv">Som logisk adress anges HSA-id f��r akt��rens v��rdgivare.</wsdl:documentation>
+    </wsdl:part>
+    <wsdl:part element="tjsr:CheckConsentRequest" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="CheckConsentResponse">
+    <wsdl:part element="tjsr:CheckConsentResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="CheckConsentResponderInterface">
+    <wsdl:operation name="CheckConsent">
+      <wsdl:input message="tns:CheckConsentRequest"></wsdl:input>
+      <wsdl:output message="tns:CheckConsentResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CheckConsentResponderBinding" type="tns:CheckConsentResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="CheckConsent">
+      <soap:operation soapAction="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1:CheckConsent" style="document"/>
+      <wsdl:input>
+        <soap:header message="tns:CheckConsentRequest" part="LogicalAddress" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="CheckConsentResponderService">
+    <wsdl:port binding="tns:CheckConsentResponderBinding" name="CheckConsentResponderPort">
+      <soap:address location="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=CheckConsentResponder_1.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" version="1.0" xmlns:patientconsent="urn:riv:ehr:patientconsent:1" xmlns:tns="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import namespace="urn:riv:ehr:patientconsent:1" schemaLocation="https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=../../../core_components/ehr_patientconsent_1.0.xsd"/>
+  <xs:element name="CheckConsentRequest" type="tns:CheckConsentRequestType"/>
+  <xs:complexType name="CheckConsentRequestType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Tj��nst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om n��dsituation, g��llande ��tkomst f��r viss akt��r (v��rdenhet eller medarbetare).
+		        Med giltigt samtycke avses ett samtycke som fortfarande ��r giltigt (giltigt t o m har ej passerats), ej makulerat eller ��terkallat.
+		        Om ett giltigt intyg g��llande ��tkomst f��r angiven akt��r hittas, kommer tj��nsten att svara OK.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AccessingActor" type="patientconsent:AccessingActorType"/>
+      <xs:element name="PatientId" type="patientconsent:PersonIdValue"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="CheckConsentResponse" type="tns:CheckConsentResponseType"/>
+  <xs:complexType name="CheckConsentResponseType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Tj��nst som kontrollerar om det finns ett giltigt samtycke, alternativt intyg om n��dsituation, g��llande ��tkomst f��r viss akt��r (v��rdenhet eller medarbetare).
+		        Med giltigt samtycke avses ett samtycke som fortfarande ��r giltigt (giltigt t o m har ej passerats), ej makulerat eller ��terkallat.
+		        Om ett giltigt intyg g��llande ��tkomst f��r angiven akt��r hittas, kommer tj��nsten att svara OK.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="CheckResultType" type="patientconsent:CheckResultType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=../../../core_components/ehr_patientconsent_1.0.xsd</con:url><con:content><![CDATA[<!--Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Inera AB licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.-->
+<xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:riv:ehr:patientconsent:1" version="1.0" xmlns:tns="urn:riv:ehr:patientconsent:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="ResultCodeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Enumerationsv��rde som anger de svarskoder som finns.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="OK">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Transaktionen har utf��rts enligt uppdraget.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INFO">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Transaktionen har utf��rts enligt beg��ran, men det finns ett meddelande som konsumenten m��ste visa upp f��r anv��ndaren (om till��mpbart). Exempel p�� detta kan vara &amp;quot;kom fastande&amp;quot;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ERROR">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Transaktionen har INTE kunnat utf��ras p.g.a ett logiskt fel. Det finns ett meddelande som konsumenten m��ste visa upp. Exempel p�� detta kan vara &amp;quot;tiden har bokats av annan patient&amp;quot;.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="VALIDATION_ERROR">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">En eller flera inparametrar inneh��ller felaktiga v��rden. Angiven tj��nst utf��rdes ej.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ACCESSDENIED">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Beh��righet saknas f��r att utf��ra beg��rd tj��nst. Angiven tj��nst utf��rdes ej.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="NOTFOUND">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Angiven artifakt finns ej. Angiven tj��nst utf��rdes ej.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="ALREADYEXISTS">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Angiven artifakt finns redan. Angiven tj��nst utf��rdes ej.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="INVALIDSTATE">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Angiven tj��nst utf��rdes ej d�� tj��nsten eller artifakten var i ett felaktigt tillst��nd.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AssertionTypeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Enumerationsv��rde som anger typ av intyg som ger direkt��tkomst till information fr��n andra v��dgivare enligt PDL.
+		        Kan vara patientens samtycke eller n��dsituation.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Consent">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Patienten/F��retr��daren har givit sitt samtycke.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="Emergency">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">N��dsituation f��religger. Patientens samtycke kunde ej inh��mtas.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ScopeType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Enumerationsv��rde som anger omf��nget/till��mpningsomr��de p�� intyget.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="NationalLevel">
+        <xs:annotation>
+          <xs:documentation xml:lang="sv">Intyget g��ller p�� nationell niv��.</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ReasonText">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar en orsak eller anledning till en viss ��tg��rd.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="1024"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AssignmentNameType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar namn p�� medarbetaruppdrag.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="256"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="Id">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar ett unikt identifikationsnummer enligt formatet f��r UUID (Universally Unique Identifier).</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="36"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PersonIdValue">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar ett personnummer, samordningsnummer eller ett reservnummer.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="12"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="OwnerId">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som identifierar systemet som registrerade/skapade artifakten. Anv��nds endast f��r tekniskt bruk f��r t.ex. uppf��ljning och sp��rning.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="512"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="HsaId">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar det unika nummer som identifierar en anst��lld, uppdragstagare, strukturenhet eller en HCC funktion (HSA-id).
+		        Specificerat enligt HSA-schema tj��nstetr��det version 3.9.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string">
+      <xs:maxLength value="32"/>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="ResultType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som returneras som ett generellt svar fr��n alla f��r��ndrande tj��nster, t.ex. skapa, radera, etc. 
+		        En tj��nstekonsument skall alltid kontrollera att resultatkoden inte inneh��ller fel f��r att p�� s�� s��tt veta om anropet lyckades. 
+		        Alla svarskoder f��rutom OK och INFO betyder att ��tg��rden inte genomf��rdes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ResultCode" type="tns:ResultCodeType"/>
+      <xs:element name="ResultText" type="xs:string"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActorType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som identifierar en medarbetare/person.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EmployeeId" type="tns:HsaId"/>
+      <xs:element minOccurs="0" name="AssignmentId" type="tns:HsaId"/>
+      <xs:element minOccurs="0" name="AssignmentName" type="tns:AssignmentNameType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="AccessingActorType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som identifierar en medarbetare/person som vill ha ��tkomst till specifik information.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="EmployeeId" type="tns:HsaId"/>
+      <xs:element name="CareProviderId" type="tns:HsaId"/>
+      <xs:element name="CareUnitId" type="tns:HsaId"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ActionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar den eller de akt��rer/personer som beg��rt och/eller utf��rt en ��tg��rd med
+		        en m��jlig orsak/anledning angivet som fritext.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="RequestDate" type="xs:dateTime"/>
+      <xs:element name="RequestedBy" type="tns:ActorType"/>
+      <xs:element name="RegistrationDate" type="xs:dateTime"/>
+      <xs:element name="RegisteredBy" type="tns:ActorType"/>
+      <xs:element minOccurs="0" name="ReasonText" type="tns:ReasonText"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="PDLAssertionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar ett intyg som ger direkt��tkomst till andra v��rdgivares information enligt PDL. Datatypen beskriver grundformatet f��r ett intyg.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AssertionId" type="tns:Id"/>
+      <xs:element name="AssertionType" type="tns:AssertionTypeType"/>
+      <xs:element name="Scope" type="tns:ScopeType"/>
+      <xs:element name="PatientId" type="tns:PersonIdValue"/>
+      <xs:element name="CareProviderId" type="tns:HsaId"/>
+      <xs:element name="CareUnitId" type="tns:HsaId"/>
+      <xs:element minOccurs="0" name="EmployeeId" type="tns:HsaId"/>
+      <xs:element name="StartDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="EndDate" type="xs:dateTime"/>
+      <xs:element minOccurs="0" name="OwnerId" type="tns:OwnerId"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="ExtendedPDLAssertionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar ett samtycke med ett ut��kat format. Inneh��ller information vem som har beg��rt respektive registrerat samtycket, samt om och n��r samtycket ��r ��terkallat eller makulerat.
+		        Datatypen ut��kar datatypen PDLAssertion.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="PDLAssertion" type="tns:PDLAssertionType"/>
+      <xs:element minOccurs="0" name="RepresentedBy" type="tns:PersonIdValue"/>
+      <xs:element name="RegistrationInfo" type="tns:ActionType"/>
+      <xs:element minOccurs="0" name="CancellationInfo" type="tns:ActionType"/>
+      <xs:element minOccurs="0" name="DeletionInfo" type="tns:ActionType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetExtendedConsentsResultType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som inneh��ller resultatet fr��n en h��mtning av samtyckesintyg enligt det ut��kade formatet tillsammans med h��mtade samtyckesintyg.
+		        Datatypen ut��kar datatypen Result.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Result" type="tns:ResultType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="PdlAssertions" type="tns:ExtendedPDLAssertionType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CancelledAssertionType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar ett makulerat eller ��terkallat samtycke samt tidpunkten n��r makuleringen eller ��terkallan utf��rdes.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="AssertionId" type="tns:Id"/>
+      <xs:element name="CancellationDate" type="xs:dateTime"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetAllAssertionsResultType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som representerar en lista med giltiga intyg tillsammans med en lista av makulerade och ��terkallade intyg. Den anv��nds f��r att dela upp svaret fr��n tj��nsten i mindre delar baserat p�� tidpunkt.
+		        Datatypen inneh��ller information om det finns ytterligare intyg att h��mta samt en ny starttidpunkt f��r n��r n��sta sekvens av intyg startar.
+		        Datatypen ut��kar datatypen Result.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Result" type="tns:ResultType"/>
+      <xs:element name="MoreOnOrAfter" type="xs:dateTime"/>
+      <xs:element name="HasMore" type="xs:boolean"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="Assertions" type="tns:PDLAssertionType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="CancelledAssertions" type="tns:CancelledAssertionType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="GetConsentsResultType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som inneh��ller resultatet fr��n en h��mtning av samtyckesintyg enligt det ut��kade formatet tillsammans med h��mtade samtyckesintyg.
+		        Datatypen ut��kar datatypen Result.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Result" type="tns:ResultType"/>
+      <xs:element maxOccurs="unbounded" minOccurs="0" name="PdlAssertions" type="tns:PDLAssertionType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:complexType name="CheckResultType">
+    <xs:annotation>
+      <xs:documentation xml:lang="sv">Datatyp som anger om det finns ett giltigt samtycke, alternativt intyg om n��dsituation, g��llande ��tkomst f��r viss akt��r. 
+		        Datatypen ut��kar datatypen Result.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="Result" type="tns:ResultType"/>
+      <xs:element name="HasConsent" type="xs:boolean"/>
+      <xs:element minOccurs="0" name="AssertionType" type="tns:AssertionTypeType"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21?xsd=../../../core_components/itintegration_registry_1.0.xsd</con:url><con:content><![CDATA[<xs:schema elementFormDefault="qualified" targetNamespace="urn:riv:itintegration:registry:1" version="1.0" xmlns="urn:riv:itintegration:registry:1" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:annotation>
+    <xs:documentation>Beskrivning: 	Grundl��ggande informationsobjekt f��r dom��nen itintegration:registry (adressering av tj��nster)
+			
+			Revisionshistorik: 2011-06-27 Mats Ekhammar, Callista Enterprise AB
+				Added ServiceContractType
+			
+			Datum:			2011-05-04
+			Beskrivning:	Initial version
+			F��rfattare:		marcus.krantz@callistaenterprise.se</xs:documentation>
+  </xs:annotation>
+  <xs:element name="LogicalAddress" type="LogicalAddressType"/>
+  <xs:simpleType name="LogicalAddressType">
+    <xs:annotation>
+      <xs:documentation>Defines the type for logical address according to national reference architecture.
+				Superseeds wsa:To as type for logical address header in RIVTA 2.1.</xs:documentation>
+    </xs:annotation>
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+  <xs:complexType name="ServiceContractNamespaceType">
+    <xs:annotation>
+      <xs:documentation>Type which describes a service contract.</xs:documentation>
+    </xs:annotation>
+    <xs:sequence>
+      <xs:element name="ServiceContractNamespace" type="xs:anyURI"/>
+      <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+    </xs:sequence>
+  </xs:complexType>
+  <xs:simpleType name="HsaIdType">
+    <xs:restriction base="xs:string"/>
+  </xs:simpleType>
+</xs:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://33.33.33.33:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:endpoint>https://localhost:20000/vp/CheckConsent/1/rivtabp21</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1:CheckConsent" name="CheckConsent" bindingOperationName="CheckConsent" type="Request-Response" inputName="" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request 1"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>HSA-VKM345</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:CheckConsentRequest>
+         <urn1:AccessingActor>
+            <urn2:EmployeeId>?</urn2:EmployeeId>
+            <urn2:CareProviderId>?</urn2:CareProviderId>
+            <urn2:CareUnitId>?</urn2:CareUnitId>
+         </urn1:AccessingActor>
+         <urn1:PatientId>?</urn1:PatientId>
+      </urn1:CheckConsentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1:CheckConsent"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite skltp-box"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EHR CheckConsent" searchProperties="true" id="5afb0ccd-e4f5-49aa-9d03-88ca49c7e951" disabled="true"><con:settings/><con:testStep type="request" name="CheckConsent - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EHR - CheckConsent</con:interface><con:operation>CheckConsent</con:operation><con:request name="CheckConsent - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>HSA-VKM345</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:CheckConsentRequest>
+         <urn1:AccessingActor>
+            <urn2:EmployeeId>?</urn2:EmployeeId>
+            <urn2:CareProviderId>?</urn2:CareProviderId>
+            <urn2:CareUnitId>?</urn2:CareUnitId>
+         </urn1:AccessingActor>
+         <urn1:PatientId>?</urn1:PatientId>
+      </urn1:CheckConsentRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match CheckConsentResponse"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace cc='urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1';
+/soap:Envelope/soap:Body/cc:CheckConsentResponse</path><content><![CDATA[<ns2:CheckConsentResponse xmlns="urn:riv:ehr:patientconsent:1" xmlns:ns2="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:ns3="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+  <ns2:CheckResultType>
+    <HasConsent>true</HasConsent>
+    <AssertionType>Consent</AssertionType>
+  </ns2:CheckResultType>
+</ns2:CheckConsentResponse>]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1:CheckConsent"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:loadTest name="LoadTest - EHR CheckConsent"><con:settings/><con:threadCount>60</con:threadCount><con:startDelay>0</con:startDelay><con:sampleInterval>250</con:sampleInterval><con:calculateTPSOnTimePassed>true</con:calculateTPSOnTimePassed><con:resetStatisticsOnThreadCountChange>true</con:resetStatisticsOnThreadCountChange><con:historyLimit>-1</con:historyLimit><con:testLimit>60</con:testLimit><con:limitType>TIME</con:limitType><con:loadStrategy><con:type>Simple</con:type><con:config><testDelay>10</testDelay><randomFactor>0.5</randomFactor></con:config></con:loadStrategy><con:assertion type="Step Status" name="Step Status"/><con:maxAssertionErrors>100</con:maxAssertionErrors><con:cancelExcessiveThreads>true</con:cancelExcessiveThreads><con:strategyInterval>500</con:strategyInterval></con:loadTest><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - CRM GetSubjectOfCare" searchProperties="true" id="653a1660-5306-43d0-859b-a918c85d34f4"><con:settings/><con:testStep type="request" name="GetSubjectOfCareSchedule - Patient: Agda, VC: Ytterby"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRM - GetSubjectOfCareSchedule</con:interface><con:operation>GetSubjectOfCareSchedule</con:operation><con:request name="GetSubjectOfCareSchedule - Patient: Agda, VC: Ytterby" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+   <soapenv:Header>
+      <urn:Actor>
+         <urn:actorId>?</urn:actorId>
+         <urn:actorType>?</urn:actorType>
+      </urn:Actor>
+      <urn1:LogicalAddress>HSA-VKY567</urn1:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn2:GetSubjectOfCareSchedule>
+         <urn2:healthcare_facility>HSA-VKY567</urn2:healthcare_facility>
+         <urn2:subject_of_care>188803099368</urn2:subject_of_care>
+      </urn2:GetSubjectOfCareSchedule>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tk='urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1';
+/soap:Envelope/soap:Body/tk:GetSubjectOfCareScheduleResponse</path><content><![CDATA[      <ns2:GetSubjectOfCareScheduleResponse xmlns="urn:riv:interoperability:headers:1" xmlns:ns2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1" xmlns:ns3="urn:riv:crm:scheduling:1" xmlns:ns4="urn:riv:crm:scheduling:1.1" xmlns:ns5="urn:riv:itintegration:registry:1">
+         <ns2:timeslotDetail>
+            <ns3:startTimeInclusive>20130722120400</ns3:startTimeInclusive>
+            <ns3:endTimeExclusive>20130722130400</ns3:endTimeExclusive>
+            <ns3:healthcare_facility>HSA-VKY567</ns3:healthcare_facility>
+            <ns3:performer>HSA-35674</ns3:performer>
+            <ns3:bookingId>3</ns3:bookingId>
+            <ns3:subject_of_care>188803099368</ns3:subject_of_care>
+            <ns3:purpose/>
+            <ns3:reason/>
+            <ns3:healthcare_facility_name>Vårdcentralen kusten, Ytterby</ns3:healthcare_facility_name>
+            <ns3:performerName>Lars Fredriksson, Sjuksköterska</ns3:performerName>
+            <ns3:careTypeName>Återbesök</ns3:careTypeName>
+            <ns3:careTypeID>3</ns3:careTypeID>
+            <ns3:cancel_booking_allowed>false</ns3:cancel_booking_allowed>
+            <ns3:rebooking_allowed>false</ns3:rebooking_allowed>
+            <ns4:isInvitation>false</ns4:isInvitation>
+         </ns2:timeslotDetail>
+      </ns2:GetSubjectOfCareScheduleResponse>
+]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetSubjectOfCareSchedule - Patient: Agda, VC: Kärna"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRM - GetSubjectOfCareSchedule</con:interface><con:operation>GetSubjectOfCareSchedule</con:operation><con:request name="GetSubjectOfCareSchedule - Patient: Agda, VC: Kärna" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+   <soapenv:Header>
+      <urn:Actor>
+         <urn:actorId>?</urn:actorId>
+         <urn:actorType>?</urn:actorType>
+      </urn:Actor>
+      <urn1:LogicalAddress>HSA-VKK123</urn1:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn2:GetSubjectOfCareSchedule>
+         <urn2:healthcare_facility>HSA-VKK123</urn2:healthcare_facility>
+         <urn2:subject_of_care>188803099368</urn2:subject_of_care>
+      </urn2:GetSubjectOfCareSchedule>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tk='urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1';
+/soap:Envelope/soap:Body/tk:GetSubjectOfCareScheduleResponse</path><content><![CDATA[      <ns2:GetSubjectOfCareScheduleResponse xmlns="urn:riv:interoperability:headers:1" xmlns:ns2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1" xmlns:ns3="urn:riv:crm:scheduling:1" xmlns:ns4="urn:riv:crm:scheduling:1.1" xmlns:ns5="urn:riv:itintegration:registry:1">
+         <ns2:timeslotDetail>
+            <ns3:startTimeInclusive>20130522115000</ns3:startTimeInclusive>
+            <ns3:endTimeExclusive>20130522125000</ns3:endTimeExclusive>
+            <ns3:healthcare_facility>HSA-VKK123</ns3:healthcare_facility>
+            <ns3:performer>HSA-12345</ns3:performer>
+            <ns3:bookingId>1</ns3:bookingId>
+            <ns3:subject_of_care>188803099368</ns3:subject_of_care>
+            <ns3:purpose/>
+            <ns3:reason/>
+            <ns3:healthcare_facility_name>Vårdcentralen kusten, Kärna</ns3:healthcare_facility_name>
+            <ns3:performerName>Stina Karlsson, Läkare</ns3:performerName>
+            <ns3:timeTypeName>Öppen</ns3:timeTypeName>
+            <ns3:timeTypeID>1</ns3:timeTypeID>
+            <ns3:careTypeName>Rehab</ns3:careTypeName>
+            <ns3:careTypeID>1</ns3:careTypeID>
+            <ns3:cancel_booking_allowed>false</ns3:cancel_booking_allowed>
+            <ns3:rebooking_allowed>false</ns3:rebooking_allowed>
+            <ns4:isInvitation>false</ns4:isInvitation>
+         </ns2:timeslotDetail>
+         <ns2:timeslotDetail>
+            <ns3:startTimeInclusive>20130622115900</ns3:startTimeInclusive>
+            <ns3:endTimeExclusive>20130622125900</ns3:endTimeExclusive>
+            <ns3:healthcare_facility>HSA-VKK123</ns3:healthcare_facility>
+            <ns3:performer>HSA-34567</ns3:performer>
+            <ns3:bookingId>2</ns3:bookingId>
+            <ns3:subject_of_care>188803099368</ns3:subject_of_care>
+            <ns3:purpose/>
+            <ns3:reason/>
+            <ns3:healthcare_facility_name>Vårdcentralen kusten, Kärna</ns3:healthcare_facility_name>
+            <ns3:performerName>Oskar Nilsson, Läkare</ns3:performerName>
+            <ns3:careTypeName>Provtagning</ns3:careTypeName>
+            <ns3:careTypeID>2</ns3:careTypeID>
+            <ns3:cancel_booking_allowed>false</ns3:cancel_booking_allowed>
+            <ns3:rebooking_allowed>false</ns3:rebooking_allowed>
+            <ns4:isInvitation>false</ns4:isInvitation>
+         </ns2:timeslotDetail>
+      </ns2:GetSubjectOfCareScheduleResponse>
+]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="GetSubjectOfCareSchedule - Patient: Agda, Aggregerande Tjänst"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>CRM - GetSubjectOfCareSchedule</con:interface><con:operation>GetSubjectOfCareSchedule</con:operation><con:request name="GetSubjectOfCareSchedule - Patient: Agda, Aggregerande Tjänst" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+   <soapenv:Header>
+      <urn:Actor>
+         <urn:actorId>?</urn:actorId>
+         <urn:actorType>?</urn:actorType>
+      </urn:Actor>
+      <urn1:LogicalAddress>5565594230</urn1:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn2:GetSubjectOfCareSchedule>
+         <urn2:healthcare_facility>5565594230</urn2:healthcare_facility>
+         <urn2:subject_of_care>188803099368</urn2:subject_of_care>
+      </urn2:GetSubjectOfCareSchedule>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tk='urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1';
+count(/soap:Envelope/soap:Body/tk:GetSubjectOfCareScheduleResponse/tk:timeslotDetail)</path><content>3</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EI - FindContent" searchProperties="true" id="db3051ad-9112-46e1-9d41-33866108c62a"><con:settings/><con:testStep type="request" name="FindContent - Domain: Scheduling/Booking, Patient: Agda"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EI - FindContent</con:interface><con:operation>FindContent</con:operation><con:request name="FindContent - Domain: Scheduling/Booking, Patient: Agda" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:20000/vp/FindContent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:FindContentResponder:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>5565594230</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:FindContent>
+         <urn1:registeredResidentIdentification>188803099368</urn1:registeredResidentIdentification>
+         <urn1:serviceDomain>riv:crm:scheduling</urn1:serviceDomain>
+      </urn1:FindContent>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tk='urn:riv:itintegration:engagementindex:FindContentResponder:1';
+/soap:Envelope/soap:Body/tk:FindContentResponse</path><content><![CDATA[      <FindContentResponse xmlns="urn:riv:itintegration:engagementindex:FindContentResponder:1" xmlns:ns2="urn:riv:itintegration:engagementindex:1" xmlns:ns3="urn:riv:itintegration:registry:1">
+         <engagement>
+            <ns2:registeredResidentIdentification>188803099368</ns2:registeredResidentIdentification>
+            <ns2:serviceDomain>riv:crm:scheduling</ns2:serviceDomain>
+            <ns2:categorization>Booking</ns2:categorization>
+            <ns2:logicalAddress>HSA-VKK123</ns2:logicalAddress>
+            <ns2:businessObjectInstanceIdentifier>1</ns2:businessObjectInstanceIdentifier>
+            <ns2:clinicalProcessInterestId>NA</ns2:clinicalProcessInterestId>
+            <ns2:sourceSystem>Schedulr</ns2:sourceSystem>
+            <ns2:creationTime>20130825074044</ns2:creationTime>
+            <ns2:dataController>HSA-VKK123</ns2:dataController>
+            <ns2:owner>5565594230</ns2:owner>
+         </engagement>
+         <engagement>
+            <ns2:registeredResidentIdentification>188803099368</ns2:registeredResidentIdentification>
+            <ns2:serviceDomain>riv:crm:scheduling</ns2:serviceDomain>
+            <ns2:categorization>Booking</ns2:categorization>
+            <ns2:logicalAddress>HSA-VKY567</ns2:logicalAddress>
+            <ns2:businessObjectInstanceIdentifier>3</ns2:businessObjectInstanceIdentifier>
+            <ns2:clinicalProcessInterestId>NA</ns2:clinicalProcessInterestId>
+            <ns2:sourceSystem>Schedulr</ns2:sourceSystem>
+            <ns2:creationTime>20130825074441</ns2:creationTime>
+            <ns2:dataController>HSA-VKY567</ns2:dataController>
+            <ns2:owner>5565594230</ns2:owner>
+         </engagement>
+         <engagement>
+            <ns2:registeredResidentIdentification>188803099368</ns2:registeredResidentIdentification>
+            <ns2:serviceDomain>riv:crm:scheduling</ns2:serviceDomain>
+            <ns2:categorization>Booking</ns2:categorization>
+            <ns2:logicalAddress>HSA-VKK123</ns2:logicalAddress>
+            <ns2:businessObjectInstanceIdentifier>2</ns2:businessObjectInstanceIdentifier>
+            <ns2:clinicalProcessInterestId>NA</ns2:clinicalProcessInterestId>
+            <ns2:sourceSystem>Schedulr</ns2:sourceSystem>
+            <ns2:creationTime>20130825074044</ns2:creationTime>
+            <ns2:dataController>HSA-VKK123</ns2:dataController>
+            <ns2:owner>5565594230</ns2:owner>
+         </engagement>
+      </FindContentResponse>
+]]></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:FindContentResponder:1:FindContent"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - PingForConfiguration" searchProperties="true" id="54e3f254-74cb-4f77-8540-865936a993f9"><con:settings/><con:testStep type="request" name="PingForConfiguration - ping Schedulr"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>Schedulr-PingForConfigurationResponderBinding</con:interface><con:operation>PingForConfiguration</con:operation><con:request name="PingForConfiguration - ping Schedulr" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/Schedulr-0.5/ws/PingForConfiguration/1</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>?</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:PingForConfiguration>
+         <urn1:serviceContractNamespace>?</urn1:serviceContractNamespace>
+         <urn1:logicalAddress>?</urn1:logicalAddress>
+      </urn1:PingForConfiguration>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace tk='urn:riv:itintegration:monitoring:PingForConfigurationResponder:1';
+declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+/soap:Envelope/soap:Body/tk:PingForConfigurationResponse/tk:version</path><content>  &lt;version xmlns="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">0.5&lt;/version>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="PingForConfiguration - ping vp-rivtabp20"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>vp-rivtabp20-PingForConfigurationResponderBinding</con:interface><con:operation>PingForConfiguration</con:operation><con:request name="PingForConfiguration - ping vp-rivtabp20" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp20</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:add="http://www.w3.org/2005/08/addressing" xmlns:urn="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">
+   <soapenv:Header>
+      <add:To>?</add:To>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn:PingForConfiguration/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace tk='urn:riv:itintegration:monitoring:PingForConfigurationResponder:1';
+/soap:Envelope/soap:Body/tk:PingForConfigurationResponse/tk:version</path><content>      &lt;version xmlns="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">V1.0&lt;/version></content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:testStep type="request" name="PingForConfiguration - ping vp-rivtabp21"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>vp-rivtabp21-PingForConfigurationResponderBinding</con:interface><con:operation>PingForConfiguration</con:operation><con:request name="PingForConfiguration - ping vp-rivtabp21" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">
+   <soapenv:Header>
+      <urn:LogicalAddress>?</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:PingForConfiguration/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:assertion type="SOAP Response" name="SOAP Response"/><con:assertion type="SOAP Fault Assertion" name="Not SOAP Fault"/><con:assertion type="XPath Match" name="XPath Match"><con:configuration><path>declare namespace tk='urn:riv:itintegration:monitoring:PingForConfigurationResponder:1';
+declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
+declare namespace ns2='urn:riv:itintegration:registry:1';
+/soap:Envelope/soap:Body/tk:PingForConfigurationResponse/tk:version</path><content>  &lt;version xmlns="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">V1.0&lt;/version>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties/><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
