@@ -1,6 +1,6 @@
 class schedulr::params {
 
-  $version = "0.1"
+  $version = "0.5"
   $artifact = "Schedulr"
   $fqn = "${artifact}-${version}"   
   $distname = "${fqn}.war"
