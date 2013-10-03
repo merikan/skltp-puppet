@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>Realtime EI Notification Viewer</title>
+        <script src="js/stomp.js"></script>
+        <script src="js/stomp_push.js"></script>
+        <script src="js/websocket.js"></script>
+        <script src="js/app.js"></script>
+
+		<style type="text/css">
+		<!--
+		@import url("css/table.css");
+		@import url("css/tooltip.css");
+		-->
+		</style>
+    </head>
+    <body>
+        <h1>Realtime EI Notification Viewer</h1>
+
+		<table width="1100" id="ei-event-table" class="fixed" border="1">
+		  <tr>			
+		    <th width="100">Personnummer</th>
+		    <th width="125">Domän</th>
+		    <th width="100">Kategori</th>
+			<th width="100">Verksamhets Id</th>
+		    <th width="150">Senast uppdaterad</th>
+		    <th width="100">Logisk Adress</th>
+		    <th width="100">Källsystem</th>
+		    <th width="125">Data Controller</th>
+		    <th width="125">Hälsoärende Id</th>
+			<th width="75">Borttag</th>
+		  </tr>
+		</table>
+
+    </body>
+</html>

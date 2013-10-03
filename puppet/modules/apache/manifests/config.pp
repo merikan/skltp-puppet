@@ -37,6 +37,13 @@ class apache::config  {
     owner => 'apache',
     group => 'apache',
     notify => Class['apache::service'];
+    "apache:eiNotificationViewer":
+    path => "${apache::params::docroot}/eiNotificationViewer",
+    source => "/vagrant/puppet/modules/apache/files/eiNotificationViewer",
+    recurse => true,
+    owner => 'apache',
+    group => 'apache',
+    notify => Class['apache::service'];
     "apache:client.jks":
     path => "${apache::params::docroot}/client.jks",
     source => "/vagrant/puppet/modules/apache/files/client.jks",
