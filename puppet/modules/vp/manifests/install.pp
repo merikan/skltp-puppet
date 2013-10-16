@@ -37,13 +37,15 @@ class vp::install {
   # unpack virtual services
   exec { "vp:unpack-vp-services-master" : 
     command => "/usr/bin/unzip -u -o /vagrant/puppet/files/vp-services-master.zip -d /home/skltp/virtual-services/",
-    group  => "skltp",
+    user  => 'skltp',
+    creates => "/home/skltp/virtual-services/",
   }
 
   # unpack testproducers
   exec { "vp:unpack-test-producers" : 
     command => "/usr/bin/unzip -u -o /vagrant/puppet/files/test-producers.zip -d /home/skltp/test-producers/",
-    group  => "skltp",
+    user  => 'skltp',
+    creates => '/home/skltp/test-producers/',
   }
 
 

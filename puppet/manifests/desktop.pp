@@ -23,7 +23,8 @@ include gedit
       exec { "unpack-soapui" : 
         command => "/bin/tar -zxvf /vagrant/puppet/files/soapui-4.5.2-linux-bin.tar.gz -C /home/skltp",
         creates => "/home/skltp/soapui-4.5.2",
-        require => Class['graphical_desktop'] 
+        user => 'skltp',
+        require => Class['graphical_desktop'], 
       }
 
     }
