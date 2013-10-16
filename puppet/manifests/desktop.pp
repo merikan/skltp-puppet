@@ -4,6 +4,7 @@ include singleserver
 include setup
 include graphical_desktop
 include soapui
+include gedit
 
     class setup {
         # turn of Text Mode setup Utility and NetworkManager
@@ -45,7 +46,9 @@ include soapui
         replacement => 'id:5:initdefault:',
       }
     }
-
+    class gedit {
+      package{'gedit': ensure => installed }
+    }
     define yumgroup($ensure = "present", $optional = false) {
 
        case $ensure {
