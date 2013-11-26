@@ -67,7 +67,7 @@ Vagrant.configure("2") do |config|
 
     desktop.vm.network :private_network, ip: "33.33.33.33"
     desktop.vm.hostname = "desktop.local"
-    desktop.ssh.max_tries = 150
+    desktop.vm.boot_timeout = 150
     desktop.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
