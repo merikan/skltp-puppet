@@ -1,13 +1,14 @@
 class apache::config  {
-    require apache::install
-    include apache::params
+  require apache::install
+  include apache::params
 
-    file {
-    "apache:index.html":
-    path => "${apache::params::docroot}/index.html",
-    source => "/vagrant/puppet/modules/apache/files/index.html",
-    owner => 'apache',
-    group => 'apache',
+  file {
+    "apache:httpd.conf":
+    path => "/etc/httpd/conf/httpd.conf",
+    source => "/vagrant/puppet/modules/apache/files/conf/httpd.conf",
+    owner => 'root',
+    group => 'root',
+    mode   => 644,    # rw-r--r--
     notify => Class['apache::service'];
     "apache:images":
     path => "${apache::params::docroot}/images",
