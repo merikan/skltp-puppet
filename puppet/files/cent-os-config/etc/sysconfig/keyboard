@@ -1,0 +1,4 @@
+KEYTABLE="sv-latin1"
+MODEL="pc105+inet"
+LAYOUT="se"
+KEYBOARDTYPE="pc"

@@ -5,18 +5,25 @@ class singleserver {
     ensure => present,
   } ->
   file { "/etc/sudoers.d/skltp":
-      content => 'skltp        ALL=(ALL)       NOPASSWD: ALL',
-      owner   => 'root',
-      group  => 'root',
-      mode    => '0440',
-    } ->
+    content => 'skltp        ALL=(ALL)       NOPASSWD: ALL',
+    owner   => 'root',
+    group  => 'root',
+    mode    => '0440',
+  } ->
   user { "skltp" : 
     password => '$1$voPKKtHf$OGf4XU6vrjWFlbpOjKLoF/',
     ensure => present,
     managehome => true,
     gid => "skltp",
     shell => "/bin/bash",
-  } 
+    } ->
+  file {
+    "/etc/sysconfig/keyboard":
+    source => "/vagrant/puppet/files/cent-os-config/etc/sysconfig/keyboard",
+    owner => 'root',
+    group => 'root',
+    mode   => 644,    # rw-r--r--    
+  }
 
   include base
 
