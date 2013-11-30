@@ -18,12 +18,24 @@ class singleserver {
     shell => "/bin/bash",
     } ->
   file {
+    "/home/skltp/Pictures/eHalsa_green_white_cmyk-81.png":
+    source => "/vagrant/puppet/files/users/skltp/eHalsa_green_white_cmyk-81.png",
+    owner => 'skltp',
+    group => 'skltp',
+    mode   => 644,    # rw-r--r--    
+    } ->
+  file {
     "/etc/sysconfig/keyboard":
     source => "/vagrant/puppet/files/cent-os-config/etc/sysconfig/keyboard",
     owner => 'root',
     group => 'root',
     mode   => 644,    # rw-r--r--    
-  }
+    } ->
+    exec { "gconftool-2":
+      command => "/usr/bin/sudo -u skltp /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && touch /var/local/puppet::${title}::gconftool-2.semaphore",
+      creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
+    }
+    
 
   include base
 
