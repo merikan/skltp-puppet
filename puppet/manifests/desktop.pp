@@ -12,11 +12,20 @@ include gedit
         service { ["firstboot","NetworkManager"]:
              enable => false,
              ensure => "stopped",
-             require => Class['graphical_desktop'] 
+             require => Class['graphical_desktop'], 
         }
         # disable update notification
         file {'/etc/xdg/autostart/gpk-update-icon.desktop':
           ensure => 'absent',
+          require => Class['graphical_desktop'], 
+        }
+        # enable automatic login
+        file {'/etc/gdm/custom.conf':
+          source => "/vagrant/puppet/files/cent-os-config/etc/gdm/custom.conf",
+          owner => 'root',
+          group => 'root',
+          mode   => 644,
+          require => Class['graphical_desktop'],
         }
     }
 
