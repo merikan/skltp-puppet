@@ -2,6 +2,7 @@
 
 include singleserver
 include setup
+include firefox
 include graphical_desktop
 include soapui
 include gedit
@@ -12,10 +13,6 @@ include gedit
              enable => false,
              ensure => "stopped",
              require => Class['graphical_desktop'] 
-        } ->
-        package {
-          'firefox':
-          ensure => installed
         }
     }
 
@@ -27,6 +24,28 @@ include gedit
         require => Class['graphical_desktop'], 
       }
 
+    }
+
+    class firefox {
+      package {
+        'firefox':
+        ensure => installed,
+        require => Class['graphical_desktop'] ,
+      } ->
+      file {
+        "/usr/lib/firefox/defaults/preferences/local-settings.js":
+        source => "/vagrant/puppet/files/firefox/local-settings.js",
+        owner => 'root',
+        group => 'root',
+        mode   => 644,
+      } ->
+      file {
+        "/usr/lib/firefox/mozilla.cfg":
+        source => "/vagrant/puppet/files/firefox/mozilla.cfg",
+        owner => 'root',
+        group => 'root',
+        mode   => 644,
+      }
     }
 
     class graphical_desktop {
