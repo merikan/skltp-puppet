@@ -14,6 +14,10 @@ include gedit
              ensure => "stopped",
              require => Class['graphical_desktop'] 
         }
+        # disable update notification
+        file {'/etc/xdg/autostart/gpk-update-icon.desktop':
+          ensure => 'absent',
+        }
     }
 
     class soapui {
