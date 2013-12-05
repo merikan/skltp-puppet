@@ -10,6 +10,12 @@ class apache::config  {
     group => 'root',
     mode   => 644,    # rw-r--r--
     notify => Class['apache::service'];
+    "apache:index.html":
+    path => "${apache::params::docroot}/index.html",
+    source => "/vagrant/puppet/modules/apache/files/index.html",
+    owner => 'apache',
+    group => 'apache',
+    notify => Class['apache::service'];
     "apache:images":
     path => "${apache::params::docroot}/images",
     source => "/vagrant/puppet/modules/apache/files/images",
