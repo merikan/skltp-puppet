@@ -82,6 +82,7 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       vb.gui = true
+      vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     desktop.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
