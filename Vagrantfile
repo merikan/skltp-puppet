@@ -94,4 +94,28 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define :shibboleth do |shibboleth|
+    shibboleth.vm.box = "centos-6.4-32bit-puppet-vbox"
+    #shibboleth.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
+    shibboleth.vm.box_url = "ftp://skltp%40merikan.com:skltp@merikan.com/vagrant-boxes/centos-6.4-32bit-puppet-vbox.box"
+
+    shibboleth.vm.network :private_network, ip: "33.33.33.33"
+    shibboleth.vm.hostname = "desktop.local"
+    shibboleth.vm.boot_timeout = 150
+    shibboleth.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.gui = true
+      vb.customize ["modifyvm", :id, "--memory", 2048]
+    end
+    shibboleth.vm.provision  :puppet do  |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+      puppet.manifest_file = "shibboleth.pp"
+      # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
+        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+      puppet.options = "--verbose --debug"
+    end
+  end
+
 end
