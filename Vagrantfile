@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "esbserver.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
     end
     # Activemq default port
@@ -31,7 +31,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "appserver.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
     end
     # tomcat
@@ -48,7 +48,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "dbserver.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
 
     end
@@ -64,7 +64,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "singleserver.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
 
     end
@@ -89,7 +89,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "desktop.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet/manifests"
+        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
     end
   end
