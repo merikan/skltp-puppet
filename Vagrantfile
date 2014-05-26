@@ -57,14 +57,20 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :singleserver do |single|
-    single.vm.network :private_network, ip: "33.33.33.34"
+    single.vm.box = "centos-6.4-32bit-puppet-vbox"
+    single.vm.box_url = "ftp://skltp%40merikan.com:skltp@merikan.com/vagrant-boxes/centos-6.4-32bit-puppet-vbox.box"
+    single.vm.network :private_network, ip: "33.33.33.33"
     single.vm.hostname = "singleserver.local"
+    single.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    end
     single.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "singleserver.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
+      puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
 
     end
@@ -89,7 +95,7 @@ Vagrant.configure("2") do |config|
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "desktop.pp"
       # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
-        puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
+      puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
       puppet.options = "--verbose --debug"
     end
   end

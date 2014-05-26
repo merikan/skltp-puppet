@@ -36,8 +36,39 @@ include gedit
         user => 'skltp',
         require => Class['graphical_desktop'], 
       }
-
     }
+    file {
+      'users:skltp:skltp-soapui-project.xml':
+        path => "/home/skltp/skltp-soapui-project.xml",
+        ensure  => file,
+        source => "/vagrant/puppet/modules/soapui/files/skltp-soapui-project.xml",
+        owner => skltp,
+        group => skltp;
+      'users:skltp:client.jks':
+        path => "/home/skltp/client.jks",
+        source => "/vagrant/puppet/modules/soapui/files/client.jks",
+        owner => 'skltp',
+        group => 'skltp';
+      'users:skltp:soapui-settings.xml':
+        path => "/home/skltp/soapui-4.5.2/soapui-settings.xml",
+        ensure  => file,
+        source => "/vagrant/puppet/modules/soapui/files/soapui-settings.xml",
+        owner => skltp,
+        group => skltp,
+        require => Class['soapui'];
+      'users:skltp:soapui-skltp-workspace.xml':
+        path => "/home/skltp/soapui-skltp-workspace.xml",
+        ensure  => file,
+        source => "/vagrant/puppet/modules/soapui/files/soapui-skltp-workspace.xml",
+        owner => skltp,
+        group => skltp,
+        require => Class['soapui'];
+    } ->
+    exec { "gconftool-2":
+      command => "/usr/bin/sudo -u skltp /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && touch /var/local/puppet::${title}::gconftool-2.semaphore",
+      creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
+    }
+
 
     class firefox {
       package {
