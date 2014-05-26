@@ -38,6 +38,12 @@ class mysql::utils {
       require => [ Class['mysql::install'], Class['mysql::service'] ]
     }
   }
-
-   
+  
+  #run db script
+  define run_script( $script, $database, $user, $password) {
+    exec { "run script ${script}" :
+      command => "/usr/bin/mysql -u ${user} -p\"${password}\"  --database=${database} < ${script}}  && touch /var/local/puppet::${title}::${script}.semaphore",
+      creates => "/var/local/puppet::${title}::${script}.semaphore",
+    }
+  }  
 }
