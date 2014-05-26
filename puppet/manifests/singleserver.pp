@@ -1,6 +1,26 @@
-include singleserver
 
-class singleserver {
+include base
+include java
+include activemq 
+include mule 
+include tomcat
+include mysql
+include phpmyadmin
+include skltp-user
+include tak::database
+include tak
+include schedulr::database
+include schedulr
+include iptables::disable
+include apache
+include vp
+include crasch_mule
+include ei
+include ei::database
+include agt_tidbok
+
+class skltp-user {
+  
   group { "skltp" : 
     ensure => present,
   } ->
@@ -71,30 +91,8 @@ class singleserver {
     owner => 'root',
     group => 'root',
     mode   => 644,    # rw-r--r--    
-  } ->
-  exec { "gconftool-2":
-    command => "/usr/bin/sudo -u skltp /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && touch /var/local/puppet::${title}::gconftool-2.semaphore",
-    creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
   }
     
 
-  include base
 
-  include java
-  include activemq 
-  include mule 
-  include tomcat
-  include mysql
-  include phpmyadmin
-  include tak::database
-  include tak
-  include schedulr::database
-  include schedulr
-  include iptables::disable
-  include apache
-  include vp
-  include crasch_mule
-  include ei
-  include ei::database
-  include agt_tidbok
 }
