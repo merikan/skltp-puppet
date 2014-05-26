@@ -10,7 +10,6 @@
         if (window.WebSocket) {
 	
         	var hostname = location.hostname
-			hostname = "33.33.33.33"
             new StompPush("ws://" + hostname + ":61614/stomp", "/topic/DEMO.EI.NOTIFY.TOPIC", appendNotification, appendDebugLog);
 
         } else {

@@ -31,7 +31,7 @@
             username="tkuser"
             password="secret"
             driverClassName="com.mysql.jdbc.Driver"
-            url="jdbc:mysql://33.33.33.33:3306/tak?autoReconnect=true"
+            url="jdbc:mysql://localhost:3306/tak?autoReconnect=true"
     />
 
     <!-- Uncomment this to disable session persistence across Tomcat restarts -->

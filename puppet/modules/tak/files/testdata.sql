@@ -19,7 +19,7 @@ INSERT INTO `Tjanstekontrakt` (`id`, `beskrivning`, `namnrymd`, `version`) VALUE
 (8, 'Engagemangsindex - GetUpdates', 'urn:riv:itintegration:engagementindex:GetUpdates:1:rivtabp21', 0);
 
 INSERT INTO `Tjanstekomponent` (`id`, `adress`, `beskrivning`, `hsaId`, `version`) VALUES
-(1, 'http://33.33.33.33:8080/Schedulr-0.5/ws/GetSubjectOfCareSchedule/1', 'Demo tidbok', 'Schedulr', 0),
+(1, 'http://localhost:8080/Schedulr-0.5/ws/GetSubjectOfCareSchedule/1', 'Demo tidbok', 'Schedulr', 0),
 (4, '', 'tp test client', 'client', 0),
 (5, 'http://localhost:10000/test/Ping_Service', 'VP intern ping tjänst', 'Ping-service', 0),
 (6, 'http://localhost:8081/skltp-ei/update-service/v1', 'Producent: Engagemangsidex - Update', 'EI-Update', 0),
@@ -29,7 +29,7 @@ INSERT INTO `Tjanstekomponent` (`id`, `adress`, `beskrivning`, `hsaId`, `version
 (10, '', 'Inera som konsument, t ex en aggregernde tjänst', 'NTjP', 0),
 (11, 'http://localhost:8083/GetAggregatedSubjectOfCareSchedule/service/v1', 'Producent: GetAggregatedSubjectOfCareSchedule', 'AGT-Tidbok', 0),
 (12, '', 'NTjP EI som konsument, borde kunna vara NTjP men är i EI v1.0 hårt koplat till owner identiteten som är Inera''s org nr...', '5565594230', 0),
-(13, 'http://33.33.33.33:10000/test/demo_ei_notify_service', 'demo_ei_notify_service', 'demo_ei_notify_service', 0);
+(13, 'http://localhost:10000/test/demo_ei_notify_service', 'demo_ei_notify_service', 'demo_ei_notify_service', 0);
 
 INSERT INTO `LogiskAdress` (`id`, `fromTidpunkt`, `tomTidpunkt`, `version`, `logiskAdressat_id`, `rivVersion_id`, `tjanstekontrakt_id`, `tjansteproducent_id`) VALUES
 (1, '2013-05-24', '2113-05-24', 0, 1, 2, 1, 1),

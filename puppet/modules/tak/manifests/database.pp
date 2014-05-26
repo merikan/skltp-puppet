@@ -11,7 +11,7 @@ class tak::database {
     require => [ Class['mysql::config'], Class['mysql::service'] ],
   } ->
     exec { "db-unpack:${tak::params::distname}" : 
-    command => "/usr/bin/unzip /vagrant/puppet/files/${tak::params::distname} -d /tmp",
+    command => "/bin/tar -xzf /vagrant/puppet/files/${tak::params::distname} --directory /tmp",
     creates => "${tak::params::distribution_path}",
   } ->
     exec { "populate database" :

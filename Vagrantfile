@@ -64,6 +64,7 @@ Vagrant.configure("2") do |config|
     single.vm.provider :virtualbox do |vb|
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.customize ["modifyvm", :id, "--memory", 1024]
     end
     single.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
@@ -80,7 +81,6 @@ Vagrant.configure("2") do |config|
     desktop.vm.box = "centos-6.4-32bit-puppet-vbox"
     #desktop.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
     desktop.vm.box_url = "ftp://skltp%40merikan.com:skltp@merikan.com/vagrant-boxes/centos-6.4-32bit-puppet-vbox.box"
-
     desktop.vm.network :private_network, ip: "33.33.33.33"
     desktop.vm.hostname = "desktop.local"
     desktop.vm.boot_timeout = 150

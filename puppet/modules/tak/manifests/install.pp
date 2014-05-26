@@ -4,31 +4,30 @@ class tak::install {
   require unzip
   include tomcat::params
 
-  exec { "unpack:${tak::params::distname}" : 
-    command => "/usr/bin/unzip /vagrant/puppet/files/${tak::params::distname} -d /tmp",
-    user => tomcat,
-    creates => "${$tak::params::distribution_path}",
-  } ->
+#  exec { "unpack:${tak::params::distname}" : 
+#    command => "/bin/tar -xzf /vagrant/puppet/files/${tak::params::distname} --directory /tmp",
+#    user => tomcat,
+#    creates => "${$tak::params::distribution_path}",
+#  } ->
   exec { "deploy:tp-vagval-admin-services" :
     command => "/bin/cp \
-                  ${$tak::params::distribution_path}/webapps/tp-vagval-admin-services-${tak::params::version}.war \
-                  ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
+                /vagrant/puppet/files/tp-vagval-admin-services-${tak::params::version}.war \
+                ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
     user => tomcat,
     creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
   } ->
-  #               ${$tak::params::distribution_path}/webapps/tp-vagval-admin-web-${tak::params::version}.war  \
   exec { "deploy:tp-vagval-admin-web" :
     command => "/bin/cp \
-                  /vagrant/puppet/files/tp-vagval-admin-web-1.3.2-SNAPSHOT.war  \
-                  ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
+                /vagrant/puppet/files/tp-vagval-admin-web-${tak::params::version}.war  \
+                ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
     user => tomcat,
     creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
-  } ->
-  exec { "tak:copy_libs" :
-    command => "/bin/cp \
-                ${$tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar} \
-                ${tomcat::params::tomcat_home}/lib/",
-    user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jar",
+#  } ->
+#  exec { "tak:copy_libs" :
+#    command => "/bin/cp \
+#                ${$tak::params::distribution_path}/lib/{itintegration-registry-schemas-1.0.0.jar,vagval-schemas-1.0.jar} \
+#                ${tomcat::params::tomcat_home}/lib/",
+#    user => tomcat,
+#    creates => "${tomcat::params::tomcat_home}/lib/{itintegration-registry-schemas-1.0.0.jar",
   }
 }

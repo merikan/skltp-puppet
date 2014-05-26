@@ -9,11 +9,11 @@
 		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 		<title>SKLTP-box 1.1 - SKLTP 2.2.1 Demo</title>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<link rel="shortcut icon" href="http://33.33.33.33/images/favicon.ico" type="image/x-icon">
-		<link rel="apple-touch-icon" href="http://33.33.33.33/images/apple-touch-icon.png">
-		<link rel="apple-touch-icon" sizes="114x114" href="http://33.33.33.33/images/apple-touch-icon-retina.png">
-		<link rel="stylesheet" href="http://33.33.33.33/css/main.css" type="text/css">
-		<link rel="stylesheet" href="http://33.33.33.33/css/mobile.css" type="text/css">
+		<link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon">
+		<link rel="apple-touch-icon" href="/images/apple-touch-icon.png">
+		<link rel="apple-touch-icon" sizes="114x114" href="/images/apple-touch-icon-retina.png">
+		<link rel="stylesheet" href="/css/main.css" type="text/css">
+		<link rel="stylesheet" href="/css/mobile.css" type="text/css">
 		
 		<meta name="layout" content="main"/>
 		
@@ -94,6 +94,25 @@
 			}
 		</style>
 	
+		<script type="text/javascript">
+
+			function replaceHref(id, uri) {
+				document.getElementById(id).setAttribute("href", "http://" + location.hostname + uri);
+			}
+
+			window.onload = function() {
+				var host = location.hostname;
+				replaceHref("tak",         ":8080/tp-vagval-admin-web/");
+				replaceHref("schedulr",    ":8080/Schedulr-0.5/");
+				replaceHref("tak-cache",   ":23000/resetcache");
+				replaceHref("hsa-cache",   ":24000/resethsacache");
+				replaceHref("vp-alive",    ":8070/vp/monitor/ping");
+				replaceHref("amq",         ":8161/admin/index.jsp");
+				replaceHref("tomcat",      ":8080/");
+				replaceHref("tak-ws",      ":8080/tp-vagval-admin-services/");
+				replaceHref("schedulr-ws", ":8080/Schedulr-0.5/ws");
+			}		
+		</script>
         
 	</head>
 	<body>
@@ -113,57 +132,59 @@
 
 			<div class="dialog" style="margin-left:20px;width:60%;" role="navigation">
 
-        		<a href="http://33.33.33.33:8080/tp-vagval-admin-web/">
+        		<a id="tak" href="http://localhost:8080/tp-vagval-admin-web/">
         			<h2>TAK Admin Webapp (skltp/skltp)</h2>
         		</a>
 
-        		<a href="http://33.33.33.33:8080/Schedulr-0.5/">
+        		<a id="schedulr" href="http://localhost:8080/Schedulr-0.5/">
         			<h2>Tidbokning demo app: Schedulr Webapp</h2>
         		</a>
 
-        		<a href="http://33.33.33.33/logViewer/index.html">
+        		<a href="/logViewer/index.html">
         			<h2>Realtime Log Viewer</h2>
         		</a>
         		
-        		<a href="http://33.33.33.33/eiNotificationViewer/index.html">
+        		<a href="/eiNotificationViewer/index.html">
         			<h2>Realtime EI Notification Viewer</h2>
         		</a>
         		
-                <a href="http://33.33.33.33:23000/resetcache">
-                    <h2>VP: reset TAK cache</h2>
-                </a>
-                <a href="http://33.33.33.33:24000/resethsacache">
-                    <h2>VP: reset HSA cache</h2>
-                </a>
+            <a id="tak-cache" href="http://localhost:23000/resetcache">
+                <h2>VP: reset TAK cache</h2>
+          	</a>
+                
+            <a id="hsa-cache" href="http://localhost:24000/resethsacache">
+              <h2>VP: reset HSA cache</h2>
+            </a>
 
-                <a href="http://33.33.33.33:21000/monitor/ping">
-                    <h2>VP: is TP alive?</h2>
-                </a>
+            <a id="vp-alive" href="http://localhost:8070/vp/monitor/ping">
+              <h2>VP: is TP alive?</h2>
+            </a>
 
-        		<a href="http://33.33.33.33/skltp-soapui-project.xml">
+        		<a href="/skltp-soapui-project.xml">
         			<h2>soapUI projekt</h2>
         		</a>
 
-        		<a href="http://33.33.33.33/client.jks">
+        		<a href="/client.jks">
         			<h2>Client certifikat (password)</h2>
         		</a>
 
-        		<a href="http://33.33.33.33:8161/admin/index.jsp">
+        		<a id="amq" href="http://localhost:8161/admin/index.jsp">
         			<h2>Active MQ</h2>
         		</a>
         		
-        		<a href="http://33.33.33.33/phpMyAdmin/">
+        		<a href="/phpMyAdmin/">
         			<h2>My SQL (root/secret)</h2>
         		</a>
 
-        		<a href="http://33.33.33.33:8080/">
+        		<a id="tomcat" href="http://localhost:8080/">
         			<h2>Tomcat (admin/admin)</h2>
         		</a>
         		
-        		<a href="http://33.33.33.33:8080/tp-vagval-admin-services/">
+        		<a id="tak-ws" href="http://localhost:8080/tp-vagval-admin-services/">
         			<h2>TAK Web Services</h2>
         		</a>
-        		<a href="http://33.33.33.33:8080/Schedulr-0.5/ws">
+
+        		<a id="schedulr-ws" href="http://localhost:8080/Schedulr-0.5/ws">
         			<h2>Tidbokning demo app: Schedulr Web Services</h2>
         		</a>
 			</div>
@@ -172,7 +193,7 @@
 		<div class="footer" role="contentinfo"></div>
 		<div id="spinner" class="spinner" style="display:none;">Loading&hellip;</div>
 		
-        <script src="http://33.33.33.33/js/application.js" type="text/javascript" ></script>
+        <script src="/js/application.js" type="text/javascript" ></script>
 
 	</body>
 </html>
