@@ -1,23 +1,26 @@
+include singleserver
 
-include base
-include java
-include activemq 
-include mule 
-include tomcat
-include mysql
-include phpmyadmin
-include skltp-user
-include tak::database
-include tak
-include schedulr::database
-include schedulr
-include iptables::disable
-include apache
-include vp
-include crasch_mule
-include ei
-include ei::database
-include agt_tidbok
+class singleserver {
+  include base
+  include java
+  include activemq 
+  include mule 
+  include tomcat
+  include mysql
+  include phpmyadmin
+  include skltp-user
+  include tak::database
+  include tak
+  include schedulr::database
+  include schedulr
+  include iptables::disable
+  include apache
+  include vp
+  include crasch_mule
+  include ei
+  include ei::database
+  include agt_tidbok
+}
 
 class skltp-user {
   
