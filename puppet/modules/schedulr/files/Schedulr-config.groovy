@@ -13,4 +13,5 @@ engagementindex.logicalAddress = '5565594230'
 dataSource {
 	username = "root"
 	password = "secret"
+	url = "jdbc:mysql://127.0.0.1:3306/schedulr?useUnicode=yes&characterEncoding=UTF-8&autoReconnect=true"
 }

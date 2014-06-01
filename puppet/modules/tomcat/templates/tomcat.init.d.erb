@@ -1,4 +1,3 @@
-
 #!/bin/bash
 #
 # tomcat 7
@@ -7,12 +6,7 @@
 # description: Start Tomcat 7 daemon
 # processname: tomcat7   
 
-
-# Source function library.
-. /etc/init.d/functions
-
-
-RETVAL=$?
+RETVAL=0
 APP_NAME="Tomcat"
 APP_HOME="<%= scope.lookupvar('tomcat::params::tomcat_home') %>"
 #RUN_AS_USER="tomcat"
@@ -21,14 +15,21 @@ RUN_AS_USER="root"
 # local config settings
 JAVA_OPTS="-XX:PermSize=128m -XX:MaxPermSize=256m"
 
+# Source function library.
+[ -s "/etc/init.d/functions" ] && source "/etc/init.d/functions"  #redhat/centos
+[ -s "/lib/lsb/init-functions" ] && source "/lib/lsb/init-functions" #debian/ubuntu
+
+
 case "$1" in
  start)
-       echo $"Starting $APP_NAME"
-            /bin/su -s /bin/sh $RUN_AS_USER $APP_HOME/bin/startup.sh
+      echo $"Starting $APP_NAME"
+      /bin/su -s /bin/sh $RUN_AS_USER $APP_HOME/bin/startup.sh
+      RETVAL=$?
     ;;
  stop)
       echo $"Stopping $APP_NAME"
-            /bin/su -s /bin/sh $RUN_AS_USER $APP_HOME/bin/shutdown.sh
+      /bin/su -s /bin/sh $RUN_AS_USER $APP_HOME/bin/shutdown.sh
+      RETVAL=$?
     ;;
  restart)
       echo $"Restarting $(APP_NAME)"

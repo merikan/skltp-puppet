@@ -2,7 +2,6 @@ class tak::database {
   require mysql
   include tak::params
   
-
   mysql::utils::mysqldb {
     'tak':
     user => "tkuser",
@@ -13,11 +12,16 @@ class tak::database {
     exec { "db-unpack:${tak::params::distname}" : 
     command => "/bin/tar -xzf /vagrant/puppet/files/${tak::params::distname} --directory /tmp",
     creates => "${tak::params::distribution_path}",
+  } -> 
+  replace { "TYPE=INNODB to ENGINE=InnoDB":
+    file => "${tak::params::distribution_path}/sql/tp-admin-DDL.sql",
+    pattern => "TYPE=INNODB",
+    replacement => "ENGINE=InnoDB"
   } ->
-    exec { "populate database" :
+  exec { "populate database" :
     onlyif => "/usr/bin/test $(/usr/bin/mysql -u root -p\"${mysql::params::root_password}\" --database=tak -e \"show tables;\" | wc -l) -eq 0",
     command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\"  --database=tak < ${tak::params::distribution_path}/sql/tp-admin-DDL.sql",
-  }->
+  } ->
   exec { "alter table anvandare" :
     onlyif => "/usr/bin/test $(/usr/bin/mysql -u root -p\"${mysql::params::root_password}\" --database=tak -e \"show tables;\" | grep Anvandare | wc -l) -ne 0",
     command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\"  --database=tak -e \"ALTER TABLE Anvandare RENAME TO anvandare;\"",

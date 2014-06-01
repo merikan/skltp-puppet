@@ -10,6 +10,7 @@ class ei::install {
     owner  => "mule",
     group  => "mule",
     mode   => 755,
+    notify  => Service["${mule::params::service_name}"],
   } ->
 
   # ei-frontend directory
@@ -25,7 +26,8 @@ class ei::install {
     command => "/usr/bin/unzip -u -o /vagrant/puppet/files/skltp-ei-application-mule-frontend-app-${ei::params::version}.zip",
     cwd => "${mule::params::mule_home}/apps/skltp-ei-application-mule-frontend-app-${ei::params::version}",
     group  => "mule",
-    require => File["${mule::params::mule_home}/apps/skltp-ei-application-mule-frontend-app-${ei::params::version}"]
+    require => File["${mule::params::mule_home}/apps/skltp-ei-application-mule-frontend-app-${ei::params::version}"],
+    notify  => Service["${mule::params::service_name}"],
   } ->
 
   # ei-backend directory
@@ -41,7 +43,8 @@ class ei::install {
     command => "/usr/bin/unzip -u -o /vagrant/puppet/files/skltp-ei-application-mule-backend-app-${ei::params::version}.zip",
     cwd => "${mule::params::mule_home}/apps/skltp-ei-application-mule-backend-app-${ei::params::version}",
     group  => "mule",
-    require => File["${mule::params::mule_home}/apps/skltp-ei-application-mule-backend-app-${ei::params::version}"]
+    require => File["${mule::params::mule_home}/apps/skltp-ei-application-mule-backend-app-${ei::params::version}"],
+    notify  => Service["${mule::params::service_name}"],
   }
 
 }

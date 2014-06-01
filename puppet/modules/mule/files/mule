@@ -15,7 +15,7 @@ case $0 in
         SCRIPT="$PWD/$0"
         ;;
 esac
-
+ 
 # Resolve the true real path without any sym links.
 CHANGED=true
 while [ "X$CHANGED" != "X" ]
@@ -105,10 +105,10 @@ MULE_ENDORSED=-M-Djava.endorsed.dirs="${MULE_HOME}/lib/endorsed"
 
 #Applikationer som skall startas upp och i angiven ordning
 APPLICATIONS='vp-services-2.2.7:'
-APPLICATIONS+='crash-mule-app:'
-APPLICATIONS+='GetAggregatedSubjectOfCareSchedule-1.2.1:'
-APPLICATIONS+='skltp-ei-application-mule-frontend-app-1.1.1:'
-APPLICATIONS+='skltp-ei-application-mule-backend-app-1.1.1'
+APPLICATIONS=$APPLICATIONS'crash-mule-app:'
+APPLICATIONS=$APPLICATIONS'GetAggregatedSubjectOfCareSchedule-1.2.1:'
+APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-frontend-app-1.1.1:'
+APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-backend-app-1.1.1'
 
 MULE_OPTS="wrapper.working.dir=\"$STARTUP_DIR\" \
            wrapper.app.parameter.1=-app \

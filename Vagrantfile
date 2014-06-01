@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos-6.3-64bit-puppet-vbox"
-  config.vm.box_url = "http://packages.vstone.eu/vagrant-boxes/centos/6.3/centos-6.3-64bit-puppet-vbox.4.2.6.box"
+  #config.vm.box_url = "http://packages.vstone.eu/vagrant-boxes/centos/6.3/centos-6.3-64bit-puppet-vbox.4.2.6.box"
 
   config.vm.define :esbserver do |esb|
     esb.vm.network :private_network, ip: "33.33.33.15"
@@ -67,6 +67,26 @@ Vagrant.configure("2") do |config|
       vb.customize ["modifyvm", :id, "--memory", 1024]
     end
     single.vm.provision  :puppet do  |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+      puppet.manifest_file = "singleserver.pp"
+      # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
+      puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
+      puppet.options = "--verbose --debug"
+
+    end
+  end
+
+  config.vm.define :debian do |debian|
+    debian.vm.box = "merikan/debian7.4-32bit-puppet-vbox"
+    debian.vm.network :private_network, ip: "33.33.33.33"
+    debian.vm.hostname = "singleserver.local"
+    debian.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.customize ["modifyvm", :id, "--memory", 2048]
+    end
+    debian.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
       puppet.module_path = "puppet/modules"
       puppet.manifest_file = "singleserver.pp"

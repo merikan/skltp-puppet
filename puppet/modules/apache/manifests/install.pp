@@ -1,6 +1,7 @@
 class apache::install {
-  package {
-    'httpd':
-      ensure => 'installed';
+  include apache::params
+  package {'apache':
+    ensure => 'installed',
+    name   => "${apache::params::package_name}",
   }
 }

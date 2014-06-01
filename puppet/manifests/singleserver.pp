@@ -87,15 +87,6 @@ class skltp-user {
     owner => 'skltp',
     group => 'skltp',
     mode   => 744,    # rw-r--r--    
-  } ->
-  file {
-    "/etc/sysconfig/keyboard":
-    source => "/vagrant/puppet/files/cent-os-config/etc/sysconfig/keyboard",
-    owner => 'root',
-    group => 'root',
-    mode   => 644,    # rw-r--r--    
-  }
-    
-
+  } 
 
 }
