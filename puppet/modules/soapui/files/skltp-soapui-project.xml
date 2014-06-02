@@ -574,7 +574,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#SKLTP_HOST}:8070/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -2304,4 +2304,26 @@ declare namespace tk='urn:riv:itintegration:monitoring:PingForConfigurationRespo
 declare namespace soap='http://schemas.xmlsoap.org/soap/envelope/';
 declare namespace ns2='urn:riv:itintegration:registry:1';
 /soap:Envelope/soap:Body/tk:PingForConfigurationResponse/tk:version</path><content>  &lt;version xmlns="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1">2.2.7&lt;/version>
-</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:properties><con:property><con:name>SKLTP_HOST</con:name><con:value>33.33.33.33</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
+</content><allowWildcards>false</allowWildcards><ignoreNamspaceDifferences>false</ignoreNamspaceDifferences><ignoreComments>false</ignoreComments></con:configuration></con:assertion><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1:PingForConfiguration"/><con:wsrmConfig version="1.2"/></con:request></con:config></con:testStep><con:properties/></con:testCase><con:properties/></con:testSuite><con:mockService port="8080" path="/" host="Magnus-MacBook-Pro.local" name="MockService - CRM - GetSubjectOfCareSchedule, Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.mock.WsdlMockService@require-soap-action">false</con:setting></con:settings><con:mockOperation name="GetSubjectOfCareSchedule" interface="CRM - GetSubjectOfCareSchedule" operation="GetSubjectOfCareSchedule"><con:settings/><con:dispatchStyle>SEQUENCE</con:dispatchStyle><con:defaultResponse>Response 1</con:defaultResponse><con:response name="Response 1" encoding="UTF-8"><con:settings/><con:responseContent><![CDATA[<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+   <soap:Body>
+      <ns2:GetSubjectOfCareScheduleResponse xmlns="urn:riv:interoperability:headers:1" xmlns:ns2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1" xmlns:ns3="urn:riv:crm:scheduling:1" xmlns:ns4="urn:riv:crm:scheduling:1.1" xmlns:ns5="urn:riv:itintegration:registry:1">
+         <ns2:timeslotDetail>
+            <ns3:startTimeInclusive>20130722120400</ns3:startTimeInclusive>
+            <ns3:endTimeExclusive>20130722130400</ns3:endTimeExclusive>
+            <ns3:healthcare_facility>HSA-VKY567</ns3:healthcare_facility>
+            <ns3:performer>HSA-35674</ns3:performer>
+            <ns3:bookingId>3</ns3:bookingId>
+            <ns3:subject_of_care>188803099368</ns3:subject_of_care>
+            <ns3:purpose/>
+            <ns3:reason/>
+            <ns3:healthcare_facility_name>Vårdcentralen kusten, Ytterby</ns3:healthcare_facility_name>
+            <ns3:performerName>Lars Fredriksson, Sjuksköterska</ns3:performerName>
+            <ns3:careTypeName>Återbesök</ns3:careTypeName>
+            <ns3:careTypeID>3</ns3:careTypeID>
+            <ns3:cancel_booking_allowed>false</ns3:cancel_booking_allowed>
+            <ns3:rebooking_allowed>false</ns3:rebooking_allowed>
+            <ns4:isInvitation>false</ns4:isInvitation>
+         </ns2:timeslotDetail>
+      </ns2:GetSubjectOfCareScheduleResponse>
+   </soap:Body>
+</soap:Envelope>]]></con:responseContent><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/></con:response><con:dispatchConfig/></con:mockOperation><con:properties/></con:mockService><con:properties><con:property><con:name>SKLTP_HOST</con:name><con:value>33.33.33.33</con:value></con:property></con:properties><con:wssContainer/><con:sensitiveInformation/></con:soapui-project>
