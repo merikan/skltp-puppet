@@ -78,7 +78,7 @@ Vagrant.configure("2") do |config|
   end
 
   config.vm.define :debian do |debian|
-    debian.vm.box = "merikan/debian7.4-32bit-puppet-vbox"
+    debian.vm.box = "merikan/debian6.0-32bit-puppet-vbox"
     debian.vm.network :private_network, ip: "33.33.33.33"
     debian.vm.hostname = "singleserver.local"
     debian.vm.provider :virtualbox do |vb|
