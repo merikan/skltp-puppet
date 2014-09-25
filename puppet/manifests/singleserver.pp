@@ -48,7 +48,7 @@ class skltp-user {
   } ->
   file {
     "/home/skltp/Pictures/eHalsa_green_white_cmyk-81.png":
-    source => "/vagrant/puppet/files/users/skltp/eHalsa_green_white_cmyk-81.png",
+    source => "/vagrant/puppet/files/users/skltp/inera-logo.png",
     owner => 'skltp',
     group => 'skltp',
     mode   => 644,    # rw-r--r--    

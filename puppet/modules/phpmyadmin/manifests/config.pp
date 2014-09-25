@@ -4,10 +4,9 @@ class phpmyadmin::config {
   include apache::params
   
   replace { "phpmyadmin:allow_from_all":
-    file => "${apache::params::configd_dir}/${phpmyadmin::params::package_name}.conf",
-    pattern => "Allow from 127.0.0.1",
-    replacement => "Allow from all"
+    file => "${apache::params::confd_dir}/${phpmyadmin::params::package_name}.conf",
+    pattern => "Deny from All",
+    replacement => "Allow from All"
   }
-
 
 }

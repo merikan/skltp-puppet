@@ -6,6 +6,7 @@ include firefox
 include graphical_desktop
 include soapui
 include gedit
+include gnome-system-monitor
 
     class setup {
         # turn of Text Mode setup Utility and NetworkManager
@@ -112,6 +113,9 @@ include gedit
     }
     class gedit {
       package{'gedit': ensure => installed }
+    }
+    class gnome-system-monitor {
+      package{'gnome-system-monitor': ensure => installed }
     }
     define yumgroup($ensure = "present", $optional = false) {
 
