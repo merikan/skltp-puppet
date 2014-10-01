@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<mule 
+	xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:spring="http://www.springframework.org/schema/beans"
+    xmlns:lang="http://www.springframework.org/schema/lang"
+	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
+	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/lang  http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
+		http://www.mulesoft.org/schema/mule/core    http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+	">
+
+<!--
+# CARE CONTACT TEST PRODUCER PROPERTIES:
+CARE_CONTACT_PRODUCER_TESTSTUB_GROOVY_SOURCE=classpath:CareContactsGroovyImpl.groovy
+CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL=http://0.0.0.0:8082/GetAggregatedCareContacts/service/teststub/v2
+
+-->
+
+<!--
+    <!- - Test-db for teststubs for source systems - ->
+    <spring:bean name="care-contact-producer-testdb-bean" class="se.skltp.aggregatingservices.riv.clinicalprocess.logistics.getcarecontacts.integrationtest.CareContactTestProducerDb">
+        <spring:property name="serviceTimeoutMs" value="${SERVICE_TIMEOUT_MS}" />
+    </spring:bean>
+
+    <!- - Implementation of test-db based teststub for source systems - ->
+    <spring:bean name="care-contact-producer-testdb-teststub-bean" class="se.skltp.aggregatingservices.riv.clinicalprocess.logistics.getcarecontacts.integrationtest.CareContactTestProducer">
+        <spring:property name="testDb" ref="care-contact-producer-testdb-bean" />
+    </spring:bean>
+-->
+
+    <!-- Implementation of the groovy bean -->
+    <spring:beans>
+        <lang:groovy id="care-contact-groovy-impl-bean"
+                     refresh-check-delay="2000"
+                     script-source="${CARE_CONTACT_PRODUCER_TESTSTUB_GROOVY_SOURCE}">
+        </lang:groovy>
+    </spring:beans>
+    <spring:bean name="care-contact-java-test-groovy-impl-bean" class="se.callista.skltp.JavaTestGroovyImpl"/>
+
+    <!-- Implementation of groovy based teststub for source systems -->
+    <spring:bean name="care-contact-producer-groovy-teststub-bean" class="se.callista.skltp.CareContactGroovyWrapperTestProducer">
+        <spring:property name="groovyImpl" ref="care-contact-groovy-impl-bean" />
+    </spring:bean>
+
+	<!-- Teststub service for a source system (källsystem) behind a virtual service in TP VP -->
+	<simple-service 
+		name="care-contact-producer-teststub-service"
+        address="${CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL}" 
+        type="jax-ws">
+        <component>
+            <spring-object bean="care-contact-producer-groovy-teststub-bean"/>
+        </component>
+    </simple-service>
+
+</mule>

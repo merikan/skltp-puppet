@@ -1,0 +1,201 @@
+// load base tasks, like clean which is used below
+apply plugin: 'base'
+
+def outputDir = file("./test")
+
+// jar dependencies
+buildscript {
+    dependencies {
+        classpath fileTree(dir: './lib/',
+            includes: ['xmlunit-1.1.jar', 'junit-4.8.2.jar'])
+    }
+}
+
+// Our test task
+task test() {
+	outputDir.mkdirs()
+	description = 'Test task designed to transform CDA xml examples to GreenCDA then back to CDA and run XMLDiff between the generated CDA against the original CDA.'
+}
+test.dependsOn = ['doCompare', 'validateGreenCDA', 'validateCDA']
+// test.outputs.dir outputDir
+clean.dependsOn = ['cleanTest']
+
+//
+// Transformation tasks
+//
+task toGreenCDA(type: XsltTransform) {
+	description = 'Transforms CDA to GreenCDA'
+    source = new File('../samples')
+    include '*.xml'
+    destDir = new File('./test/GreenCDA')
+    stylesheetFile = file('../transformations/CDA_to_GreenCDA.xslt')
+}
+
+task toCDA(type: XsltTransform) {
+	description = 'Transforms GreenCDA to CDA'
+    source = new File('./test/GreenCDA')
+    include '*.xml'
+    destDir = new File('./test/CDA')
+    stylesheetFile = file('../transformations/GreenCDA_to_CDA.xslt')
+}
+toCDA.dependsOn = ['toGreenCDA']
+
+task doCompare(type: XMLDiff) {
+	description = 'Runs XMLDiff on xml files from two different directories, file names are used to pick pairs'
+    source = new File('./test/CDA')
+	expectedResultDir = new String("../samples/")
+    include '*.xml'
+}
+doCompare.dependsOn = ['toCDA']
+
+// Tasks for validating xml files against a schema
+task validateGreenCDA(type: XMLValidate) {
+	description = 'Validate all xml files under test/GreenCDA with greenCDA.xsd'
+    source = new File('./test/GreenCDA')
+    include '*.xml'
+    schemaFile = file('../infrastructure/cda/greenCDA.xsd')
+}
+validateGreenCDA.dependsOn = ['toGreenCDA']
+
+task validateCDA(type: XMLValidate) {
+	description = 'Validate all xml files under test/CDA with CDA.xsd'
+    source = new File('./test/CDA')
+    include '*.xml'
+    schemaFile = file('../infrastructure/cda/CDA.xsd')
+}
+validateCDA.dependsOn = ['toCDA']
+
+import javax.xml.transform.TransformerFactory
+import javax.xml.transform.stream.StreamResult
+import javax.xml.transform.stream.StreamSource
+import java.io.IOException
+import java.net.URL
+import java.net.URLClassLoader
+
+import javax.xml.transform.Source
+import javax.xml.validation.Schema
+import javax.xml.validation.SchemaFactory
+import javax.xml.validation.Validator
+
+import javax.xml.XMLConstants
+
+/**
+ * Transforms all .xml files found in source with the stylesheet given and writes the result to destination
+ * @param stylesheet XML stylesheet file
+ * @param source Takes a source directory
+ * @param destination Takes a destination directory
+ */
+class XsltTransform extends SourceTask {
+    @OutputDirectory
+    File destDir
+
+    @InputFile
+    File stylesheetFile
+
+    @TaskAction
+    def transform() {
+        if (source == null) {
+            throw new InvalidUserDataException("Must specify source file or dir.")
+        }
+        if (destDir == null) {
+            throw new InvalidUserDataException("Must specify output file or dir.")
+        }
+
+        def factory = TransformerFactory.newInstance()
+        def transformer = factory.newTransformer(
+                new StreamSource(stylesheetFile))
+        source.visit { FileVisitDetails fvd ->
+            if (fvd.isDirectory()) {
+                return
+            }
+			if(fvd.file.name == "example_GetCareDocumentation.xml")
+				return
+			if(fvd.file.name == "example_GetCareDocumentationResponse.xml")
+				return
+
+            File d = new File(destDir, fvd.file.name)
+
+            transformer.transform(new StreamSource(fvd.file), new StreamResult(d))
+        }
+    }
+}
+
+/**
+ * Validates all .xml files found in a directory with a given schema
+ */
+class XMLValidate extends SourceTask {
+
+    @InputFile
+    File schemaFile
+
+    @TaskAction
+    def xmlValidate() {
+		def factory = SchemaFactory.newInstance(XMLConstants.W3C_XML_SCHEMA_NS_URI)
+		def schema = factory.newSchema(new StreamSource(schemaFile))
+		def validator = schema.newValidator()
+        int errors = 0
+
+        source.visit { FileVisitDetails fvd ->
+            if (fvd.isDirectory()) {
+                return
+            }
+
+            Source instanceDocument = new StreamSource(fvd.file)
+			try {
+            	validator.validate(instanceDocument);
+			} catch (Exception e) {
+				println fvd.file
+				println e.message
+            	println ""
+                errors = errors + 1
+			}
+        }
+        if(errors > 0)
+            throw new Exception("Validate failed");
+    }
+}
+
+import org.custommonkey.xmlunit.XMLAssert
+import org.custommonkey.xmlunit.XMLUnit
+
+/**
+ * XML diff all .xml files found in source with files found in destination
+ */
+class XMLDiff extends SourceTask {
+	String expectedResultDir
+
+    @TaskAction
+    def xmldiff() {
+		int errors = 0
+
+        XMLUnit.setIgnoreWhitespace(true);
+        XMLUnit.setIgnoreComments(true);
+
+		entry = new File(expectedResultDir)
+		assert entry.isDirectory()
+
+        source.visit { FileVisitDetails fvd ->
+            if (fvd.isDirectory()) {
+                return
+            }
+			String generatedXMLFileName = fvd.file.name
+			String expectedXMLFileName = expectedResultDir + fvd.file.name
+			String generatedXml = fvd.file.text
+			String expectedXml = new File(expectedResultDir + fvd.file.name).text
+			println "XMLDiff on: " + generatedXMLFileName
+			println "\t " + expectedXMLFileName
+
+			try {
+            	XMLAssert.assertXMLEqual(expectedXml, generatedXml);
+			} catch (Exception e) {
+				println fvd.file
+				println e
+            	println ""
+                errors = errors + 1
+			}
+        }
+
+        if(errors > 0)
+            throw new Exception("XML compare failed");
+    }
+}

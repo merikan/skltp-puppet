@@ -87,6 +87,15 @@ class skltp-user {
     owner => 'skltp',
     group => 'skltp',
     mode   => 744,    # rw-r--r--    
-  } 
-
+  } ->
+  file {
+    "/home/skltp/CareContactsGroovyImpl.groovy":
+    source => "/vagrant/puppet/files/users/skltp/CareContactsGroovyImpl.groovy",
+    owner => 'skltp',
+    group => 'skltp',
+    mode   => 744,    # rw-r--r--    
+  } ->
+  exec { "skltp-user:set-priv": 
+    command => "/bin/chmod g+rx,o+rx /home/skltp"
+  }
 }

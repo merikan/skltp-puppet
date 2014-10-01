@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns="urn:riv:ehr:patientsummary:caredocumentation"
+	targetNamespace="urn:riv:ehr:patientsummary:caredocumentation" elementFormDefault="qualified"
+	attributeFormDefault="unqualified">
+
+	<xs:element name="careDocumentation" type="CareDocumentationRequestType"/>
+	<xs:element name="careDocumentationResponse" type="CareDocumentationResponseType"/>
+
+	<xs:complexType name="CareDocumentationRequestType">
+		<xs:sequence>
+			<xs:element name="logicalAddress" type="xs:string"/>
+			<xs:element name="authorOrganizationId" type="HsaIdType"/>
+			<xs:element name="patientId" type="PersonIdType"/>
+			<xs:element name="timePeriod" type="DateTimePeriodType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CareDocumentationResponseType">
+		<xs:sequence>
+			<xs:element name="careDocumentation" type="CareDocumentationType"/>
+			<xs:element name="result" type="ResultType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CareDocumentationType">
+		<xs:sequence>
+			<xs:element name="careDocumentationHeader" type="CareDocumentationHeaderType"/>
+			<xs:element name="careDocumentationBody" type="CareDocumentationBodyType"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="ResultType">
+		<xs:sequence>
+			<xs:element name="resultCode" type="ResultCodeType"/>
+			<xs:element name="resultText" type="xs:string" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:simpleType name="ResultCodeType">
+		<xs:annotation>
+			<xs:documentation> Vid ett logiskt fel i de uppdaterande tjänsterna levereras
+				resultCode, resultText. resultCode kan vara: OK Transaktionen har utförts enligt
+				uppdraget i frågemeddelandet. INFO Transaktionen har utförts enligt begäran, men det
+				finns ett meddelande som konsumenten måste visa upp för användaren (om tillämpbart).
+				Exempel på detta kan vara ”kom fastande”. ERROR Transaktionen har INTE kunnat
+				utföras enligt p.g.a. logiskt fel. Det finns ett meddelande som konsumenten måste
+				visa upp. Exempel på detta kan vara ”tiden har bokats av annan patient
+			</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="OK"/>
+			<xs:enumeration value="ERROR"/>
+			<xs:enumeration value="INFO"/>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:complexType name="CareDocumentationHeaderType">
+		<xs:annotation>
+			<xs:documentation> careDocumentID: Vårddokumentets unika identifierare. OID kan sättas
+				till 1.2.752.129.2.1.2.1 (Icke-nationell identifierare Org+lokalt unikt id)
+				careDocumentTitle: Titel på dokument careDocumentTime: Tidpunkt då dokumentet
+				skapades patientId: Patientens ID. Root sätts till typ av patientsidentifierare.
+				Bland tillåtna typer finns: personnummer (1.2.752.129.2.1.3.1), samordningsnummer
+				(1.2.752.129.2.1.3.3), reservnummer SLL (1.2.752.97.3.1.3) </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="careDocumentId" type="xs:string"/>
+			<xs:element name="careDocumentTitle" type="xs:string" minOccurs="0"/>
+			<xs:element name="careDocumentTime" type="TimeStampType"/>
+			<xs:element name="patientId" type="PersonIdType"/>
+			<xs:element name="author" type="AuthorType"/>
+			<xs:element name="careGiver" type="HsaIdType"/>
+			<xs:element name="legalAuthenticator" type="LegalAuthenticatorType" minOccurs="0"/>
+			<xs:element name="approvedForPatient" type="xs:boolean" minOccurs="0"/>
+			<xs:element name="encompassingEncounter" type="encompassingEncounterType" minOccurs="0"
+			/>
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="CareDocumentationBodyType">
+		<xs:sequence>
+			<xs:element name="clinicalDocumentNote" type="ClinicalDocumentNoteType"/>
+			<xs:element name="multimediaEntry" type="MultimediaEntryType" minOccurs="0"
+				maxOccurs="unbounded"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="encompassingEncounterType">
+		<xs:annotation>
+			<xs:documentation> Information om Vård- och omsorgskontakt som föranlett
+				vårddokumentation. encounterID: Unik identifierare för vård- och omsorgskontakt. OID
+				kan sättas till 1.2.752.129.2.1.2.1 (Icke-nationell identifierare Org+lokalt unikt
+				id) encounterTime: Tidpunkt för vård- och omsorgskontakt </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="encounterId" type="EncounterIdType"/>
+			<xs:element name="encounterTime" type="TimeStampType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="MultimediaEntryType">
+		<xs:annotation>
+			<xs:documentation> Multimedia som finns i dokumentet, motsvaras av platshållare i
+				careDocumentNoteText multiMediaID: ID på multimedia value: Multimediainnehållet, med
+				lämplig mime-typ och kodningstyp </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="id" type="xs:string"/>
+			<xs:element name="type" type="xs:string"/>
+			<xs:element name="encoding" type="xs:string"/>
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+
+	<!-- -->
+	<xs:complexType name="AuthorType">
+		<xs:annotation>
+			<xs:documentation>Information om författare till dokumentet authorTime: Information om
+				författare till dokumentet authorID: HSA-id för författare. OID för HSA används
+				(1.2.752.129.2.2.1.4) authorRoleCode: Kod för författarens befattning, enligt
+				kodverket Befattning (OID 1.2.752.129.2.2.1.4) authorName: Namn på författaren
+				authorOrganizationID: HSA-id för den enhet som författaren är uppdragstagare hos
+				authorOrganizationName: Namn på den enhet som författaren är uppdragstagare hos
+				authorOrganizationTelecom: Telefonnummer till den enhet som författaren är
+				uppdragstage hos authorOrganizationAddress: Adress till den enhet som författaren är
+				uppdragstagere hos careProviderId: HSA-id för vårdgivaren, som är vårdgivare för den
+				enhet som författaren är uppdragstagare för </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="authorTime" type="TimeStampType"/>
+			<xs:element name="authorId" type="HsaIdType"/>
+			<xs:element name="authorRoleCode" type="AuthorRoleValueValues"/>
+			<xs:element name="authorName" type="xs:string" minOccurs="0"/>
+			<xs:element name="authorOrganizationID" type="HsaIdType"/>
+			<xs:element name="authorOrganizationName" type="xs:string" minOccurs="0"/>
+			<xs:element name="authorOrganizationTelecom" type="TelecomNumberType" minOccurs="0"/>
+			<xs:element name="authorOrganizationAddress" type="xs:string" minOccurs="0"/>
+			<xs:element name="careProviderId" type="HsaIdType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- -->
+	<xs:complexType name="DateTimePeriodType">
+		<xs:annotation>
+			<xs:documentation> Patient Summary Time Period type Den komplexa typen används för att
+				sätta ett datumintervall med hjälp av start- och slutdatum start: Startdatum på
+				formatet ÅÅÅÅMMDD end: Slutdatum på formatet ÅÅÅÅMMDD </xs:documentation>
+		</xs:annotation>
+		<xs:sequence>
+			<xs:element name="start">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+			<xs:element name="end">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- @TODO better names for careDocumentNoteCode -->
+	<xs:complexType name="ClinicalDocumentNoteType">
+		<xs:sequence>
+			<xs:element name="careDocumentNoteCode" type="CareDocumentNoteCodeType"/>
+			<xs:element name="careDocumentNoteTitle" type="xs:string"/>
+			<xs:element name="careDocumentNoteText" type="xs:anyType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- -->
+	<xs:complexType name="CareDocumentNoteCodeType">
+		<xs:sequence>
+			<xs:element name="code" type="CareDocumentNoteCodeCodeValues"/>
+			<xs:element name="value" type="CareDocumentNoteCodeValueValues"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!--
+	<xs:complexType name="AuthorRoleType">
+		<xs:sequence>
+			<xs:element name="code" type="codes:AuthorRoleCodeValues"/>
+			<xs:element name="value" type="codes:AuthorRoleValueValues"/>
+		</xs:sequence>
+	</xs:complexType>
+	-->
+
+	<!-- -->
+	<xs:complexType name="LegalAuthenticatorType">
+		<xs:annotation>
+			<xs:documentation> Information om signering signatureTime: Tidpunkt för signering,
+				format YYYYMMDDHHMMSS. RIV: Vård- och omsorgsdokument.signeringstidpunkt
+			</xs:documentation>
+		</xs:annotation>
+
+		<xs:sequence>
+			<xs:element name="signatureTime" type="TimeStampType"/>
+			<xs:element name="assignedEntityId" type="HsaIdType" minOccurs="0"/>
+			<xs:element name="representedOrganizationId" type="HsaIdType" minOccurs="0"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- @TODO Should we have maxlength 64? -->
+	<xs:simpleType name="HsaIdType">
+		<xs:restriction base="xs:string"> </xs:restriction>
+	</xs:simpleType>
+
+	<!-- @TODO Should we have maxlength 64? -->
+	<xs:complexType name="EncounterIdType">
+		<xs:sequence>
+			<!-- <xs:element name="code" type="codes:EncounterIdCodeValues"/> -->
+			<xs:element name="value" type="xs:string"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<xs:complexType name="PersonIdType">
+		<xs:sequence>
+			<xs:element name="type" type="PersonIdCodeValues"/>
+			<xs:element name="value" type="PersonIdTypeType"/>
+		</xs:sequence>
+	</xs:complexType>
+
+	<!-- -->
+	<xs:simpleType name="PersonIdTypeType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="[0-9]{8}[0-9pPtTfF][0-9]{3}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- YYYYMMDDhhmmss -->
+	<xs:simpleType name="TimeStampType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])\d{4,6}"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Telecom number format +123-12345678 -->
+	<xs:simpleType name="TelecomNumberType">
+		<xs:restriction base="xs:string">
+			<xs:pattern value="\+\d+-\d+"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- Limit HSA name values to 64 characters -->
+	<xs:simpleType name="HsaValueType">
+		<xs:restriction base="xs:string">
+			<xs:maxLength value="64"/>
+		</xs:restriction>
+	</xs:simpleType>
+
+	<!-- YYYYMMDD -->
+	<xs:simpleType name="DateType">
+		<xs:annotation>
+			<xs:documentation/>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+		</xs:restriction>
+	</xs:simpleType>
+	
+	<xs:simpleType name="AuthorRoleValueValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="AP">
+				<xs:annotation>
+					<xs:documentation>Apotekare</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AT">
+				<xs:annotation>
+					<xs:documentation>Arbetsterapeut</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="AU">
+				<xs:annotation>
+					<xs:documentation>Audionom</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BM">
+				<xs:annotation>
+					<xs:documentation>Barnmorska</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="BA">
+				<xs:annotation>
+					<xs:documentation>Biomedicinsk analytiker</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="DT">
+				<xs:annotation>
+					<xs:documentation>Dietist</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="KP">
+				<xs:annotation>
+					<xs:documentation>Kiropraktor</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LG">
+				<xs:annotation>
+					<xs:documentation>Logoped</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="LK">
+				<xs:annotation>
+					<xs:documentation>Läkare</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="NA">
+				<xs:annotation>
+					<xs:documentation>Naprapat</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OP">
+				<xs:annotation>
+					<xs:documentation>Optiker</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="OT">
+				<xs:annotation>
+					<xs:documentation>Ortopedingenjör</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PS">
+				<xs:annotation>
+					<xs:documentation>Psykolog</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="PT">
+				<xs:annotation>
+					<xs:documentation>Psykoterapeut</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RC">
+				<xs:annotation>
+					<xs:documentation>Receptarie</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="RS">
+				<xs:annotation>
+					<xs:documentation>Röntgensjuksköterska</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SG">
+				<xs:annotation>
+					<xs:documentation>Sjukgymnast</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SF">
+				<xs:annotation>
+					<xs:documentation>Sjukhusfysiker</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="SJ">
+				<xs:annotation>
+					<xs:documentation>Sjuksköterska</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TH">
+				<xs:annotation>
+					<xs:documentation>Tandhygienist</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="TL">
+				<xs:annotation>
+					<xs:documentation>Tandläkare</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="AuthorRoleCodeValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.2.752.129.2.2.1.4">
+				<xs:annotation>
+					<xs:documentation>OID for KV Befattning</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CareDocumentNoteCodeValueValues">
+		<!--
+        Kod för typ av anteckning.
+        Tillåtna värden från kodverk Anteckningstyp:
+        utr = Utredning,
+        atb = åtgärd/Behandling,
+        sam = Sammanfattning,
+        sao = Samordning,
+        ins = Inskrivning,
+        slu = Slutanteckning,
+        auf = Anteckning utan fysiskt möte,
+        sva = Slutenvårdsanteckning,
+        bes =
+        -->
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="utr">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="atb">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sam">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sao">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="ins">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="slu">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="auf">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="sva">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="bes">
+				<xs:annotation>
+					<xs:documentation/>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="CareDocumentNoteCodeCodeValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.2.752.129.2.2.2.11">
+				<xs:annotation>
+					<xs:documentation>OID for KV type of document note</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="EncounterIdCodeValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.2.752.129.2.1.2.1">
+				<xs:annotation>
+					<xs:documentation>OID for HSA ID</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="HsaIdCodeValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.2.752.129.2.1.4.1">
+				<xs:annotation>
+					<xs:documentation>OID for HSA ID</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	<xs:simpleType name="PersonIdCodeValues">
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="1.2.752.129.2.1.3.1">
+				<xs:annotation>
+					<xs:documentation>OID for Swedish social security numbers</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+			<xs:enumeration value="1.2.752.97.3.1.3">
+				<xs:annotation>
+					<xs:documentation>OID for Stockholm county reserved social security
+						numbers</xs:documentation>
+				</xs:annotation>
+			</xs:enumeration>
+		</xs:restriction>
+	</xs:simpleType>
+	
+
+</xs:schema>

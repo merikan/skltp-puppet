@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+ Licensed to the Apache Software Foundation (ASF) under one
+ or more contributor license agreements. See the NOTICE file
+ distributed with this work for additional information
+ regarding copyright ownership. Sveriges Kommuner och Landsting licenses this file
+ to you under the Apache License, Version 2.0 (the
+ "License"); you may not use this file except in compliance
+ with the License. You may obtain a copy of the License at
+
+ http://www.apache.org/licenses/LICENSE-2.0
+
+ Unless required by applicable law or agreed to in writing,
+ software distributed under the License is distributed on an
+ "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+ KIND, either express or implied. See the License for the
+ specific language governing permissions and limitations
+ under the License.
+ -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:tns="urn:riv:clinicalprocess:logistics:logistics:2"
+    xmlns:codes="urn:riv:clinicalprocess:logistics:logistics:enums:2"
+    targetNamespace="urn:riv:clinicalprocess:logistics:logistics:2" elementFormDefault="qualified"
+    attributeFormDefault="unqualified" version="2.0">
+
+    <xs:import schemaLocation="./clinicalprocess_logistics_logistics_enum_2.0.xsd"
+        namespace="urn:riv:clinicalprocess:logistics:logistics:enums:2"/>
+
+    <xs:complexType name="CareContactType">
+        <xs:sequence>
+            <xs:element name="careContactHeader" type="tns:PatientSummaryHeaderType"/>
+            <xs:element name="careContactBody" type="tns:CareContactBodyType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="CareContactBodyType">
+        <xs:annotation>
+            <xs:documentation>
+                careContactCode:
+                    Typ av vård- och omsorgsdokumentation. Nullvärde tillåtetet.
+                careContactReason:
+                    Text som beskriver orsaken till vård- och omsorgskontakt som 
+                    vård- och omsorgstagaren själv eller dess företrädare anger.
+                careContactOrgUnit:
+                    Den enhet som kontakt utfördes vid
+	            careContactTimePeriod:
+	                    För besök sätts sluttidpunken till samma tid som anges som starttidpunkt.
+						För planerade kontakter sätts ingen sluttidpunkt.
+						Pågående vårdtillfälle ska anges på samma sätt som en planerad vårdkontakt, 
+						dvs med angivet startdatum, men utan slutdatum.				
+                careContactStatus:
+                    Status på vårdkontakten enligt kodverk ur NPÖ RIV-spec 2.2.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="careContactCode" type="codes:CareContactCodeEnum" minOccurs="0"/>
+            <xs:element name="careContactReason" type="xs:string" minOccurs="0"/>
+            <xs:element name="careContactOrgUnit" type="tns:OrgUnitType"/>
+            <xs:element name="careContactTimePeriod" type="tns:TimePeriodType"/>
+            <xs:element name="careContactStatus" type="codes:CareContactStatusEnum" minOccurs="0"
+                maxOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CareContactOrgUnitType">
+        <xs:annotation>
+            <xs:documentation>
+                careContactOrgUnitId:
+                    HSA-id på den person inom enheten som hade
+                    kontakt med patienten
+                careContactOrgUnitName:
+                    Namne på enhet 
+                careContactOrgUnitTelecom:
+                    Telefon till organisationsenheten
+                careContactOrgUnitEmail:
+                    Epost till organisationsenheten
+                careContactOrgUnitAddress:
+                    Adress till enhet
+	            careContactOrgUnitLocation:
+	                Text som anger namnet på plats eller ort för organisationsenhetens eller funktionens fysiska placering
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="careContactOrgUnitId" type="tns:HSAIdType"/>
+            <xs:element name="careContactOrgUnitName" type="xs:string"/>
+            <xs:element name="careContactOrgUnitTelecom" type="xs:string" minOccurs="0"/>
+            <xs:element name="careContactOrgUnitEmail" type="xs:string" minOccurs="0"/>
+            <xs:element name="careContactOrgUnitAddress" type="xs:string" minOccurs="0"/>
+            <xs:element name="careContactOrgUnitLocation" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="PatientSummaryHeaderType">
+        <xs:annotation>
+            <xs:documentation>
+                careContactId: 
+                    Vårdkontaktens identitet som är unik inom källsystemet
+                sourceSystemHSAId:
+                    HSAId för det system som dokumentet är skapat i.
+                documentTime: 
+                    Tid då vård- eller omsorgskontakten registrerades
+                patientId: 
+                    Patientens ID (enligt PatientIdType). 
+					type sätts till OID för typ av identifierare. 
+					För personnummer ska Skatteverkets personnummer (1.2.752.129.2.1.3.1).
+					För samordningsnummer ska Skatteverkets samordningsnummer (1.2.752.129.2.1.3.3).
+					För reservnummer används lokalt definierade reservnummet, exempelvis SLL reservnummer (1.2.752.97.3.1.3)
+
+                accountableHealthcareProfessional
+                    Hälso- och sjukvårdsperson som ansvarar för vårdkontakten.
+				accountableHealthcareProfessionalOrgUnit
+					Organisationsenhet för vård- och omsorgspersonens uppdrag i samband med vårdkontakten.
+                approvedForPatient:
+                    Anger om information får delas till patient. Värdet sätts i 
+                    sådant fall till true, i annat fall till false.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="documentId" type="xs:string"/>
+            <xs:element name="sourceSystemHSAId" type="tns:HSAIdType"/>
+            <xs:element name="patientId" type="tns:PersonIdType"/>
+            <xs:element name="accountableHealthcareProfessional"
+                type="tns:HealthcareProfessionalType" minOccurs="0"/>
+            <xs:element name="approvedForPatient" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="nullified" type="xs:boolean"/>
+            <xs:element minOccurs="0" name="nullifiedReason" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="HealthcareProfessionalType">
+        <xs:annotation>
+            <xs:documentation>
+				Information om hälso- och omsorgspesonal
+			
+				healthcareProfessionalHSAId: 
+					HSA-id för vård- och omsorgspersonal 
+				healthcareProfessionalName
+					Namn på vård- och omsorgspersonal
+				healthcareProfessionalRoleCode: 
+					Information om personens befattning om annat kodverk än KV Befattning används. 
+				healthcareProfessionalOrgUnit: 
+					HSA-id för PDL-enhet som vård- och omsorgspersonen är uppdragstagare för
+				healthcareProfessionalCareUnitHSAId: 
+					HSA-id för vårdgivaren, som är vårdgivare för den enhet som författaren är uppdragstagare för
+			</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="authorTime" type="tns:TimeStampType"/>
+            <xs:element name="healthcareProfessionalHSAId" type="tns:HSAIdType" minOccurs="1"/>
+            <xs:element name="healthcareProfessionalName" type="xs:string" minOccurs="1"/>
+            <xs:element name="healthcareProfessionalRoleCode" type="tns:CVType" minOccurs="0"/>
+            <xs:element name="healthcareProfessionalOrgUnit" type="tns:OrgUnitType" minOccurs="1"/>
+           <xs:element name="healthcareProfessionalCareUnitHSAId" type="tns:HSAIdType"
+                minOccurs="0"/>
+            <xs:element name="healthcareProfessionalCareGiverHSAId"
+                type="tns:HSAIdType" minOccurs="0" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="OrgUnitType">
+        <xs:annotation>
+            <xs:documentation>
+				Information om en organisationsenhet
+
+				careContactOrgUnitHsaId: 
+					HSA-id för organisationsenhet
+				careContactOrgUnitName
+					Namn på organisationsenhet
+				careContactOrgUnitTelecom: 
+					Telefon till organisationsenhet
+				careContactOrgUnitEmail: 
+					Epost till enhet
+				careContactOrgUnitAddress: 
+					Postadress till enhet
+				careContactOrgUnitLocation: 
+					Text som anger namnet på plats eller ort för enhetens eller funktionens fysiska placering
+			</xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="orgUnitHSAId" type="tns:HSAIdType" minOccurs="1"/>
+            <xs:element name="orgUnitName" type="xs:string" minOccurs="1"/>
+            <xs:element name="orgUnitTelecom" type="xs:string" minOccurs="0"/>
+            <xs:element name="orgUnitEmail" type="xs:string" minOccurs="0"/>
+            <xs:element name="orgUnitAddress" type="xs:string" minOccurs="0"/>
+            <xs:element name="orgUnitLocation" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- 
+        Below: only helper types allowed.
+        
+        A helper type is a type used in one ore more of the domain schema common types.
+        It can also be a type used in two or more service schemas.
+    -->
+
+    <xs:complexType name="DatePeriodType">
+        <xs:annotation>
+            <xs:documentation>
+                Används för att specificera ett datumintervall
+                med hjälp av start- och slutdatum.
+                
+                start: 
+                    Startdatum på formatet ÅÅÅÅMMDD
+                end: 
+                    Slutdatum på formatet ÅÅÅÅMMDD
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start" type="tns:DateType"/>
+            <xs:element name="end" type="tns:DateType"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <!-- YYYYMMDD -->
+    <xs:simpleType name="DateType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <!-- @TODO Should we have maxlength 64? -->
+    <xs:simpleType name="HSAIdType">
+        <xs:restriction base="xs:string"/>
+    </xs:simpleType>
+
+    <xs:complexType name="PersonIdType">
+        <xs:sequence>
+            <xs:element name="id" type="xs:string"/>
+            <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="TimePeriodType">
+        <xs:annotation>
+            <xs:documentation>
+                Används för att specificera ett datumintervall
+                med hjälp av start- och slutdatum.
+                
+                start: 
+                Startdatum på formatet YYYYMMDDhhmmss
+                end: 
+                Slutdatum på formatet YYYYMMDDhhmmss
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="start" type="tns:TimeStampType"/>
+            <xs:element name="end" type="tns:TimeStampType" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="TimeStampType">
+        <xs:annotation>
+            <xs:documentation>
+                A quantity specifying a point on the axis of natural time.
+                A point in time is most often represented as a calendar
+                expression.
+                
+                The time has the format YYYYMMDDhhmmss
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                value="(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])(0[0-9]|1[0-9]|2[0123])([0-5])([0-9])([0-5])([0-9])"
+            />
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="CVType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="code" type="xs:string" minOccurs="0"/>
+            <xs:element name="codeSystem" type="xs:string" minOccurs="0"/>
+            <xs:element name="codeSystemName" type="xs:string" minOccurs="0"/>
+            <xs:element name="codeSystemVersion" type="xs:string" minOccurs="0"/>
+            <xs:element name="displayName" type="xs:string" minOccurs="0"/>
+            <xs:element name="originalText" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="LegalAuthenticatorType">
+        <xs:annotation>
+            <xs:documentation/>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="signatureTime" type="tns:TimeStampType"/>
+            <xs:element name="legalAuthenticatorHSAId" type="tns:HSAIdType" minOccurs="0"/>
+            <xs:element name="legalAuthenticatorName" type="xs:string" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

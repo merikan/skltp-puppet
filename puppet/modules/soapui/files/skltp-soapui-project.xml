@@ -574,7 +574,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Kärna"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -588,7 +588,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="All - PingForConfigurationResponderBinding" type="wsdl" bindingName="{urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21}PingForConfigurationResponderBinding" soapVersion="1_1" anonymous="optional" definition="https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl"><con:part><con:url>https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PingForConfigurationInteraction" targetNamespace="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:rgy="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsi="urn:riv:itintegration:monitoring:PingForConfigurationInitiator:1" xmlns:tjsr="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1" xmlns:tns="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="All - PingForConfigurationResponderBinding" type="wsdl" bindingName="{urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21}PingForConfigurationResponderBinding" soapVersion="1_1" anonymous="optional" definition="https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl"><con:part><con:url>https://33.33.33.33:23001/vp/PingForConfiguration/1/rivtabp21?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="PingForConfigurationInteraction" targetNamespace="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:rgy="urn:riv:itintegration:registry:1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tjsi="urn:riv:itintegration:monitoring:PingForConfigurationInitiator:1" xmlns:tjsr="urn:riv:itintegration:monitoring:PingForConfigurationResponder:1" xmlns:tns="urn:riv:itintegration:monitoring:PingForConfiguration:1:rivtabp21" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xs="http://www.w3.org/2001/XMLSchema">
   <wsdl:documentation>Tjänsteinteraktionens namn: PingForConfigurationInteraction
 			 Beskrivning: 
 			   A service interaction for monitoring and querying the configuration of service endpoints. 
@@ -1350,7 +1350,7 @@
          </urn1:engagementTransaction>
       </urn1:ProcessNotification>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Notify demo-ei-notify-publisher"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/ProcessNotification/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Notify demo-ei-notify-publisher"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/ProcessNotification/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1" xmlns:urn2="urn:riv:itintegration:engagementindex:1">
    <soapenv:Header>
       <urn:LogicalAddress>demo-ei-notify-publisher</urn:LogicalAddress>
    </soapenv:Header>
@@ -1373,7 +1373,7 @@
          </urn1:engagementTransaction>
       </urn1:ProcessNotification>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="EI - FindContent" type="wsdl" bindingName="{http://findcontent.intsvc.ei.skltp.se/}FindContentWSBeanServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl"><con:part><con:url>http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FindContentWSBeanService" targetNamespace="http://findcontent.intsvc.ei.skltp.se/" xmlns:ns1="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21" xmlns:ns4="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://findcontent.intsvc.ei.skltp.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:itintegration:engagementindex:ProcessNotificationResponder:1:ProcessNotification"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="EI - FindContent" type="wsdl" bindingName="{http://findcontent.intsvc.ei.skltp.se/}FindContentWSBeanServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl"><con:part><con:url>http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="FindContentWSBeanService" targetNamespace="http://findcontent.intsvc.ei.skltp.se/" xmlns:ns1="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21" xmlns:ns4="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://findcontent.intsvc.ei.skltp.se/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <wsdl:import location="http://33.33.33.33:8082/skltp-ei/find-content-service/v1?wsdl=FindContentResponderInterface.wsdl" namespace="urn:riv:itintegration:engagementindex:FindContent:1:rivtabp21"></wsdl:import>
   <wsdl:binding name="FindContentWSBeanServiceSoapBinding" type="ns1:FindContentResponderInterface">
     <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
@@ -2133,7 +2133,209 @@
          <!--You may enter ANY elements at this point-->
       </urn:ping>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:test:PingResponder:1:ping"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite skltp-box"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EHR CheckConsent" searchProperties="true" id="5afb0ccd-e4f5-49aa-9d03-88ca49c7e951" disabled="true"><con:settings/><con:testStep type="request" name="CheckConsent - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EHR - CheckConsent</con:interface><con:operation>CheckConsent</con:operation><con:request name="CheckConsent - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:test:PingResponder:1:ping"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="GetCareContactsResponderServiceSoapBinding" type="wsdl" bindingName="{urn:riv:clinicalprocess.logistics.logistics:GetCareContactsResponder:2:rivtabp21}GetCareContactsResponderServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://${#Project#SKLTP_HOST}:8082/GetAggregatedCareContacts/service/teststub/v2?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8082/GetAggregatedCareContacts/service/teststub/v2?wsdl"><con:part><con:url>http://33.33.33.33:8082/GetAggregatedCareContacts/service/teststub/v2?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetCareContactsResponderService" targetNamespace="urn:riv:clinicalprocess.logistics.logistics:GetCareContactsResponder:2:rivtabp21" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="urn:riv:clinicalprocess.logistics.logistics:GetCareContactsResponder:2:rivtabp21" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:ns4="http://schemas.xmlsoap.org/soap/http" xmlns:ns1="urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:2:rivtabp21">
+  <wsdl:import location="http://33.33.33.33:8082/GetAggregatedCareContacts/service/teststub/v2?wsdl=GetCareContactsResponderInterface.wsdl" namespace="urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:2:rivtabp21"></wsdl:import>
+  <wsdl:binding name="GetCareContactsResponderServiceSoapBinding" type="ns1:GetCareContactsResponderInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="GetCareContacts">
+      <soap:operation soapAction="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts" style="document"/>
+      <wsdl:input name="GetCareContacts">
+        <soap:header message="ns1:GetCareContacts" part="LogicalAddress" use="literal"></soap:header>
+        <soap:body parts="parameters" use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="GetCareContactsResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="GetCareContactsResponderService">
+    <wsdl:port binding="tns:GetCareContactsResponderServiceSoapBinding" name="GetCareContactsResponderPort">
+      <soap:address location="http://33.33.33.33:8082/GetAggregatedCareContacts/service/teststub/v2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>http://33.33.33.33:8082/GetAggregatedCareContacts/service/teststub/v2?wsdl=GetCareContactsResponderInterface.wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="GetCareContactsResponderInterface" targetNamespace="urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:2:rivtabp21" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:ns3="urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2" xmlns:ns2="urn:riv:itintegration:registry:1" xmlns:ns1="urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:2:rivtabp21">
+  <wsdl:types>
+    <xs:schema targetNamespace="urn:riv:itintegration:registry:1" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="LogicalAddress" nillable="true" type="xs:string"/>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2" xmlns:ns1="urn:riv:clinicalprocess:logistics:logistics:2">
+      <xs:import namespace="urn:riv:clinicalprocess:logistics:logistics:2"/>
+      <xs:element name="GetCareContacts" nillable="true" type="tns:GetCareContactsType"/>
+      <xs:element name="GetCareContactsResponse" nillable="true" type="tns:GetCareContactsResponseType"/>
+      <xs:complexType name="GetCareContactsType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="careUnitHSAId" nillable="true" type="xs:string"/>
+          <xs:element name="patientId" type="ns1:PersonIdType"/>
+          <xs:element minOccurs="0" name="timePeriod" type="ns1:DatePeriodType"/>
+          <xs:element minOccurs="0" name="sourceSystemHSAId" type="xs:string"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="careContactId" nillable="true" type="xs:string"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="GetCareContactsResponseType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="careContact" nillable="true" type="ns1:CareContactType"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+    <xs:schema elementFormDefault="qualified" targetNamespace="urn:riv:clinicalprocess:logistics:logistics:2" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="urn:riv:clinicalprocess:logistics:logistics:2">
+      <xs:complexType name="PersonIdType">
+        <xs:sequence>
+          <xs:element name="id" type="xs:string"/>
+          <xs:element name="type" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="DatePeriodType">
+        <xs:sequence>
+          <xs:element name="start" type="xs:string"/>
+          <xs:element name="end" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CareContactType">
+        <xs:sequence>
+          <xs:element name="careContactHeader" type="tns:PatientSummaryHeaderType"/>
+          <xs:element name="careContactBody" type="tns:CareContactBodyType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="PatientSummaryHeaderType">
+        <xs:sequence>
+          <xs:element name="documentId" type="xs:string"/>
+          <xs:element name="sourceSystemHSAId" type="xs:string"/>
+          <xs:element name="patientId" type="tns:PersonIdType"/>
+          <xs:element minOccurs="0" name="accountableHealthcareProfessional" type="tns:HealthcareProfessionalType"/>
+          <xs:element name="approvedForPatient" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="nullified" type="xs:boolean"/>
+          <xs:element minOccurs="0" name="nullifiedReason" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="HealthcareProfessionalType">
+        <xs:sequence>
+          <xs:element name="authorTime" type="xs:string"/>
+          <xs:element name="healthcareProfessionalHSAId" type="xs:string"/>
+          <xs:element name="healthcareProfessionalName" type="xs:string"/>
+          <xs:element minOccurs="0" name="healthcareProfessionalRoleCode" type="tns:CVType"/>
+          <xs:element name="healthcareProfessionalOrgUnit" type="tns:OrgUnitType"/>
+          <xs:element minOccurs="0" name="healthcareProfessionalCareUnitHSAId" type="xs:string"/>
+          <xs:element minOccurs="0" name="healthcareProfessionalCareGiverHSAId" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CVType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="code" type="xs:string"/>
+          <xs:element minOccurs="0" name="codeSystem" type="xs:string"/>
+          <xs:element minOccurs="0" name="codeSystemName" type="xs:string"/>
+          <xs:element minOccurs="0" name="codeSystemVersion" type="xs:string"/>
+          <xs:element minOccurs="0" name="displayName" type="xs:string"/>
+          <xs:element minOccurs="0" name="originalText" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="OrgUnitType">
+        <xs:sequence>
+          <xs:element name="orgUnitHSAId" type="xs:string"/>
+          <xs:element name="orgUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="orgUnitTelecom" type="xs:string"/>
+          <xs:element minOccurs="0" name="orgUnitEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="orgUnitAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="orgUnitLocation" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CareContactBodyType">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="careContactCode" type="xs:int"/>
+          <xs:element minOccurs="0" name="careContactReason" type="xs:string"/>
+          <xs:element name="careContactOrgUnit" type="tns:OrgUnitType"/>
+          <xs:element name="careContactTimePeriod" type="tns:TimePeriodType"/>
+          <xs:element minOccurs="0" name="careContactStatus" type="xs:int"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="TimePeriodType">
+        <xs:sequence>
+          <xs:element name="start" type="xs:string"/>
+          <xs:element minOccurs="0" name="end" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="LegalAuthenticatorType">
+        <xs:sequence>
+          <xs:element name="signatureTime" type="xs:string"/>
+          <xs:element minOccurs="0" name="legalAuthenticatorHSAId" type="xs:string"/>
+          <xs:element minOccurs="0" name="legalAuthenticatorName" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="CareContactOrgUnitType">
+        <xs:sequence>
+          <xs:element name="careContactOrgUnitId" type="xs:string"/>
+          <xs:element name="careContactOrgUnitName" type="xs:string"/>
+          <xs:element minOccurs="0" name="careContactOrgUnitTelecom" type="xs:string"/>
+          <xs:element minOccurs="0" name="careContactOrgUnitEmail" type="xs:string"/>
+          <xs:element minOccurs="0" name="careContactOrgUnitAddress" type="xs:string"/>
+          <xs:element minOccurs="0" name="careContactOrgUnitLocation" type="xs:string"/>
+        </xs:sequence>
+      </xs:complexType>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="GetCareContactsResponse">
+    <wsdl:part element="ns3:GetCareContactsResponse" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="GetCareContacts">
+    <wsdl:part element="ns2:LogicalAddress" name="LogicalAddress"></wsdl:part>
+    <wsdl:part element="ns3:GetCareContacts" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="GetCareContactsResponderInterface">
+    <wsdl:operation name="GetCareContacts">
+      <wsdl:input message="ns1:GetCareContacts" name="GetCareContacts"></wsdl:input>
+      <wsdl:output message="ns1:GetCareContactsResponse" name="GetCareContactsResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://${#Project#SKLTP_HOST}:10001/GetAggregatedCareContacts/service/teststub/v2</con:endpoint></con:endpoints><con:operation isOneWay="false" action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts" name="GetCareContacts" bindingOperationName="GetCareContacts" type="Request-Response" outputName="GetCareContactsResponse" inputName="GetCareContacts" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Agda, VC Kusten, Källsystem 1  - 1 svar"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#SKLTP_HOST}:10001/GetAggregatedCareContacts/service/teststub/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2" xmlns:urn2="urn:riv:clinicalprocess:logistics:logistics:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>HSAID-SOURCE_SYSTEM-1</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetCareContacts>
+         <!--Zero or more repetitions:-->
+         <urn1:careUnitHSAId>HSAID-VC-KUSTEN</urn1:careUnitHSAId>
+         <urn1:patientId>
+            <urn2:id>188803099368</urn2:id>
+            <urn2:type>?</urn2:type>
+         </urn1:patientId>
+         <!--Optional:-->
+         <urn1:timePeriod>
+            <urn2:start>?</urn2:start>
+            <urn2:end>?</urn2:end>
+         </urn1:timePeriod>
+         <!--Optional:-->
+         <urn1:sourceSystemHSAId>HSAID-SOURCE_SYSTEM-1</urn1:sourceSystemHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careContactId>?</urn1:careContactId>
+         <!--You may enter ANY elements at this point-->
+      </urn1:GetCareContacts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Sven, VC Stacken, Källsystem 2 - 2 svar"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://${#Project#SKLTP_HOST}:10001/GetAggregatedCareContacts/service/teststub/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2" xmlns:urn2="urn:riv:clinicalprocess:logistics:logistics:2">
+   <soapenv:Header>
+      <urn:LogicalAddress>HSAID-SOURCE_SYSTEM-2</urn:LogicalAddress>
+   </soapenv:Header>
+   <soapenv:Body>
+      <urn1:GetCareContacts>
+         <!--Zero or more repetitions:-->
+         <urn1:careUnitHSAId>HSAID-VC-STACKEN</urn1:careUnitHSAId>
+         <urn1:patientId>
+            <urn2:id>194911172296</urn2:id>
+            <urn2:type>?</urn2:type>
+         </urn1:patientId>
+         <!--Optional:-->
+         <urn1:timePeriod>
+            <urn2:start>?</urn2:start>
+            <urn2:end>?</urn2:end>
+         </urn1:timePeriod>
+         <!--Optional:-->
+         <urn1:sourceSystemHSAId>?</urn1:sourceSystemHSAId>
+         <!--Zero or more repetitions:-->
+         <urn1:careContactId>?</urn1:careContactId>
+         <!--You may enter ANY elements at this point-->
+      </urn1:GetCareContacts>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite skltp-box"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EHR CheckConsent" searchProperties="true" id="5afb0ccd-e4f5-49aa-9d03-88ca49c7e951" disabled="true"><con:settings/><con:testStep type="request" name="CheckConsent - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EHR - CheckConsent</con:interface><con:operation>CheckConsent</con:operation><con:request name="CheckConsent - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
    <soapenv:Header>
       <urn:LogicalAddress>HSA-VKM345</urn:LogicalAddress>
    </soapenv:Header>

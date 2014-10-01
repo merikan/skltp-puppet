@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GetCareContactResponse 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:core="urn:riv:ehr:patientsummary:2"
+    xmlns:codes="urn:riv:ehr:patientsummary:enums:2"
+    xmlns="urn:riv:ehr:patientsummary:GetCareContactResponder:2"
+    xsi:schemaLocation="urn:riv:ehr:patientsummary:GetCareContactResponder:2 file:./GetCareContactResponder_2.0.xsd
+">
+    <core:careContact>
+        <core:careContactHeader>
+            <core:documentId>documentId</core:documentId>
+            <core:documentTime>20130213121419</core:documentTime>
+            <core:patientId>
+                <core:id>1212121212</core:id>
+                <core:type>1.2.752.129.2.1.3.1</core:type>
+            </core:patientId>
+            <core:author>
+                <core:authorTime>20130213121419</core:authorTime>
+                <core:authorHSAid>authorHSAid</core:authorHSAid>
+                <core:authorRoleCode>authorRoleCode</core:authorRoleCode>
+                <core:authorName>authorName</core:authorName>
+                <core:careUnitHSAid>careUnitHSAid</core:careUnitHSAid>
+                <core:careUnitName>careUnitName</core:careUnitName>
+                <core:careUnitAddress>careUnitAddress</core:careUnitAddress>
+                <core:careGiverHSAid>careGiverHSAid</core:careGiverHSAid>
+            </core:author>
+            <core:legalAuthenticator>
+                <core:signatureTime>20130213121419</core:signatureTime>
+                <core:legalAuthenticatorHSAid>legalAuthenticatorHSAid</core:legalAuthenticatorHSAid>
+            </core:legalAuthenticator>
+            <core:approvedForPatient>false</core:approvedForPatient>
+        </core:careContactHeader>
+        <core:careContactBody>
+            <core:careContactCode>1</core:careContactCode>
+            <core:careContactReason>careContactReason6</core:careContactReason>
+            <core:careContactTime>20130213121419</core:careContactTime>
+            <careContactUnit>
+                <core:careContactId>careContactId</core:careContactId>
+                <core:careContactName>careContactNamn</core:careContactName>
+                <ccore:areContactAddress>careContactAddress</core:careContactAddress>
+            </careContactUnit>
+            <core:careContactStatus>1</core:careContactStatus>
+        </core:careContactBody>
+    </core:careContact>
+</GetCareContactResponse>

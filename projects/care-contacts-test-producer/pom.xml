@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+    <parent>
+        <groupId>org.soitoolkit.commons.poms</groupId>
+        <artifactId>soitoolkit-default-parent</artifactId>
+        <version>0.6.1</version>
+    </parent>
+
+    <groupId>se.callista.skltp</groupId>
+    <artifactId>care-contacts-test-producer</artifactId>
+    <version>1.0.0-SNAPSHOT</version>
+    <packaging>jar</packaging>
+    <name>care-contacts-test-producer</name>
+
+    <properties>
+      <skltp.agp.version>1.2.1</skltp.agp.version>
+
+        <!-- Properties for generating code from XML Schemas (JAX-WS) -->
+        <schema.path>${basedir}/src/main/resources/schemas</schema.path>
+        <cxf.version>2.5.1</cxf.version>
+    </properties>
+        
+	<dependencies>	
+
+        <dependency>
+          <groupId>org.soitoolkit.commons.components</groupId>
+            <artifactId>soitoolkit-commons-mule</artifactId>
+            <version>${soitoolkit.version}</version>
+        </dependency>
+
+        <dependency>
+          <groupId>org.soitoolkit.commons.poms.mule-dependencies</groupId>
+          <artifactId>soitoolkit-mule-3.3.1-dependencies</artifactId>
+          <version>${soitoolkit.version}</version>
+          <type>pom</type>
+        </dependency>
+
+        <dependency>
+          <groupId>se.skltp.agp</groupId>
+          <artifactId>agp-core</artifactId>
+          <version>${skltp.agp.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>se.skltp.agp</groupId>
+            <artifactId>agp-test-common</artifactId>
+            <version>${skltp.agp.version}</version>
+        </dependency>
+
+
+  </dependencies> 
+
+    <build>
+
+		<plugins>
+		
+      <plugin>
+        <artifactId>maven-compiler-plugin</artifactId>
+		  <version>2.5.1</version>
+        <configuration>
+          <source>1.7</source>
+          <target>1.7</target>
+        </configuration>
+      </plugin>
+      		
+      <plugin>
+        <groupId>org.apache.cxf</groupId>
+        <artifactId>cxf-codegen-plugin</artifactId>
+        <version>${cxf.version}</version>
+        <executions>
+          <execution>
+            <id>generate-sources</id>
+            <phase>generate-sources</phase>
+            <configuration>
+				<fork>once</fork>
+				<additionalJvmArgs>-Dfile.encoding=UTF-8</additionalJvmArgs>
+              <sourceRoot>${basedir}/target/generated/src/main/java</sourceRoot>
+              <wsdlOptions>
+                <wsdloption>
+                  <wsdl>${schema.path}/Clinicalpocess_logistics_logistics_2.0.0/interactions/GetCareContactsInteraction/GetCareContactsInteraction_2.0_RIVTABP21.wsdl</wsdl>
+                    <extraargs>
+                      <extraarg>-p</extraarg>
+                    <extraarg>
+                      urn:riv:clinicalprocess:logistics:logistics:GetCareContacts:2:rivtabp21=se.riv.clinicalprocess.logistics.getcarecontactsrequest.v2
+                    </extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>
+                      urn:riv:clinicalprocess:logistics:logistics:GetCareContactsResponder:2=se.riv.clinicalprocess.logistics.getcarecontactsresponder.v2
+                    </extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>
+                      urn:riv:clinicalprocess:logistics:logistics:2=se.riv.clinicalprocess.logistics.v2
+                    </extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>
+                      urn:riv:clinicalprocess:logistics:logistics:enums:2=se.riv.clinicalprocess.logistics.enums.v2
+                    </extraarg>
+                    <extraarg>-p</extraarg>
+                    <extraarg>
+                      urn:riv:itintegration:registry:1=se.riv.itintegration.registry.v1
+                    </extraarg>
+                  </extraargs>
+                </wsdloption>
+              </wsdlOptions>
+            </configuration>
+            <goals>
+              <goal>wsdl2java</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      </plugins>
+
+    </build>
+
+</project>

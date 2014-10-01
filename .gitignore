@@ -4,3 +4,7 @@ ml-temp
 ML, TO DO.txt
 projects/demo-ei-notify-publisher/target
 projects/demo-log-publisher/target
+care-contacts-test-producer.iml
+transaction.log
+projects/care-contacts-test-producer/.idea
+projects/care-contacts-test-producer/target

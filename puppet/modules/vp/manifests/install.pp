@@ -72,6 +72,13 @@ class vp::install {
     mode   => 644,
     require => [ Exec["vp-services"]]
   }
+  file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/care-contacts-test-producer-1.0.0-SNAPSHOT.jar":
+    source => "/vagrant/puppet/files/care-contacts-test-producer-1.0.0-SNAPSHOT.jar",
+    owner  => "mule",
+    group  => "mule",
+    mode   => 644,
+    require => [ Exec["vp-services"]]
+  }
   # Copy virtual service for CRM - GetSubjectOfCareSchedule + IT-INTEGRATION EI + REGISTRY to VP's lib folder
   # Depends on that the VP-app is in place and that the virtual-services zip-file is unzipped
   file {"${mule::params::mule_home}/apps/vp-services-${vp::params::version}/lib/crm-scheduling-GetSubjectOfCareSchedule-virtualisering-1.1.jar":
