@@ -107,6 +107,7 @@ MULE_ENDORSED=-M-Djava.endorsed.dirs="${MULE_HOME}/lib/endorsed"
 APPLICATIONS='vp-services-2.2.8:'
 APPLICATIONS=$APPLICATIONS'crash-mule-app:'
 APPLICATIONS=$APPLICATIONS'GetAggregatedSubjectOfCareSchedule-1.2.2:'
+APPLICATIONS=$APPLICATIONS'GetAggregatedCareContacts-1.1.1:'
 APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-frontend-app-1.2.0:'
 APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-backend-app-1.2.0'
 

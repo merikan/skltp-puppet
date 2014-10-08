@@ -27,11 +27,11 @@ class tak::database {
     command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\"  --database=tak -e \"ALTER TABLE Anvandare RENAME TO anvandare;\"",
   } ->
   exec { "run script ${tak::params::init_script}" :
-    command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\"  --database=tak < ${tak::params::module_path}/files/${tak::params::init_script}  && touch /var/local/puppet::${title}::${tak::params::init_script}.semaphore",
+    command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\" --default-character-set=UTF8 --database=tak < ${tak::params::module_path}/files/${tak::params::init_script}  && touch /var/local/puppet::${title}::${tak::params::init_script}.semaphore",
     creates => "/var/local/puppet::${title}::${tak::params::init_script}.semaphore",
   } ->
   exec { "run script ${tak::params::testdata_script}" :
-    command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\"  --database=tak < ${tak::params::module_path}/files/${tak::params::testdata_script}  && touch /var/local/puppet::${title}::${tak::params::testdata_script}.semaphore",
+    command => "/usr/bin/mysql -u root -p\"${mysql::params::root_password}\" --default-character-set=UTF8 --database=tak < ${tak::params::module_path}/files/${tak::params::testdata_script}  && touch /var/local/puppet::${title}::${tak::params::testdata_script}.semaphore",
     creates => "/var/local/puppet::${title}::${tak::params::testdata_script}.semaphore",
   } 
 

@@ -6,32 +6,22 @@
 	xmlns:spring="http://www.springframework.org/schema/beans"
     xmlns:lang="http://www.springframework.org/schema/lang"
 	xmlns:cxf="http://www.mulesoft.org/schema/mule/cxf"
-	xmlns:jms="http://www.mulesoft.org/schema/mule/jms"
+	xmlns:http="http://www.mulesoft.org/schema/mule/http"
+    xmlns:scripting="http://www.mulesoft.org/schema/mule/scripting"
 	xsi:schemaLocation="
-		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
-        http://www.springframework.org/schema/lang  http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
-		http://www.mulesoft.org/schema/mule/core    http://www.mulesoft.org/schema/mule/core/current/mule.xsd
-		http://www.mulesoft.org/schema/mule/cxf     http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
-		http://www.mulesoft.org/schema/mule/jms     http://www.mulesoft.org/schema/mule/jms/current/mule-jms.xsd
+		http://www.springframework.org/schema/beans   http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+        http://www.springframework.org/schema/lang    http://www.springframework.org/schema/lang/spring-lang-3.1.xsd
+		http://www.mulesoft.org/schema/mule/core      http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+		http://www.mulesoft.org/schema/mule/cxf       http://www.mulesoft.org/schema/mule/cxf/current/mule-cxf.xsd
+		http://www.mulesoft.org/schema/mule/http      http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd
+        http://www.mulesoft.org/schema/mule/scripting http://www.mulesoft.org/schema/mule/scripting/current/mule-scripting.xsd
 	">
 
 <!--
-# CARE CONTACT TEST PRODUCER PROPERTIES:
+# SAMPLE CARE CONTACT TEST PRODUCER PROPERTIES:
 CARE_CONTACT_PRODUCER_TESTSTUB_GROOVY_SOURCE=classpath:CareContactsGroovyImpl.groovy
+# OR FOR EXERNAL EDITING: CARE_CONTACT_PRODUCER_TESTSTUB_GROOVY_SOURCE=file:/home/skltp/CareContactsGroovyImpl.groovy
 CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL=http://0.0.0.0:8082/GetAggregatedCareContacts/service/teststub/v2
-
--->
-
-<!--
-    <!- - Test-db for teststubs for source systems - ->
-    <spring:bean name="care-contact-producer-testdb-bean" class="se.skltp.aggregatingservices.riv.clinicalprocess.logistics.getcarecontacts.integrationtest.CareContactTestProducerDb">
-        <spring:property name="serviceTimeoutMs" value="${SERVICE_TIMEOUT_MS}" />
-    </spring:bean>
-
-    <!- - Implementation of test-db based teststub for source systems - ->
-    <spring:bean name="care-contact-producer-testdb-teststub-bean" class="se.skltp.aggregatingservices.riv.clinicalprocess.logistics.getcarecontacts.integrationtest.CareContactTestProducer">
-        <spring:property name="testDb" ref="care-contact-producer-testdb-bean" />
-    </spring:bean>
 -->
 
     <!-- Implementation of the groovy bean -->
@@ -48,14 +38,24 @@ CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL=http://0.0.0.0:8082/GetAggregatedCare
         <spring:property name="groovyImpl" ref="care-contact-groovy-impl-bean" />
     </spring:bean>
 
-	<!-- Teststub service for a source system (källsystem) behind a virtual service in TP VP -->
-	<simple-service 
-		name="care-contact-producer-teststub-service"
-        address="${CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL}" 
-        type="jax-ws">
+    <flow name="care-contact-producer-teststub-service">
+        <http:inbound-endpoint address="${CARE_CONTACT_PRODUCER_TESTSTUB_INBOUND_URL}" exchange-pattern="request-response">
+            <cxf:jaxws-service serviceClass="se.riv.clinicalprocess.logistics.getcarecontactsrequest.v2.GetCareContactsResponderInterface"/>
+        </http:inbound-endpoint>
+
+        <!-- Inject sender-id and original-sender-id... -->
+        <scripting:component >
+            <scripting:script engine="Groovy"><![CDATA[
+                se.callista.skltp.CareContactGroovyWrapperTestProducer.setSenderInfo(
+                    message.getInboundProperty("x-rivta-original-serviceconsumer-hsaid"),
+                    message.getInboundProperty("x-vp-sender-id"))
+                payload]]>
+            </scripting:script>
+        </scripting:component>
+
         <component>
-            <spring-object bean="care-contact-producer-groovy-teststub-bean"/>
+            <spring-object bean="care-contact-producer-groovy-teststub-bean" />
         </component>
-    </simple-service>
+    </flow>
 
 </mule>

@@ -20,6 +20,7 @@ class singleserver {
   include ei
   include ei::database
   include agt_tidbok
+  include agt_care_contacts
 }
 
 class skltp-user {
