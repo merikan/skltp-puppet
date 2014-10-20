@@ -4,8 +4,8 @@
 Version=1.0
 Type=Application
 Terminal=false
-Icon[en_US]=/home/skltp/soapui-4.5.2/bin/soapui32.png
+Icon[en_US]=/home/skltp/Pictures/soapui32.png
 Name[en_US]=soapUI
-Exec=/home/skltp/soapui-4.5.2/bin/soapui.sh
+Exec=/home/skltp/SoapUI-5.0.0/bin/soapui.sh
 Name=soapUI
-Icon=/home/skltp/soapui-4.5.2/bin/soapui32.png
+Icon=/home/skltp/Pictures/soapui32.png

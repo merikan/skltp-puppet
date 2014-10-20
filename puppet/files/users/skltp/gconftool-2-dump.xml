@@ -9309,6 +9309,7 @@
         <bool>true</bool>
       </value>
     </entry>
+    <!--
     <entry>
       <key>/desktop/gnome/background/picture_filename</key>
       <schema_key>/schemas/desktop/gnome/background/picture_filename</schema_key>
@@ -9316,6 +9317,7 @@
         <string>/home/skltp/Pictures/eHalsa_green_white_cmyk-81.png</string>
       </value>
     </entry>
+    -->
     <entry>
       <key>/desktop/gnome/background/picture_opacity</key>
       <schema_key>/schemas/desktop/gnome/background/picture_opacity</schema_key>

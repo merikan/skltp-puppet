@@ -6,6 +6,7 @@ include firefox
 include graphical_desktop
 include soapui
 include gedit
+include emacs
 include gnome-system-monitor
 
     class setup {
@@ -32,8 +33,8 @@ include gnome-system-monitor
 
     class soapui {
       exec { "unpack-soapui" : 
-        command => "/bin/tar -zxvf /vagrant/puppet/files/soapui-4.5.2-linux-bin.tar.gz -C /home/skltp",
-        creates => "/home/skltp/soapui-4.5.2",
+        command => "/bin/tar -zxvf /vagrant/puppet/files/SoapUI-5.0.0-linux-bin.tar.gz -C /home/skltp",
+        creates => "/home/skltp/SoapUI-5.0.0",
         user => 'skltp',
         require => Class['graphical_desktop'], 
       }
@@ -50,17 +51,22 @@ include gnome-system-monitor
         source => "/vagrant/puppet/modules/soapui/files/client.jks",
         owner => 'skltp',
         group => 'skltp';
+      'users:skltp:soapui32.png':
+        path => "/home/skltp/Pictures/soapui32.png",
+        source => "/vagrant/puppet/modules/soapui/files/soapui32.png",
+        owner => 'skltp',
+        group => 'skltp';
       'users:skltp:soapui-settings.xml':
-        path => "/home/skltp/soapui-4.5.2/soapui-settings.xml",
+        path => "/home/skltp/soapui-settings.xml",
         ensure  => file,
         source => "/vagrant/puppet/modules/soapui/files/soapui-settings.xml",
         owner => skltp,
         group => skltp,
         require => Class['soapui'];
-      'users:skltp:soapui-skltp-workspace.xml':
-        path => "/home/skltp/soapui-skltp-workspace.xml",
+      'users:skltp:default-soapui-workspace.xml':
+        path => "/home/skltp/default-soapui-workspace.xml",
         ensure  => file,
-        source => "/vagrant/puppet/modules/soapui/files/soapui-skltp-workspace.xml",
+        source => "/vagrant/puppet/modules/soapui/files/default-soapui-workspace.xml",
         owner => skltp,
         group => skltp,
         require => Class['soapui'];
@@ -113,6 +119,9 @@ include gnome-system-monitor
     }
     class gedit {
       package{'gedit': ensure => installed }
+    }
+    class emacs {
+      package{'emacs': ensure => installed }
     }
     class gnome-system-monitor {
       package{'gnome-system-monitor': ensure => installed }
