@@ -36,9 +36,9 @@ INSERT INTO `Tjanstekomponent` (`id`, `adress`, `beskrivning`, `hsaId`, `version
 (11, 'http://localhost:8083/GetAggregatedSubjectOfCareSchedule/service/v1', 'Producent: GetAggregatedSubjectOfCareSchedule', 'AGT-Tidbok', 0),
 (12, '', 'NTjP EI som konsument, borde kunna vara NTjP men är i EI v1.0 hårt koplat till owner identiteten som är Inera''s org nr...', '5565594230', 0),
 (13, 'http://localhost:10000/test/demo_ei_notify_service', 'demo_ei_notify_service', 'demo_ei_notify_service', 0),
-(14, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #1 för GetCareContacts, v2', 'HSAID-SOURCE_SYSTEM-1', 0),
-(15, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #2 för GetCareContacts, v2', 'HSAID-SOURCE_SYSTEM-2', 0),
-(16, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #3 för GetCareContacts, v2', 'HSAID-SOURCE_SYSTEM-3', 0),
+(14, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #1 för GetCareContacts, v2', 'HSAID-PRODUCER-1', 0),
+(15, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #2 för GetCareContacts, v2', 'HSAID-PRODUCER-2', 0),
+(16, 'http://localhost:10001/CareContactTestProcuder/service/GetCareContacts/v2', 'Test producent för källsystem #3 för GetCareContacts, v2', 'HSAID-PRODUCER-3', 0),
 (17, 'http://localhost:8084/GetAggregatedCareContacts/service/v2', 'Producent: GetAggregatedCareContacts', 'AGT-CareContacts', 0);
 
 INSERT INTO `LogiskAdress` (`id`, `fromTidpunkt`, `tomTidpunkt`, `version`, `logiskAdressat_id`, `rivVersion_id`, `tjanstekontrakt_id`, `tjansteproducent_id`) VALUES

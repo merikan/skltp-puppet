@@ -32,9 +32,9 @@ public class CareContactsGroovyImpl implements GetCareContactsResponderInterface
     public static final String PNR_TOLVAN   = "121212121212"; // Tolvan...
 
     private static def authMap = [
-      "HSAID-VC-KUSTEN":  [ "client", "another sender" ], 
-      "HSAID-VC-MOLNET":  [ "client", "yet another sender" ],
-      "HSAID-VC-STACKEN": [ "client", "another sender" , "yet another sender" ]
+      "HSAID-VC-KUSTEN":  [ "client", "client-1" ], 
+      "HSAID-VC-MOLNET":  [ "client", "client-2" ],
+      "HSAID-VC-STACKEN": [ "client", "client-1" , "client-2" ]
     ]
 
     /**
