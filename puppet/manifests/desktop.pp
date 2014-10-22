@@ -100,22 +100,22 @@ include gnome-system-monitor
     }
 
     class graphical_desktop {
-      case $::osfamily {
-        'RedHat': {
-          yumgroup { 'basic-desktop': }
-          yumgroup { 'desktop-platform': }
-          yumgroup { 'x11': }
-          yumgroup { 'fonts': }
-        }
-        default: {
-          fail("unsupported osfamily: $::osfamily")
-        }
-      }
-      replace {"autostart of graphical login":
-        file => "/etc/inittab",
-        pattern => "id:3:initdefault:",
-        replacement => 'id:5:initdefault:',
-      }
+      #case $::osfamily {
+      #  'RedHat': {
+      #    yumgroup { 'basic-desktop': }
+      #    yumgroup { 'desktop-platform': }
+      #    yumgroup { 'x11': }
+      #    yumgroup { 'fonts': }
+      #  }
+      #  default: {
+      #    fail("unsupported osfamily: $::osfamily")
+      #  }
+      #}
+      #replace {"autostart of graphical login":
+      #  file => "/etc/inittab",
+      #  pattern => "id:3:initdefault:",
+      #  replacement => 'id:5:initdefault:',
+      #}
     }
     class gedit {
       package{'gedit': ensure => installed }
