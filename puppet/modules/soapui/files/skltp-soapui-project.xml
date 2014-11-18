@@ -546,7 +546,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, VC: Ytterby"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -560,7 +560,7 @@
          <urn2:subject_of_care>188803099368</urn2:subject_of_care>
       </urn2:GetSubjectOfCareSchedule>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, Aggregerande Tjänst"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:selectedAuthProfile>Basic</con:selectedAuthProfile><con:addedBasicAuthenticationTypes>Basic</con:addedBasicAuthenticationTypes><con:authType>Global HTTP Settings</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1:GetSubjectOfCareSchedule"/><con:wsrmConfig version="1.2"/></con:call><con:call name="Patient: Agda, Aggregerande Tjänst"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/GetSubjectOfCareSchedule/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:interoperability:headers:1" xmlns:urn1="urn:riv:itintegration:registry:1" xmlns:urn2="urn:riv:crm:scheduling:GetSubjectOfCareScheduleResponder:1">
    <soapenv:Header>
       <urn:Actor>
          <urn:actorId>?</urn:actorId>
@@ -2445,7 +2445,122 @@
          <!--You may enter ANY elements at this point-->
       </urn1:GetCareContacts>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite skltp-box"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EHR CheckConsent" searchProperties="true" id="5afb0ccd-e4f5-49aa-9d03-88ca49c7e951" disabled="true"><con:settings/><con:testStep type="request" name="CheckConsent - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EHR - CheckConsent</con:interface><con:operation>CheckConsent</con:operation><con:request name="CheckConsent - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:riv:ehr:patientsummary:GetCareContactsResponder:2:GetCareContacts"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:interface xsi:type="con:WsdlInterface" wsaVersion="NONE" name="TAK - SokVagvalsInfo" type="wsdl" bindingName="{urn:skl:tp:vagvalsinfo:v2}SokVagvalsServiceSoap11LitDocServiceSoapBinding" soapVersion="1_1" anonymous="optional" definition="http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2?wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2?wsdl"><con:part><con:url>http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2?wsdl</con:url><con:content><![CDATA[<wsdl:definitions name="SokVagvalsServiceSoap11LitDocService" targetNamespace="urn:skl:tp:vagvalsinfo:v2" xmlns:ns1="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="urn:skl:tp:vagvalsinfo:v2" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <wsdl:types>
+    <xs:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="urn:skl:tp:vagvalsinfo:v2" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+      <xs:element name="virtualiseringsInfo" type="tns:virtualiseringsInfoType"/>
+      <xs:complexType name="hamtaAllaAnropsBehorigheterResponseType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" name="anropsBehorighetsInfo" type="tns:anropsBehorighetsInfoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="anropsBehorighetsInfoType">
+        <xs:sequence>
+          <xs:element name="anropsBehorighetsInfoId" type="tns:anropsBehorighetsInfoIdType"/>
+          <xs:element name="receiverId" type="xs:string"/>
+          <xs:element name="senderId" type="xs:string"/>
+          <xs:element name="tjansteKontrakt" type="xs:NCName"/>
+          <xs:element name="fromTidpunkt" type="xs:dateTime"/>
+          <xs:element name="tomTidpunkt" type="xs:dateTime"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="filterInfo" nillable="true" type="tns:filterInfoType"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="anropsBehorighetsInfoIdType">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:complexType name="filterInfoType">
+        <xs:sequence>
+          <xs:element name="serviceDomain" type="xs:anyURI"/>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="categorization" nillable="true" type="xs:string"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:complexType name="virtualiseringsInfoType">
+        <xs:sequence>
+          <xs:element name="virtualiseringsInfoId" type="tns:virtualiseringsInfoIdType"/>
+          <xs:element name="receiverId" type="xs:string"/>
+          <xs:element name="rivProfil" type="xs:NCName"/>
+          <xs:element name="tjansteKontrakt" type="xs:NCName"/>
+          <xs:element name="fromTidpunkt" type="xs:dateTime"/>
+          <xs:element name="tomTidpunkt" type="xs:dateTime"/>
+          <xs:element name="adress" type="xs:string"/>
+          <xs:any maxOccurs="unbounded" minOccurs="0" namespace="##other" processContents="lax"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:simpleType name="virtualiseringsInfoIdType">
+        <xs:restriction base="xs:string"/>
+      </xs:simpleType>
+      <xs:complexType name="hamtaAllaVirtualiseringarResponseType">
+        <xs:sequence>
+          <xs:element maxOccurs="unbounded" minOccurs="0" name="virtualiseringsInfo" nillable="true" type="tns:virtualiseringsInfoType"/>
+        </xs:sequence>
+      </xs:complexType>
+      <xs:element name="hamtaAllaAnropsBehorigheter" nillable="true" type="xs:anyType"/>
+      <xs:element name="hamtaAllaAnropsBehorigheterResponse" nillable="true" type="tns:hamtaAllaAnropsBehorigheterResponseType"/>
+      <xs:element name="hamtaAllaVirtualiseringar" nillable="true" type="xs:anyType"/>
+      <xs:element name="hamtaAllaVirtualiseringarResponse" nillable="true" type="tns:hamtaAllaVirtualiseringarResponseType"/>
+    </xs:schema>
+  </wsdl:types>
+  <wsdl:message name="hamtaAllaVirtualiseringarResponse">
+    <wsdl:part element="tns:hamtaAllaVirtualiseringarResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hamtaAllaAnropsBehorigheterResponse">
+    <wsdl:part element="tns:hamtaAllaAnropsBehorigheterResponse" name="response"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hamtaAllaVirtualiseringar">
+    <wsdl:part element="tns:hamtaAllaVirtualiseringar" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="hamtaAllaAnropsBehorigheter">
+    <wsdl:part element="tns:hamtaAllaAnropsBehorigheter" name="parameters"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="SokVagvalsInfoInterface">
+    <wsdl:operation name="hamtaAllaAnropsBehorigheter">
+      <wsdl:input message="tns:hamtaAllaAnropsBehorigheter" name="hamtaAllaAnropsBehorigheter"></wsdl:input>
+      <wsdl:output message="tns:hamtaAllaAnropsBehorigheterResponse" name="hamtaAllaAnropsBehorigheterResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hamtaAllaVirtualiseringar">
+      <wsdl:input message="tns:hamtaAllaVirtualiseringar" name="hamtaAllaVirtualiseringar"></wsdl:input>
+      <wsdl:output message="tns:hamtaAllaVirtualiseringarResponse" name="hamtaAllaVirtualiseringarResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SokVagvalsServiceSoap11LitDocServiceSoapBinding" type="tns:SokVagvalsInfoInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="hamtaAllaAnropsBehorigheter">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hamtaAllaAnropsBehorigheter">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="hamtaAllaAnropsBehorigheterResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="hamtaAllaVirtualiseringar">
+      <soap:operation soapAction="" style="document"/>
+      <wsdl:input name="hamtaAllaVirtualiseringar">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="hamtaAllaVirtualiseringarResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SokVagvalsServiceSoap11LitDocService">
+    <wsdl:port binding="tns:SokVagvalsServiceSoap11LitDocServiceSoapBinding" name="SokVagvalsSoap11LitDocPort">
+      <soap:address location="http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2</con:endpoint></con:endpoints><con:operation isOneWay="false" action="" name="hamtaAllaAnropsBehorigheter" bindingOperationName="hamtaAllaAnropsBehorigheter" type="Request-Response" outputName="hamtaAllaAnropsBehorigheterResponse" inputName="hamtaAllaAnropsBehorigheter" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:skl:tp:vagvalsinfo:v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:hamtaAllaAnropsBehorigheter xsi:nil="true"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:skl:tp:vagvalsinfo:v2/SokVagvalsInfoInterface/hamtaAllaAnropsBehorigheter"/><con:wsrmConfig version="1.2"/></con:call></con:operation><con:operation isOneWay="false" action="" name="hamtaAllaVirtualiseringar" bindingOperationName="hamtaAllaVirtualiseringar" type="Request-Response" outputName="hamtaAllaVirtualiseringarResponse" inputName="hamtaAllaVirtualiseringar" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call name="Request"><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>http://33.33.33.33:8080/tp-vagval-admin-services/SokVagvalsInfo/v2</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:skl:tp:vagvalsinfo:v2" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:hamtaAllaVirtualiseringar xsi:nil="true"/>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="urn:skl:tp:vagvalsinfo:v2/SokVagvalsInfoInterface/hamtaAllaVirtualiseringar"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:testSuite name="TestSuite skltp-box"><con:settings/><con:runType>SEQUENTIAL</con:runType><con:testCase failOnError="true" failTestCaseOnErrors="true" keepSession="false" maxResults="0" name="TestCase - EHR CheckConsent" searchProperties="true" id="5afb0ccd-e4f5-49aa-9d03-88ca49c7e951" disabled="true"><con:settings/><con:testStep type="request" name="CheckConsent - Request 1"><con:settings/><con:config xsi:type="con:RequestStep" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:interface>EHR - CheckConsent</con:interface><con:operation>CheckConsent</con:operation><con:request name="CheckConsent - Request 1" outgoingWss="" incomingWss="" timeout="" sslKeystore="" useWsAddressing="false" useWsReliableMessaging="false" wssPasswordType=""><con:settings><con:setting id="com.eviware.soapui.impl.wsdl.WsdlRequest@request-headers">&lt;xml-fragment/></con:setting></con:settings><con:encoding>UTF-8</con:encoding><con:endpoint>https://${#Project#SKLTP_HOST}:20000/vp/CheckConsent/1/rivtabp21</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:riv:itintegration:registry:1" xmlns:urn1="urn:riv:ehr:patientconsent:accesscontrol:CheckConsentResponder:1" xmlns:urn2="urn:riv:ehr:patientconsent:1">
    <soapenv:Header>
       <urn:LogicalAddress>HSA-VKM345</urn:LogicalAddress>
    </soapenv:Header>
