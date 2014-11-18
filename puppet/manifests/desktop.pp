@@ -72,7 +72,7 @@ include gnome-system-monitor
         require => Class['soapui'];
     } ->
     exec { "gconftool-2":
-      command => "/usr/bin/sudo -u skltp /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && touch /var/local/puppet::${title}::gconftool-2.semaphore",
+      command => "/usr/bin/sudo -u skltp /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && /usr/bin/sudo touch /var/local/puppet::${title}::gconftool-2.semaphore",
       creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
     }
 
