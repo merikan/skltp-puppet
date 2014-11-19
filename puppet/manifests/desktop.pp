@@ -5,6 +5,7 @@ include setup
 include firefox
 include graphical_desktop
 include soapui
+include gdkpixbuf2
 include gedit
 include emacs
 include gnome-system-monitor
@@ -81,7 +82,7 @@ include gnome-system-monitor
       package {
         'firefox':
         ensure => installed,
-        require => Class['graphical_desktop'] ,
+        require => Class['gdkpixbuf2'] ,
       } ->
       file {
         "/usr/lib/firefox/defaults/preferences/local-settings.js":
@@ -116,6 +117,16 @@ include gnome-system-monitor
       #  pattern => "id:3:initdefault:",
       #  replacement => 'id:5:initdefault:',
       #}
+    }
+
+    class gdkpixbuf2 {
+      case $::osfamily {
+        'RedHat': {
+          package{'gdk-pixbuf2': ensure => installed }        }
+        default: {
+          fail("unsupported osfamily: $::osfamily")
+        }
+      }
     }
     class gedit {
       package{'gedit': ensure => installed }
