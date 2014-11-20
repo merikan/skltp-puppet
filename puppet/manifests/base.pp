@@ -3,6 +3,7 @@ class base {
   include vim
   include lsof
   include tree
+  include telnet
   include keyboard
   #include iptables::disable
 }
@@ -33,6 +34,10 @@ class lsof {
 
 class tree {
   package{'tree': ensure => installed }
+}
+
+class telnet {
+  package{'telnet': ensure => installed }
 }
 
 class keyboard {

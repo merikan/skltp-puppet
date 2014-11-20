@@ -116,6 +116,27 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  config.vm.define :devreactive do |desktop|
+    desktop.vm.box = "merikan/centos6.5-32bit-desktop-puppet"
+    desktop.vm.network :private_network, ip: "33.33.33.33"
+    desktop.vm.hostname = "desktop.local"
+    desktop.vm.boot_timeout = 150
+    desktop.vm.provider :virtualbox do |vb|
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+      vb.gui = true
+      vb.customize ["modifyvm", :id, "--memory", 2048]
+    end
+    desktop.vm.provision  :puppet do  |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+      puppet.manifest_file = "devreactive.pp"
+      # workaround for Could not find class... see https://github.com/mitchellh/vagrant/issues/1967
+      puppet.working_directory = "/tmp/vagrant-puppet-2/manifests"
+      puppet.options = "--verbose --debug"
+    end
+  end
+
   config.vm.define :shibboleth do |shibboleth|
     shibboleth.vm.box = "centos-6.4-32bit-puppet-vbox"
     #shibboleth.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
