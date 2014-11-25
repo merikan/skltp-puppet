@@ -8,3 +8,4 @@ care-contacts-test-producer.iml
 transaction.log
 projects/care-contacts-test-producer/.idea
 projects/care-contacts-test-producer/target
+puppet/binaries

@@ -16,7 +16,7 @@ class activemq::install {
     group => activemq,
   } ->
   exec { "activemq:unpack-dist": 
-    command => "/bin/tar -xzf /vagrant/puppet/files/${activemq::params::package_name} -C ${activemq::params::install_dir} --strip-components=1",
+    command => "/bin/tar -xzf /vagrant/puppet/binaries/rivta-box/${activemq::params::package_name} -C ${activemq::params::install_dir} --strip-components=1",
     user => activemq,
     creates => "${activemq::params::install_dir}/bin",
   }

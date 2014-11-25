@@ -32,7 +32,7 @@ class devreactive {
 
 class eclipse {
   exec { "eclipse-unpack-dist": 
-    command => "/bin/tar -xzf /vagrant/puppet/files/eclipse-java-luna-SR1-linux-gtk.tar.gz -C /home/user",
+    command => "/bin/tar -xzf /vagrant/puppet/binaries/dev-box/eclipse-java-luna-SR1-linux-gtk.tar.gz -C /home/user",
     user => user,
     creates => "/home/user/eclipse",
   }
@@ -40,7 +40,7 @@ class eclipse {
 
 class smartgit {
   exec { "smartgit-unpack-dist": 
-    command => "/bin/tar -xzf /vagrant/puppet/files/smartgit-generic-6_5_0.tar.gz -C /home/user",
+    command => "/bin/tar -xzf /vagrant/puppet/binaries/dev-box/smartgit-generic-6_5_0.tar.gz -C /home/user",
     user => user,
     creates => "/home/user/smartgit",
   }

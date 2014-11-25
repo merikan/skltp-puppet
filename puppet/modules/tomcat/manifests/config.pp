@@ -35,7 +35,7 @@ class tomcat::config {
   }
   file {"tomcat:${tomcat::params::mysql_connector}":
     path => "${tomcat::params::tomcat_home}/lib/${tomcat::params::mysql_connector}",
-    source => "/vagrant/puppet/files/${tomcat::params::mysql_connector}",
+    source => "/vagrant/puppet/binaries/rivta-box/${tomcat::params::mysql_connector}",
     owner => 'tomcat',
     group => 'tomcat',
     notify  => Service["${tomcat::params::service_name}"],

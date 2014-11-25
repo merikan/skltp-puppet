@@ -16,7 +16,7 @@ class tomcat::install {
     group => tomcat,
   } ->
   exec { "tomcat:unpack-dist" : 
-    command => "/bin/tar -xzf /vagrant/puppet/files/${tomcat::params::package_name} -C ${tomcat::params::install_dir} --strip-components=1",
+    command => "/bin/tar -xzf /vagrant/puppet/binaries/rivta-box/${tomcat::params::package_name} -C ${tomcat::params::install_dir} --strip-components=1",
     user => tomcat,
     creates => "${tomcat::params::install_dir}/bin",
   }

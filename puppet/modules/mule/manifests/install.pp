@@ -16,7 +16,7 @@ class mule::install {
     group => mule,
   } ->
   exec { "mule:unpack-dist": 
-    command => "/bin/tar -xzf /vagrant/puppet/files/${mule::params::package_name} -C ${mule::params::install_dir} --strip-components=1",
+    command => "/bin/tar -xzf /vagrant/puppet/binaries/rivta-box/${mule::params::package_name} -C ${mule::params::install_dir} --strip-components=1",
     user => mule,
     creates => "${mule::params::install_dir}/bin",
   }
