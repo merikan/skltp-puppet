@@ -4,7 +4,7 @@ class java8::params {
 	  default: {fail("Unsupported osfamily ${::osfamily}")}
 	  'redhat': {
 	  	$provider	    = 'rpm'
-	    $package_name   = 'jdk-1.8.0_25-fcs.i586'
+	    $package_name   = 'jdk1.8.0_25-1.8.0_25-fcs.i586'
 	    $dist_name      = "jdk-8u25-linux-i586.rpm"
 	  }
 	  'debian': {

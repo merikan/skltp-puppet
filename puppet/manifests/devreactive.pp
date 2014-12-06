@@ -4,12 +4,12 @@
 #
 # - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
 #
-# - Git Clone
-# - Gradle build
-# - Eclipse import
-# - gconftool-2 ???
-# - Shortcuts: Eclipse, SmartGit, Firefox, Emacs, VIM
-# - Callista logga
+# - Autoatic Eclipse import
+#   - https://github.com/seeq12/eclipse-import-projects-plugin
+#   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
+# - Startsida i firefox
+# - setup av smart git
+
 
 include devreactive
 
@@ -25,7 +25,7 @@ class devreactive {
   include gdkpixbuf2
   include eclipse
   include smartgit
-  include tomcat
+#  include tomcat
 
 #  include setup ### GÅR INTE ATT STARTA OM BOXEN OM JAG LGER PÅ DETTA!!!
 }
@@ -73,12 +73,41 @@ class dev-user {
     mode   => 644,
   } ->
   file {
-    "/home/user/Pictures/eHalsa_green_white_cmyk-81.png":
-    source => "/vagrant/puppet/files/users/skltp/inera-logo.png",
+    "/home/user/Pictures/Callista_vit.png":
+    source => "/vagrant/puppet/files/users/dev-user/Pictures/Callista_vit.png",
     owner => 'user',
     group => 'user',
     mode   => 644,    # rw-r--r--    
   } ->
+  file {
+    "/home/user/Desktop/Eclipse.desktop":
+    source => "/vagrant/puppet/files/users/dev-user/Desktop/Eclipse.desktop",
+    owner => 'user',
+    group => 'user',
+    mode   => 744,    # rw-r--r--    
+  } ->
+  file {
+    "/home/user/Desktop/emacs.desktop":
+    source => "/vagrant/puppet/files/users/dev-user/Desktop/emacs.desktop",
+    owner => 'user',
+    group => 'user',
+    mode   => 744,    # rw-r--r--    
+  } ->
+  file {
+    "/home/user/Desktop/fedora-gvim.desktop":
+    source => "/vagrant/puppet/files/users/dev-user/Desktop/fedora-gvim.desktop",
+    owner => 'user',
+    group => 'user',
+    mode   => 744,    # rw-r--r--    
+  } ->
+  file {
+    "/home/user/Desktop/Smart-Git.desktop":
+    source => "/vagrant/puppet/files/users/dev-user/Desktop/Smart-Git.desktop",
+    owner => 'user',
+    group => 'user',
+    mode   => 744,    # rw-r--r--    
+  } ->
+
   file {
     "/home/user/Desktop/gedit.desktop":
     source => "/vagrant/puppet/files/users/skltp/Desktop/gedit.desktop",
@@ -109,6 +138,28 @@ class dev-user {
   } ->
   exec { "user-user:set-priv": 
     command => "/bin/chmod g+rx,o+rx /home/user"
+    } ->
+  exec { "gconftool-2":
+    command => "/usr/bin/sudo -u user /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/dev-user/gconftool-2-dump.xml && /usr/bin/sudo touch /var/local/puppet::${title}::gconftool-2.semaphore",
+    creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
+  } ->
+  exec { "git-clone":
+    command => "sudo -u user git clone https://github.com/callistaenterprise/cadec-2015-reactive-tutorial.git",
+    cwd => "/home/user",
+    creates => "/home/user/cadec-2015-reactive-tutorial",
+    path => "/usr/bin"
+  } ->
+  exec { "gradle build eclipse service-provider":
+    command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/service-provider/gradlew build eclipse",
+    cwd => "/home/user/cadec-2015-reactive-tutorial/service-provider",
+    creates => "/home/user/cadec-2015-reactive-tutorial/service-provider/build",
+    path => "/usr/bin"
+  } ->
+  exec { "gradle build eclipse exercises":
+    command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/exercises/gradlew build eclipse",
+    cwd => "/home/user/cadec-2015-reactive-tutorial/exercises",
+    creates => "/home/user/cadec-2015-reactive-tutorial/exercises/build",
+    path => "/usr/bin"
   }
 }
 
@@ -135,10 +186,6 @@ class setup {
     }
 }
 
-# exec { "gconftool-2":
-#  command => "/usr/bin/sudo -u user /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/skltp/gconftool-2-dump.xml && /usr/bin/sudo touch /var/local/puppet::${title}::gconftool-2.semaphore",
-#  creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
-# }
 
 
 class gdkpixbuf2 {
