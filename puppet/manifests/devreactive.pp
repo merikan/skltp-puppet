@@ -4,7 +4,8 @@
 #
 # - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
 #
-# - Autoatic Eclipse import
+# - Auto login + longer lock time of gui
+# - Automatic Eclipse import
 #   - https://github.com/seeq12/eclipse-import-projects-plugin
 #   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
 # - Startsida i firefox
@@ -16,8 +17,8 @@ include devreactive
 class devreactive {
   include base
   include java8
-  include dev-user
   include git
+  include dev-user
   include firefox
   include gedit
   include emacs
@@ -147,7 +148,8 @@ class dev-user {
     command => "sudo -u user git clone https://github.com/callistaenterprise/cadec-2015-reactive-tutorial.git",
     cwd => "/home/user",
     creates => "/home/user/cadec-2015-reactive-tutorial",
-    path => "/usr/bin"
+    path => "/usr/bin",
+    require => Class['git']
   } ->
   exec { "gradle build eclipse service-provider":
     command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/service-provider/gradlew build eclipse",
