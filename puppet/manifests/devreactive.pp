@@ -27,8 +27,8 @@ class devreactive {
   include gdkpixbuf2
   include eclipse
   include smartgit
-  include tomcat
-  include tomcat-config
+#  include tomcat
+#  include tomcat-config
 
 #  include setup ### GÅR INTE ATT STARTA OM BOXEN OM JAG LGER PÅ DETTA!!!
 }
@@ -92,6 +92,18 @@ class dev-user {
     owner  => "user",
     group  => "user",
     mode   => 644,
+  } ->
+  file {"user:index.html":
+    path => "/home/user/index.html",
+    source => "/vagrant/puppet/files/users/dev-user/index.html",
+    owner => 'user',
+    group => 'user',
+  } ->    
+  file {"user:rtlt.jar":
+    path => "/home/user/rtlt.jar",
+    source => "/vagrant/puppet/files/realtime-load-tester-1.0.0-SNAPSHOT.war",
+    owner => 'user',
+    group => 'user',
   } ->
   file {
     "/home/user/Pictures/Callista_vit.png":
