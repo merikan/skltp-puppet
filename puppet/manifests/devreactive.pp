@@ -4,13 +4,27 @@
 #
 # - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
 #
-# - Auto login + longer lock time of gui
+# - Säkerställ att Firefox startar med startsidan
+#
+# - Auto login + longer lock time of gui (rdan fixat av länken ovan?)
+#
 # - Automatic Eclipse import
 #   - https://github.com/seeq12/eclipse-import-projects-plugin
 #   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
-# - Startsida i firefox
 # - setup av smart git
-
+#   - I understand + 30 days evluation
+#   - Use SmartGit as SSH client
+#   - Blank user info
+#   - No Git provider
+#   - Accept existing git repo
+#   - Accept error reporting defaults
+#   - Checka ut de tre andra brancherna så att de hämtas hem som lokala brancher
+#   - Checka ut master branchen igen
+# - setup en terminator session med fyra fönster
+#   - service provider
+#   - exercise x
+#   - rtlt
+#   - curl
 
 include devreactive
 
@@ -100,7 +114,7 @@ class dev-user {
     group => 'user',
   } ->    
   file {"user:rtlt.jar":
-    path => "/home/user/rtlt.jar",
+    path => "/home/user/rtlt.war",
     source => "/vagrant/puppet/files/realtime-load-tester-1.0.0-SNAPSHOT.war",
     owner => 'user',
     group => 'user',
