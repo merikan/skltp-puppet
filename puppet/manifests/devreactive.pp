@@ -20,15 +20,35 @@ class devreactive {
   include git
   include dev-user
   include firefox
+  include terminator
   include gedit
   include emacs
   include gnome-system-monitor
   include gdkpixbuf2
   include eclipse
   include smartgit
-#  include tomcat
+  include tomcat
+  include tomcat-config
 
 #  include setup ### GÅR INTE ATT STARTA OM BOXEN OM JAG LGER PÅ DETTA!!!
+}
+
+class tomcat-config {
+  file {"tomcat:server.xml":
+    path => "${tomcat::params::tomcat_home}/conf/server.xml",
+    source => "/vagrant/puppet/files/users/dev-user/config/tomcat/server.xml",
+    owner => 'tomcat',
+    group => 'tomcat',
+    require => Class['tomcat'] ,
+  } ->
+    
+  file {"tomcat:rtlt.war":
+    path => "${tomcat::params::tomcat_home}/webapps/rtlt.war",
+    source => "/vagrant/puppet/files/realtime-load-tester-1.0.0-SNAPSHOT.war",
+    owner => 'tomcat',
+    group => 'tomcat',
+    require => Class['tomcat'] ,
+  }
 }
 
 class eclipse {
@@ -95,6 +115,13 @@ class dev-user {
     mode   => 744,    # rw-r--r--    
   } ->
   file {
+    "/home/user/Desktop/terminator.desktop":
+    source => "/vagrant/puppet/files/users/dev-user/Desktop/terminator.desktop",
+    owner => 'user',
+    group => 'user',
+    mode   => 744,    # rw-r--r--    
+  } ->
+  file {
     "/home/user/Desktop/fedora-gvim.desktop":
     source => "/vagrant/puppet/files/users/dev-user/Desktop/fedora-gvim.desktop",
     owner => 'user',
@@ -141,7 +168,7 @@ class dev-user {
     command => "/bin/chmod g+rx,o+rx /home/user"
     } ->
   exec { "gconftool-2":
-    command => "/usr/bin/sudo -u user /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/dev-user/gconftool-2-dump.xml && /usr/bin/sudo touch /var/local/puppet::${title}::gconftool-2.semaphore",
+    command => "/usr/bin/sudo -u user /usr/bin/gconftool-2 --load /vagrant/puppet/files/users/dev-user/config/gconftool-2/gconftool-2-dump.xml && /usr/bin/sudo touch /var/local/puppet::${title}::gconftool-2.semaphore",
     creates => "/var/local/puppet::${title}::gconftool-2.semaphore"
   } ->
   exec { "git-clone":
@@ -158,7 +185,7 @@ class dev-user {
     path => "/usr/bin"
   } ->
   exec { "gradle build eclipse exercises":
-    command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/exercises/gradlew build eclipse",
+    command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/exercises/gradlew build eclipse -x test",
     cwd => "/home/user/cadec-2015-reactive-tutorial/exercises",
     creates => "/home/user/cadec-2015-reactive-tutorial/exercises/build",
     path => "/usr/bin"
@@ -216,7 +243,7 @@ class firefox {
   } ->
   file {
     "/usr/lib/firefox/mozilla.cfg":
-    source => "/vagrant/puppet/files/firefox/mozilla.cfg",
+    source => "/vagrant/puppet/files/users/dev-user/config/firefox/mozilla.cfg",
     owner => 'root',
     group => 'root',
     mode   => 644,
@@ -231,6 +258,9 @@ class gedit {
 }
 class emacs {
   package{'emacs': ensure => installed }
+}
+class terminator {
+  package{'terminator': ensure => installed }
 }
 class gnome-system-monitor {
   package{'gnome-system-monitor': ensure => installed }
