@@ -33,6 +33,7 @@ class devreactive {
   include java8
   include git
   include dev-user
+  include dev-system
   include firefox
   include terminator
   include gedit
@@ -78,6 +79,15 @@ class smartgit {
     command => "/bin/tar -xzf /vagrant/puppet/binaries/dev-box/smartgit-generic-6_5_0.tar.gz -C /home/user",
     user => user,
     creates => "/home/user/smartgit",
+  }
+}
+
+class dev-system {
+  file { "limits.conf":
+    path => "/etc/security/limits.conf",
+    source => "/vagrant/puppet/files/users/dev-user/config/system/etc/security/limits.conf",
+    owner   => 'root',
+    group  => 'root'
   }
 }
 
