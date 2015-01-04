@@ -101,11 +101,13 @@ Vagrant.configure("2") do |config|
     desktop.vm.hostname = "desktop.local"
     desktop.vm.boot_timeout = 150
     desktop.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.memory = 2048
+      vb.cpus = 2
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      vb.customize ["modifyvm", :id, "--vram", "24"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-      vb.gui = true
-      vb.customize ["modifyvm", :id, "--memory", 2048]
-      vb.customize ["setextradata", :id, "VBoxInternal2/SharedFoldersEnableSymlinksCreate/vagrant", "1"]
     end
     desktop.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
@@ -119,14 +121,17 @@ Vagrant.configure("2") do |config|
 
   config.vm.define :devreactive do |desktop|
     desktop.vm.box = "merikan/centos6.5-32bit-desktop-puppet"
-    desktop.vm.network :private_network, ip: "33.33.33.33"
+    desktop.vm.network :private_network, ip: "33.33.33.35"
     desktop.vm.hostname = "desktop.local"
     desktop.vm.boot_timeout = 150
     desktop.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.memory = 2048
+      vb.cpus = 2
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      vb.customize ["modifyvm", :id, "--vram", "24"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-      vb.gui = true
-      vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     desktop.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"
@@ -147,10 +152,13 @@ Vagrant.configure("2") do |config|
     shibboleth.vm.hostname = "desktop.local"
     shibboleth.vm.boot_timeout = 150
     shibboleth.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.memory = 2048
+      vb.cpus = 2
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      vb.customize ["modifyvm", :id, "--vram", "24"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
-      vb.gui = true
-      vb.customize ["modifyvm", :id, "--memory", 2048]
     end
     shibboleth.vm.provision  :puppet do  |puppet|
       puppet.manifests_path = "puppet/manifests"

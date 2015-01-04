@@ -1,17 +1,11 @@
-## skall vi verkligen ha denna? Borde paketera en ny base box som är en desktop box istället.
-
-# TODO: 
+# TODO manual steps before releasing a box: 
 #
 # - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
 #
 # - Säkerställ att Firefox startar med startsidan
 #
-# - Auto login + longer lock time of gui (rdan fixat av länken ovan?)
+# - Manuell setup av smart git, tag snapshot i VirtualBox först!
 #
-# - Automatic Eclipse import
-#   - https://github.com/seeq12/eclipse-import-projects-plugin
-#   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
-# - setup av smart git
 #   - I understand + 30 days evluation
 #   - Use SmartGit as SSH client
 #   - Blank user info
@@ -20,16 +14,72 @@
 #   - Accept error reporting defaults
 #   - Checka ut de tre andra brancherna så att de hämtas hem som lokala brancher
 #   - Checka ut master branchen igen
+#
+# - Manuell Eclipse import + mark use this workspace as the default
+#
+# TODO to improve the automation:
+#
+# - Autoinstall virtualbox guest additions: 
+#   - https://github.com/dotless-de/vagrant-vbguest
+#
+# - Automatic Eclipse import
+#   - https://github.com/seeq12/eclipse-import-projects-plugin
+#   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
+#
+# - Auto login + longer lock time of gui (redan fixat av länken ovan?)
+#
 # - setup en terminator session med fyra fönster
 #   - service provider
 #   - exercise x
 #   - rtlt
 #   - curl
+#
+# clear ctrl+l alternativ som funkar när java program ör igång?
+#
+# alt till terminator som är lite smartare, kan hålla en konfig t ex?
+#
+
+# iptables
+# --------
+#
+# varför funkar inte http://33.33.33.35:9100 från host?
+#
+# stäng: 
+#   $ sudo service iptables stop
+#
+# öppna för port:
+#   $ sudo iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 9100 -j ACCEPT
+#
+# spara config:
+#   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
+#
+# hur tillåta websockets kommunikation på annat sätt än att stänga av iptables???
+#
+
+
+
+#
+# dual core
+# git pull * 4
+# sudo yum install sysstat
+# sar -n DEV 3
+#
+# sudo yum install tcpdump
+#
+# installera acrobat reader:
+#
+# sudo yum localinstall AdbeRdr9.5.5-1_i486linux_enu.rpm
+# 
+# sudo yum install nspluginwrapper.i686 libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686
+#
+
 
 include devreactive
 
 class devreactive {
   include base
+  include timezon-setup
+  include acrobat-reader
   include java8
   include git
   include dev-user
@@ -39,9 +89,12 @@ class devreactive {
   include gedit
   include emacs
   include gnome-system-monitor
+  include sysstat
+  include tcpdump
   include gdkpixbuf2
   include eclipse
   include smartgit
+  
 #  include tomcat
 #  include tomcat-config
 
@@ -214,17 +267,39 @@ class dev-user {
     path => "/usr/bin",
     require => Class['git']
   } ->
+  exec { "git-co-1":
+    command => "sudo -u user git checkout solution1",
+    cwd => "/home/user/cadec-2015-reactive-tutorial",
+    path => "/usr/bin"
+  } ->
+  exec { "git-co-2":
+    command => "sudo -u user git checkout solution2-callback",
+    cwd => "/home/user/cadec-2015-reactive-tutorial",
+    path => "/usr/bin"
+  } ->
+  exec { "git-co-3":
+    command => "sudo -u user git checkout solution2-rx",
+    cwd => "/home/user/cadec-2015-reactive-tutorial",
+    path => "/usr/bin"
+  } ->
+  exec { "git-co-4":
+    command => "sudo -u user git checkout master",
+    cwd => "/home/user/cadec-2015-reactive-tutorial",
+    path => "/usr/bin"
+  } ->
   exec { "gradle build eclipse service-provider":
     command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/service-provider/gradlew build eclipse",
     cwd => "/home/user/cadec-2015-reactive-tutorial/service-provider",
     creates => "/home/user/cadec-2015-reactive-tutorial/service-provider/build",
-    path => "/usr/bin"
+    path => "/usr/bin",
+    timeout => 0
   } ->
   exec { "gradle build eclipse exercises":
     command => "sudo -u user /home/user/cadec-2015-reactive-tutorial/exercises/gradlew build eclipse -x test",
     cwd => "/home/user/cadec-2015-reactive-tutorial/exercises",
     creates => "/home/user/cadec-2015-reactive-tutorial/exercises/build",
-    path => "/usr/bin"
+    path => "/usr/bin",
+    timeout => 0
   }
 }
 
@@ -301,6 +376,36 @@ class terminator {
 class gnome-system-monitor {
   package{'gnome-system-monitor': ensure => installed }
 }
+class sysstat {
+  package{'sysstat': ensure => installed }
+}
+class tcpdump {
+  package{'tcpdump': ensure => installed }
+}
+class acrobat-reader {
+  exec { "ar-1":
+    command => "sudo yum -y localinstall /vagrant/puppet/binaries/dev-box/AdbeRdr9.5.5-1_i486linux_enu.rpm",
+    creates => "/opt/Adobe/Reader9/",
+    path => "/usr/bin"
+  } ->
+  exec { "ar-2":
+    command => "sudo yum -y install nspluginwrapper.i686 libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686",
+    path => "/usr/bin"
+  }
+}
+class timezon-setup {
+  exec { "tz-1":
+    command => "sudo mv /etc/localtime /etc/localtime.bak",
+    creates => "/etc/localtime.bak",
+    path => "/usr/bin"
+  } ->
+  exec { "tz-2":
+    command => "sudo ln -s /usr/share/zoneinfo/Europe/Stockholm /etc/localtime",
+
+    path => "/usr/bin"
+  }
+}
+
 #define yumgroup($ensure = "present", $optional = false) {
 #
 #   case $ensure {
