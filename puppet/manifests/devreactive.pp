@@ -17,6 +17,8 @@
 #
 # - Manuell Eclipse import + mark use this workspace as the default
 #
+#
+#
 # TODO to improve the automation:
 #
 # - Autoinstall virtualbox guest additions: 
@@ -38,7 +40,7 @@
 #
 # alt till terminator som är lite smartare, kan hålla en konfig t ex?
 #
-
+#
 # iptables
 # --------
 #
@@ -56,23 +58,9 @@
 # hur tillåta websockets kommunikation på annat sätt än att stänga av iptables???
 #
 
-
-
-#
-# dual core
-# git pull * 4
 # sudo yum install sysstat
 # sar -n DEV 3
 #
-# sudo yum install tcpdump
-#
-# installera acrobat reader:
-#
-# sudo yum localinstall AdbeRdr9.5.5-1_i486linux_enu.rpm
-# 
-# sudo yum install nspluginwrapper.i686 libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686
-#
-
 
 include devreactive
 
