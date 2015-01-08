@@ -17,6 +17,8 @@
 #
 # - Manuell Eclipse import + mark use this workspace as the default
 #
+# - Plocka bort Host Only Adapter!
+#
 #
 #
 # TODO to improve the automation:
