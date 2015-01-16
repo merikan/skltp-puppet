@@ -1,10 +1,19 @@
+# IMPROVEMENST
+#
+# LOGBACK: <configuration scan="true" scanPeriod="5 seconds">
+# RTLT: Logga var femte sekund status på kommand line, ev styrt via property
+# RTLT: OBFUSKERA JAVA + JS!
+#
+#
 # TODO manual steps before releasing a box: 
 #
 # - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
 #
 # - Säkerställ att Firefox startar med startsidan
 #
-# - Manuell setup av smart git, tag snapshot i VirtualBox först!
+# - Manuell Eclipse import + mark use this workspace as the default
+#
+# - Manuell setup av SmartGit, tag snapshot i VirtualBox först!
 #
 #   - I understand + 30 days evluation
 #   - Use SmartGit as SSH client
@@ -12,13 +21,13 @@
 #   - No Git provider
 #   - Accept existing git repo
 #   - Accept error reporting defaults
-#   - Checka ut de tre andra brancherna så att de hämtas hem som lokala brancher
-#   - Checka ut master branchen igen
+#   (- Checka ut de tre andra brancherna så att de hämtas hem som lokala brancher)
+#   (- Checka ut master branchen igen)
 #
-# - Manuell Eclipse import + mark use this workspace as the default
+# - Stäng ner box
 #
-# - Plocka bort Host Only Adapter!
-#
+# - Starta clone processen enligt länk ovan...
+#   - Plocka bort Host Only Adapter!
 #
 #
 # TODO to improve the automation:
