@@ -1,3 +1,13 @@
+## TODO:
+## - Lägg till i SoapUI: https://${#Project#SKLTP_HOST}:20000/vp/Update/1/rivtabp21
+## - Undersök varför Update tar 10 sek efter en stunds vila (kolla loggar od), Cpu ok, minne ligger högt, hjälper det med 3GB?
+## - EI-backend skriver till mule-app-GetAggregatedSubjectOfCareSchedule.log...
+## - SoapUI påvisar tio sek hängningar, vekrar vara nätverksrelaterat då det inte kommer något i loggarna förrän efter typ 9-sek...
+## - Anrop till TAK vid uppstart av VP fungerar inte, mul-cintext verkar inte vara intierat när man kör på mule 3.5...
+## - notifiering vekar inte fungera till demo-notifiern.
+
+
+
 ## skall vi verkligen ha denna? Borde paketera en ny base box som är en desktop box istället.
 
 include singleserver
