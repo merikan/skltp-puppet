@@ -44,8 +44,8 @@ include gnome-system-monitor
 
     class soapui {
       exec { "unpack-soapui" : 
-        command => "/bin/tar -zxvf /vagrant/puppet/binaries/rivta-box/SoapUI-5.0.0-linux-bin.tar.gz -C /home/skltp",
-        creates => "/home/skltp/SoapUI-5.0.0",
+        command => "/bin/tar -zxvf /vagrant/puppet/binaries/rivta-box/SoapUI-5.1.2-linux-bin.tar.gz -C /home/skltp",
+        creates => "/home/skltp/SoapUI-5.1.2",
         user => 'skltp',
         require => Class['graphical_desktop'], 
       }

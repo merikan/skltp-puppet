@@ -102,14 +102,14 @@
 
 			window.onload = function() {
 				var host = location.hostname;
-				replaceHref("tak",         ":8080/tp-vagval-admin-web/");
+				replaceHref("tak",         ":8080/tak-web/");
 				replaceHref("schedulr",    ":8080/Schedulr-0.5/");
 				replaceHref("tak-cache",   ":23000/resetcache");
 				replaceHref("hsa-cache",   ":24000/resethsacache");
 				replaceHref("vp-alive",    ":8070/vp/monitor/ping");
 				replaceHref("amq",         ":8161/admin/index.jsp");
 				replaceHref("tomcat",      ":8080/");
-				replaceHref("tak-ws",      ":8080/tp-vagval-admin-services/");
+				replaceHref("tak-ws",      ":8080/tak-services/");
 				replaceHref("schedulr-ws", ":8080/Schedulr-0.5/ws");
 			}		
 		</script>
@@ -128,7 +128,7 @@
         </table>
 		<div id="page-body" role="main">
 			<p>Välkommen till RIVTA-box, en demo/test-miljö av <a href="http://rivta.se/documents/ARK_0019/">T-boken</a> och <a href="http://rivta.se/wiki/">RIV-TA</a>.</p>
-      <p>RIVTA-box är baserad på <a href="https://www.virtualbox.org/">VirtualBox</a> och innehåller <a href="http://skltp.se/wiki/">SKLTP</a> v2.3.5 som tjänsteplattform enligt <a href="http://rivta.se/documents/ARK_0019/">T-boken</a>.</p>
+      <p>RIVTA-box är baserad på <a href="https://www.virtualbox.org/">VirtualBox</a> och innehåller <a href="http://skltp.se/wiki/">SKLTP</a> v2.4.0 som tjänsteplattform enligt <a href="http://rivta.se/documents/ARK_0019/">T-boken</a>.</p>
 			<p>För information om förkonfigurerade tjänstekonsumenter, tjänstekontrakt och tjänsteproducenter samt tillhörande övningar se <a href="http://rivta.se/rivta-box/">RIVTA-box</a>.</p>
 <!--
 			<p>SKLTP-box är publicerad av <a href="http://cehis.se/">CeHis</a>.</p>
@@ -137,7 +137,7 @@
 
 			<div class="dialog" style="margin-left:20px;width:60%;" role="navigation">
 
-        		<a id="tak" href="http://localhost:8080/tp-vagval-admin-web/">
+        		<a id="tak" href="http://localhost:8080/tak-web/">
         			<h2>TAK Admin Webapp (skltp/skltp)</h2>
         		</a>
 
@@ -185,7 +185,7 @@
         			<h2>Tomcat (admin/admin)</h2>
         		</a>
         		
-        		<a id="tak-ws" href="http://localhost:8080/tp-vagval-admin-services/">
+        		<a id="tak-ws" href="http://localhost:8080/tak-services/">
         			<h2>TAK Web Services</h2>
         		</a>
 

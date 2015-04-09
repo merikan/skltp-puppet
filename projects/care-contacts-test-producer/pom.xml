@@ -50,8 +50,13 @@
             <version>${skltp.agp.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>se.skltp.ei</groupId>
+            <artifactId>skltp-ei-composite-schema</artifactId>
+            <version>1.2.0</version>
+        </dependency>
 
-  </dependencies> 
+    </dependencies>
 
     <build>
 

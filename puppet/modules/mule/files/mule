@@ -104,7 +104,7 @@ WRAPPER_CONF="${MULE_BASE}/conf/wrapper.conf"
 MULE_ENDORSED=-M-Djava.endorsed.dirs="${MULE_HOME}/lib/endorsed"
 
 #Applikationer som skall startas upp och i angiven ordning
-APPLICATIONS='vp-services-2.2.8:'
+APPLICATIONS='vp-services-2.2.9:'
 APPLICATIONS=$APPLICATIONS'crash-mule-app:'
 APPLICATIONS=$APPLICATIONS'GetAggregatedSubjectOfCareSchedule-1.2.2:'
 APPLICATIONS=$APPLICATIONS'GetAggregatedCareContacts-1.1.1:'

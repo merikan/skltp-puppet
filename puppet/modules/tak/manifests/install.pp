@@ -4,18 +4,18 @@ class tak::install {
   require unzip
   include tomcat::params
 
-  exec { "deploy:tp-vagval-admin-services" :
+  exec { "deploy:tak-services" :
     command => "/bin/cp \
-                /vagrant/puppet/files/tp-vagval-admin-services-${tak::params::version}.war \
-                ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
+                /vagrant/puppet/files/tak-services-${tak::params::version}.war \
+                ${tomcat::params::tomcat_home}/webapps/tak-services.war",
     user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-services.war",
+    creates => "${tomcat::params::tomcat_home}/webapps/tak-services.war",
   } ->
-  exec { "deploy:tp-vagval-admin-web" :
+  exec { "deploy:tak-web" :
     command => "/bin/cp \
-                /vagrant/puppet/files/tp-vagval-admin-web-${tak::params::version}.war  \
-                ${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
+                /vagrant/puppet/files/tak-web-${tak::params::version}.war  \
+                ${tomcat::params::tomcat_home}/webapps/tak-web.war",
     user => tomcat,
-    creates => "${tomcat::params::tomcat_home}/webapps/tp-vagval-admin-web.war",
+    creates => "${tomcat::params::tomcat_home}/webapps/tak-web.war",
   }
 }

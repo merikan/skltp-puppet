@@ -6,6 +6,6 @@ Type=Application
 Terminal=false
 Icon[en_US]=/home/skltp/Pictures/soapui32.png
 Name[en_US]=soapUI
-Exec=/home/skltp/SoapUI-5.0.0/bin/soapui.sh
+Exec=/home/skltp/SoapUI-5.1.2/bin/soapui.sh
 Name=soapUI
 Icon=/home/skltp/Pictures/soapui32.png
