@@ -1,5 +1,5 @@
 class tak::params {
-  $version = "1.5.0"
+  $version = "1.5.2-RC3"
   $artifact = "tk-parent"
   $distname = "${artifact}-${version}-dist.tar.gz"
   $distribution_path = "/tmp/${artifact}-${version}"
