@@ -5,6 +5,8 @@ SKLTP with Puppet
 This is a Vagrant project for developers when setting up a development environment 
 for SKLTP (https://code.google.com/p/skltp/).
 
+See: https://github.com/callistaenterprise/cm-tools/wiki/SKLTP
+
 Usage:
 
 
