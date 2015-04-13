@@ -3,6 +3,7 @@ include singleserver
 class singleserver {
   include base
   include java
+  include logstash
   include activemq 
   include mule 
   include tomcat
