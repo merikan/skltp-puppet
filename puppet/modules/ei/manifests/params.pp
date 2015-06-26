@@ -1,3 +1,3 @@
 class ei::params {
-  $version = "1.2.1-RC2"
+  $version = "1.2.1"
 }

@@ -108,8 +108,8 @@ APPLICATIONS='vp-services-2.2.11:'
 APPLICATIONS=$APPLICATIONS'crash-mule-app:'
 APPLICATIONS=$APPLICATIONS'GetAggregatedSubjectOfCareSchedule-1.2.2:'
 APPLICATIONS=$APPLICATIONS'GetAggregatedCareContacts-1.1.3:'
-APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-frontend-app-1.2.1-RC2:'
-APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-backend-app-1.2.1-RC2'
+APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-frontend-app-1.2.1:'
+APPLICATIONS=$APPLICATIONS'skltp-ei-application-mule-backend-app-1.2.1'
 
 MULE_OPTS="wrapper.working.dir=\"$STARTUP_DIR\" \
            wrapper.app.parameter.1=-app \
