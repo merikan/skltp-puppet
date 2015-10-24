@@ -136,15 +136,15 @@ Vagrant.configure("2") do |config|
     end
   end
 
-  # Seems to be a problem with the latest version of the box, puppetlabs/centos-7.0-64-puppet v1.0.2.
-  # Error message: Error: Could not parse application options: invalid option: --manifestdir
-  # For details, see https://tickets.puppetlabs.com/browse/PUP-4974
-  # Using v1.0.1 for now
-  #
   config.vm.define :microservices do |desktop|   
     desktop.vm.box = "merikan/centos6.5-32bit-desktop-puppet"
+# 
 #    desktop.vm.box = "puppetlabs/centos-7.0-64-puppet"
 #    desktop.vm.box_version = "=1.0.1"
+#    Seems to be a problem with the latest version of the box, puppetlabs/centos-7.0-64-puppet v1.0.2.
+#    Error message: Error: Could not parse application options: invalid option: --manifestdir
+#    For details, see https://tickets.puppetlabs.com/browse/PUP-4974
+#    Using v1.0.1 for now
 
 #    Other boxes I've tried...
 #    https://vagrantcloud.com/box-cutter/boxes/centos70-docker
