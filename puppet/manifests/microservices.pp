@@ -1,132 +1,25 @@
-# IMPROVEMENST
-#
-# LOGBACK: <configuration scan="true" scanPeriod="5 seconds">
-# RTLT: Logga var femte sekund status på kommand line, ev styrt via property
-# RTLT: OBFUSKERA JAVA + JS!
-#
-#
-# TODO manual steps before releasing a box: 
-#
-# - Se https://github.com/callistaenterprise/cm-tools/wiki/Exportera-en-rivta-box
-#
-# - Säkerställ att Firefox startar med startsidan
-#
-# - Manuell Eclipse import + mark use this workspace as the default
-#
-# - Manuell setup av SmartGit, tag snapshot i VirtualBox först!
-#
-#   - I understand + 30 days evluation
-#   - Use SmartGit as SSH client
-#   - Blank user info
-#   - No Git provider
-#   - Accept existing git repo
-#   - Accept error reporting defaults
-#   (- Checka ut de tre andra brancherna så att de hämtas hem som lokala brancher)
-#   (- Checka ut master branchen igen)
-#
-# - Stäng ner box
-#
-# - Starta clone processen enligt länk ovan...
-#   - Plocka bort Host Only Adapter!
-#
-#
-# TODO to improve the automation:
-#
-# - Autoinstall virtualbox guest additions: 
-#   - https://github.com/dotless-de/vagrant-vbguest
-#
-# - Automatic Eclipse import
-#   - https://github.com/seeq12/eclipse-import-projects-plugin
-#   - http://stackoverflow.com/questions/11302297/automate-import-of-java-android-projects-into-eclipse-workspace-through-comman
-#
-# - Auto login + longer lock time of gui (redan fixat av länken ovan?)
-#
-# - setup en terminator session med fyra fönster
-#   - service provider
-#   - exercise x
-#   - rtlt
-#   - curl
-#
-# clear ctrl+l alternativ som funkar när java program ör igång?
-#
-# alt till terminator som är lite smartare, kan hålla en konfig t ex?
-#
-#
-# iptables
-# --------
-#
-# varför funkar inte http://33.33.33.35:9100 från host?
-#
-# stäng: 
-#   $ sudo service iptables stop
-#
-# öppna för port:
-#   $ sudo iptables -A INPUT -p tcp -m state --state NEW -m tcp --dport 9100 -j ACCEPT
-#
-# spara config:
-#   $ sudo iptables-save | sudo tee /etc/sysconfig/iptables
-#
-# hur tillåta websockets kommunikation på annat sätt än att stänga av iptables???
-#
-
-# sudo yum install sysstat
-# sar -n DEV 3
-#
-
-  include base
-  include timezon-setup
-  include acrobat-reader
-  include java8
-  include git
-  include dev-user
-  include dev-system
-  include firefox
-  include terminator
-  include gedit
-  include emacs
-  include gnome-system-monitor
-  include sysstat
-  include tcpdump
-  include gdkpixbuf2
-  include eclipse
-  include smartgit
+include base
+include timezon-setup
+include acrobat-reader
+include java8
+include git
+include dev-user
+include dev-system
+include firefox
+include terminator
+include gedit
+include emacs
+include gnome-system-monitor
+include sysstat
+include tcpdump
+include gdkpixbuf2
+include eclipse
   
-#  include tomcat
-#  include tomcat-config
-
-#  include setup ### GÅR INTE ATT STARTA OM BOXEN OM JAG LGER PÅ DETTA!!!
-
-class tomcat-config {
-  file {"tomcat:server.xml":
-    path => "${tomcat::params::tomcat_home}/conf/server.xml",
-    source => "/vagrant/puppet/files/users/dev-user/config/tomcat/server.xml",
-    owner => 'tomcat',
-    group => 'tomcat',
-    require => Class['tomcat'] ,
-  } ->
-    
-  file {"tomcat:rtlt.war":
-    path => "${tomcat::params::tomcat_home}/webapps/rtlt.war",
-    source => "/vagrant/puppet/files/realtime-load-tester-1.0.0-SNAPSHOT.war",
-    owner => 'tomcat',
-    group => 'tomcat',
-    require => Class['tomcat'] ,
-  }
-}
-
 class eclipse {
   exec { "eclipse-unpack-dist": 
     command => "/bin/tar -xzf /vagrant/puppet/binaries/dev-box/eclipse-java-luna-SR1-linux-gtk.tar.gz -C /home/user",
     user => user,
     creates => "/home/user/eclipse",
-  }
-}
-
-class smartgit {
-  exec { "smartgit-unpack-dist": 
-    command => "/bin/tar -xzf /vagrant/puppet/binaries/dev-box/smartgit-generic-6_5_0.tar.gz -C /home/user",
-    user => user,
-    creates => "/home/user/smartgit",
   }
 }
 
@@ -378,12 +271,12 @@ class tcpdump {
   package{'tcpdump': ensure => installed }
 }
 class acrobat-reader {
-  exec { "ar-1":
+  exec { "${name}-ar-1":
     command => "sudo yum -y localinstall /vagrant/puppet/binaries/dev-box/AdbeRdr9.5.5-1_i486linux_enu.rpm",
     creates => "/opt/Adobe/Reader9/",
     path => "/usr/bin"
   } ->
-  exec { "ar-2":
+  exec { "${name}-ar-2":
     command => "sudo yum -y install nspluginwrapper.i686 libcanberra-gtk2.i686 gtk2-engines.i686 PackageKit-gtk-module.i686",
     path => "/usr/bin"
   }
@@ -400,20 +293,3 @@ class timezon-setup {
     path => "/usr/bin"
   }
 }
-
-#define yumgroup($ensure = "present", $optional = false) {
-#
-#   case $ensure {
-#      present,installed: {
-#         $pkg_types_arg = $optional ? {
-#            true => "--setopt=group_package_types=optional,default,mandatory",
-#            default => ""
-#         }
-#         exec { "Installing $name yum group":
-#            command => "/usr/bin/yum -y groupinstall $pkg_types_arg $name",
-#            unless => "/usr/bin/yum -y groupinstall $pkg_types_arg $name --downloadonly",
-#            timeout => 600,
-#         }
-#      }
-#   }
-#}

@@ -136,6 +136,44 @@ Vagrant.configure("2") do |config|
     end
   end
 
+  # Seems to be a problem with the latest version of the box, puppetlabs/centos-7.0-64-puppet v1.0.2.
+  # Error message: Error: Could not parse application options: invalid option: --manifestdir
+  # For details, see https://tickets.puppetlabs.com/browse/PUP-4974
+  # Using v1.0.1 for now
+  #
+  config.vm.define :microservices do |desktop|   
+    desktop.vm.box = "merikan/centos6.5-32bit-desktop-puppet"
+#    desktop.vm.box = "puppetlabs/centos-7.0-64-puppet"
+#    desktop.vm.box_version = "=1.0.1"
+
+#    Other boxes I've tried...
+#    https://vagrantcloud.com/box-cutter/boxes/centos70-docker
+#    desktop.vm.box = "box-cutter/centos70-docker" 
+#    desktop.vm.box_version = "=2.0.3"
+#    desktop.vm.box = "boxcutter/centos71-desktop"
+
+    desktop.vm.network :private_network, ip: "33.33.33.36"
+    desktop.vm.hostname = "desktop.local"
+    desktop.vm.boot_timeout = 150
+    desktop.vm.provider :virtualbox do |vb|
+      vb.gui = true
+      vb.memory = 4096
+      vb.cpus = 2
+      vb.customize ["modifyvm", :id, "--ioapic", "on"]
+      vb.customize ["modifyvm", :id, "--vram", "24"]
+      vb.customize ["modifyvm", :id, "--natdnshostresolver1", "on"]
+      vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
+    end
+    desktop.vm.provision  :puppet do  |puppet|
+      puppet.manifests_path = "puppet/manifests"
+      puppet.module_path = "puppet/modules"
+#      puppet.manifest_file = "devreactive.pp"
+      puppet.manifest_file = "microservices.pp"
+      puppet.working_directory = "/vagrant/puppet/manifests"
+      puppet.options = "--verbose --debug"
+    end
+  end
+
   config.vm.define :shibboleth do |shibboleth|
     shibboleth.vm.box = "centos-6.4-32bit-puppet-vbox"
     #shibboleth.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.4-i386-v20130427.box"
